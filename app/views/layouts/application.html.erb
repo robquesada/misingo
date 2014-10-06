@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+<%= stylesheet_link_tag    "application" %>
+<%= javascript_include_tag "vendor/modernizr" %>
+<%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<div class="row">
+  <div class="large-12 columns">
+    <h1>Bienvenido <small>La comunidad virtual para su mascota.</small></h1>
+    <hr/>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-13 columns" role="content">
+
+    <article>
+
+      <h3>Ingresar al sitio</h3><br><br>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa.</p>
+          <p>Boudin aliqua adipisicing rump corned beef. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+        </div>
+        <div class="large-6 columns">
+          <form action="" class="panel">
+            <input type="text" name="username" placeholder="Nombre de usuario">
+            <input type="text" name="password" placeholder="Contrasenna">
+            <input type="submit" class="button" value="Ingresar">
+          </form>
+        </div>
+      </div><br><br><br><br><br><br><br><br>
+
+    </article>
+
+  </div>
+
+</div>
+
+<footer class="row">
+  <div class="large-12 columns">
+    <hr/>
+    <div class="row">
+      <div class="large-6 columns">
+        <p>© Copyright no one at all. Go to town.</p>
+      </div>
+      <div class="large-6 columns">
+        <ul class="inline-list right">
+          <li><a href="#">Link 1</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>
