@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #get 'layouts/application'
-  get 'login/index'
-
+  get 'login', to: 'login#index', as: 'login'
+  get 'home', to: 'main#home', as: 'home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
