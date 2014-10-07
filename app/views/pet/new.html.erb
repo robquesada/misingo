@@ -3,9 +3,9 @@
     <h3>Agregar mascota</h3><br><br>
     <div class="row">
       <div class="large-12 columns">
-        <%= form_for(@pet) do |f| %>
+        <%= form_for :pet do |f| %>
            <%= f.input :name %>
-           <%= f.input :state %>
+           <%= f.input :type %>
            <%= f.input :description, as: :text %>
            <%= f.submit "Agregar mascota", class: "button" %>
         <% end %>
