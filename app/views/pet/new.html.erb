@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="large-13 columns" role="content">
+    <h3>Agregar mascota</h3><br><br>
+    <div class="row">
+      <div class="large-12 columns">
+        <%= form_for(@pet) do |f| %>
+           <%= f.input :name %>
+           <%= f.input :state %>
+           <%= f.input :description, as: :text %>
+           <%= f.submit "Agregar mascota", class: "button" %>
+        <% end %>
+      </div>
+    </div><br><br><br><br><br><br><br><br>
+  </div>
+</div>
