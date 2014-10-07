@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   #get 'layouts/application'
   get 'login', to: 'login#index', as: 'login'
   get 'home', to: 'main#home', as: 'home'
-  get 'pet/new', to: 'pet#new'
+  resources :pets
+  #get 'pet/new', to: 'pets#new'
+  #post 'pet/new', to: 'pets#create', as: 'pet'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
