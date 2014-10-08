@@ -2,12 +2,7 @@
   <div class="row">
   <center>
     <div class="large-6 columns">
-      <%= form_for :pet, url: pets_path(@pet) do |f| %>
-         <%= f.text_field :name, placeholder: "Nombre" %>
-         <%= f.select :kind, options_for_select(%w[Perro Gato]) %>
-         <%= f.text_area :description, placeholder: "Descripcion" %>
-         <%= f.submit "Editar", class: "button" %>
-      <% end %>
+      <%= render 'form' %>
     </div>
   </center>
 </div><br><br><br><br><br><br><br><br>
