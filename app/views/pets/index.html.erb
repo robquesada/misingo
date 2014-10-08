@@ -1,0 +1,5 @@
+<p>Tus mascotas</p>
+<% @pets.each do |pet| %>
+    <p>Su <%= pet.kind %>: <%= pet.name %> <%= link_to 'Editar', edit_pet_path(pet) %></p>
+<% end %>
+<%= link_to 'Registra otra de tus mascotas', new_pet_path %>

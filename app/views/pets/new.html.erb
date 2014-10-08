@@ -1,13 +1,8 @@
-<h3>Agregar mascota</h3><br><br>
+<h3>Registrar mascota</h3><br><br>
   <div class="row">
   <center>
     <div class="large-6 columns">
-      <%= form_for :pet, url: pets_path do |f| %>
-         <%= f.text_field :name, placeholder: "Nombre" %>
-         <%= f.text_field :kind, placeholder: "Tipo de mascota" %>
-         <%= f.text_field :description, placeholder: "Descripcion" %>
-         <%= f.submit "Agregar mascota", class: "button" %>
-      <% end %>
+      <%= render 'form' %>
     </div>
   </center>
 </div><br><br><br><br><br><br><br><br>
