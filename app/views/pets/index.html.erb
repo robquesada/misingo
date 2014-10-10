@@ -1,6 +1,11 @@
 <p>Tus mascotas</p>
-<% @pets.each do |pet| %>
-    <p>Su <%= pet.kind_of_animal %>: <%= pet.name %> <%= link_to 'Editar', edit_pet_path(pet) %>
-    <%= link_to 'Eliminar', pet_path(pet), method: :delete, data: { confirm: 'Esta seguro?' } %></p>
-<% end %>
-<%= link_to 'Registra otra de tus mascotas', new_pet_path %>
+<center>
+    <div "large-6 columns">
+        <% @pets.each do |pet| %>
+            <div><%= image_tag pet.avatar.url(:medium) %></div>
+            <p>Su <%= pet.kind_of_animal %>: <%= pet.name %> <%= link_to 'Editar', edit_pet_path(pet) %>
+            <%= link_to 'Eliminar', pet_path(pet), method: :delete, data: { confirm: 'Esta seguro?' } %></p>
+        <% end %>
+        <%= link_to 'Registra otra de tus mascotas', new_pet_path %>
+    </div>
+</center>

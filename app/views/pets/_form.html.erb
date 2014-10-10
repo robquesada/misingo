@@ -13,5 +13,7 @@
     <%= f.radio_button :sex, 'Macho', checked: true %> Es macho
     <%= f.radio_button :sex, 'Hembra'%> Es hembra
     <%= f.text_area :description, placeholder: "Descripcion" %>
+    <%= f.file_field :avatar, class: "image-selector" %>
+    <img id="image"></img>
     <%= f.submit "Aceptar", class: "button" %>
 <% end %>

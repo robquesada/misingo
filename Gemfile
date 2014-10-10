@@ -33,7 +33,17 @@ gem 'foundation-rails'
 group :development, :test do
     gem 'rspec-rails'
     gem 'rspec-its'
+    gem 'factory_girl_rails'
+    gem 'awesome_print'
+    gem 'better_errors'
+    gem 'binding_of_caller'
 end
+
+# Paperclip
+gem "paperclip", "~> 4.2"
+
+# Database cleaner
+gem 'database_cleaner'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
