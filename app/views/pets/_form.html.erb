@@ -10,6 +10,8 @@
     <%= f.text_field :name, placeholder: "Nombre" %>
     <%= f.select :kind_of_animal, options_for_select(%w[Perro Gato]) %>
     <%= f.select :breed, options_for_select(%w[ --Raza-- Siames Schnauzer]) %>
+    <%= f.radio_button :sex, 'Macho', checked: true %> Es macho
+    <%= f.radio_button :sex, 'Hembra'%> Es hembra
     <%= f.text_area :description, placeholder: "Descripcion" %>
     <%= f.submit "Aceptar", class: "button" %>
 <% end %>
