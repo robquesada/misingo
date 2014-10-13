@@ -2,6 +2,7 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
+    @editing = false
   end
   
   def create
@@ -24,6 +25,7 @@ class PetsController < ApplicationController
 
   def edit
     @pet = Pet.find(params[:id])
+    @editing = true
   end
 
   def update
