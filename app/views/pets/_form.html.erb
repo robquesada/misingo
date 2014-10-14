@@ -7,11 +7,10 @@
         <% end %>
       </div>
     <% end %>
-    <%= image_tag @pet.avatar.url(:thumb) if @editing %>
+    <%= image_tag @pet_image.avatar.url(:thumb) if @editing %>
     <%= f.text_field :name, placeholder: "Nombre" %>
-    <--%= f.select :id_animal_type, options_for_select(%w[Perro Gato]) %>
-    <--%= f.select @pet.animal_type.id_breed, options_for_select(%w[ --Raza-- Siames Schnauzer]) %>
-    <--%= select_tag(:animal.breed, options_for_select([['Lisbon', 1], ['Madrid', 2]])) %>
+    <%= collection_select(:pet, :id_breed, Breed.all, :id, :name) %>
+    <%= collection_select(:pet, :id_animal_type, AnimalType.all, :id, :name) %>
     <%= f.radio_button :sex, 'Macho', checked: true %> Es macho
     <%= f.radio_button :sex, 'Hembra'%> Es hembra
     <%= f.text_area :description, placeholder: "Descripcion" %>

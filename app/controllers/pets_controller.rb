@@ -7,7 +7,6 @@ class PetsController < ApplicationController
   
   def create
     @pet = Pet.new(pet_params)
- 
     if @pet.save
       redirect_to @pet
     else
@@ -17,6 +16,9 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
+    @breed = Breed.where(id: 2)
+    p "SHOW"
+    p @breed.name
   end
 
   def index
@@ -47,7 +49,7 @@ class PetsController < ApplicationController
 
   private
     def pet_params
-      params.require(:pet).permit(:name, :kind_of_animal, :breed, :description, :sex, :avatar)
+      params.require(:pet).permit(:name, :id_animal_type, :id_breed, :description, :sex, :avatar)
     end
 
 end
