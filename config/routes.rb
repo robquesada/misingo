@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   #get 'layouts/application'
   get 'login', to: 'login#index', as: 'login'
   post 'welcome', to: 'main#welcome', as: 'welcome'
