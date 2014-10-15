@@ -1,3 +1,3 @@
 class Breed < ActiveRecord::Base
-    belongs_to :animal
+    belongs_to :pet
 end

@@ -39,8 +39,3 @@ $('.image-selector').change(function(){
         reader.readAsDataURL(this.files[0]);
     }
 });
-
-$('.animal-type-selector').change(function(){
-    //alert("");
-    $('#breed-selector').replaceWith('<%= escape_javascript(collection_select(:pet, :id_animal_type, AnimalType.all, :id, :name})) %>');
-});

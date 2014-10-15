@@ -31,6 +31,9 @@ gem 'spring',        group: :development
 # Foundation
 gem 'foundation-rails'
 
+# Devise
+gem 'devise'
+
 # Rspec
 group :development, :test do
     gem 'rspec-rails'

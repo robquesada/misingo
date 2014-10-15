@@ -12,8 +12,9 @@
       <br><br>
     <% end %>
     <%= f.text_field :name, placeholder: "Nombre" %>
-    <%= collection_select(:pet, :id_animal_type, AnimalType.all, :id, :name, {}, {:class=>'animal-type-selector'}) %>
-    <%= collection_select(:pet, :id_breed, Breed.order(:name), :id, :name, {}, {:id=>'breed-selector'}) %>
+    <%= collection_select(:pet, :id_animal_type, AnimalType.all, :id, :name, {}, {:id=>'animal-type-selector'}) %>
+    <%= collection_select(:pet, :id_breed, Breed.where(id: 1), :id, :name, {}, {:id=>'breed-dog'}) %>
+    <%= collection_select(:pet, :id_breed, Breed.where(id: 2), :id, :name, {}, {:id=>'breed-cat', :style=>'display:none'}) %>
     <%= f.radio_button :sex, 'Macho', checked: true %> Es macho
     <%= f.radio_button :sex, 'Hembra'%> Es hembra
     <div class="panel">

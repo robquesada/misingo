@@ -16,9 +16,8 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
-    @breed = Breed.where(id: 2)
-    p "SHOW"
-    p @breed.name
+    @animal_type = AnimalType.find(@pet.id_animal_type)
+    @breed = Breed.find(@pet.id_breed)
   end
 
   def index
