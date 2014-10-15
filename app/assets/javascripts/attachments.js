@@ -33,9 +33,14 @@ $('.image-selector').change(function(){
         var reader = new FileReader();
         reader.onload = function(e) {
           localStorage.setItem('img', e.target.result);
-          $('#image').attr('src', e.target.result).width(100).height(100);
+          $('#image').attr('src', e.target.result).width(150).height(150);
         };
         $('#image').css('display','block');
         reader.readAsDataURL(this.files[0]);
     }
+});
+
+$('.animal-type-selector').change(function(){
+    //alert("");
+    $('#breed-selector').replaceWith('<%= escape_javascript(collection_select(:pet, :id_animal_type, AnimalType.all, :id, :name})) %>');
 });
