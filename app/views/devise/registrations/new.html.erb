@@ -1,18 +1,23 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
-
-  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class="large-12 columns">
+    <div class="row">
+        <br>
+        <h3>Crear cuenta</h3>
+        <hr>
+          <div class="panel">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= devise_error_messages! %>
+            
+              <%= f.email_field :email, placeholder:"E-mail", autofocus: true %>
+            
+              <% if @validatable %>(<%= @minimum_password_length %> caracteres como mínimo)<% end %><br />
+              <%= f.password_field :password, placeholder: "Nueva contraseña", autocomplete: "off" %>
+            
+              <%= f.password_field :password_confirmation, placeholder: "Ingrese de nuevo la contraseña", autocomplete: "off" %>
+            
+              <div><%= f.submit "Crear cuenta", class:"button" %></div>
+            <% end %>
+            
+            <%= render "devise/shared/links" %>
+          </div>
+    </div>
+</div>
