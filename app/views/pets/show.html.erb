@@ -1,7 +1,13 @@
-<h3>Su mascota</h3></h3><br><br>
-<p>Informacion de su mascota</p>
-  <%= @pet.name %>
-  <%= @pet.kind_of_animal %>
-  <%= @pet.breed %>
-  <%= @pet.description %>
-</p>
+<div class="large-12 columns">
+    <div class="row">
+        <br>
+        <h3>Información de su mascota <%= @pet.name %></h3>
+        <hr>
+          <div class="panel">
+            <%= image_tag @pet.avatar.url(:medium) %><br>
+            <p>Es un <%= @animal_type.name.downcase %> <%= @pet.sex.downcase %> de raza <%= @breed.name.downcase %></p><br>
+          </ul>
+          </div>
+        </p>
+    </div>
+</div>

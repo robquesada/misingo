@@ -7,9 +7,27 @@
         <% end %>
       </div>
     <% end %>
+    <% if @editing %>
+      <%= image_tag @pet.avatar.url(:thumb) %>
+      <br><br>
+    <% end %>
     <%= f.text_field :name, placeholder: "Nombre" %>
-    <%= f.select :kind_of_animal, options_for_select(%w[Perro Gato]) %>
-    <%= f.select :breed, options_for_select(%w[ --Raza-- Siames Schnauzer]) %>
-    <%= f.text_area :description, placeholder: "Descripcion" %>
-    <%= f.submit "Aceptar", class: "button" %>
+    <%= collection_select(:pet, :id_animal_type, AnimalType.all, :id, :name, {}, {:id=>'animal-type-selector'}) %>
+    <%= collection_select(:pet, :id_breed, Breed.where(id: 1), :id, :name, {}, {:id=>'breed-dog'}) %>
+    <%= collection_select(:pet, :id_breed, Breed.where(id: 2), :id, :name, {}, {:id=>'breed-cat', :style=>'display:none'}) %>
+    <%= f.radio_button :sex, 'Macho', checked: true %> Es macho
+    <%= f.radio_button :sex, 'Hembra'%> Es hembra
+    <div class="panel">
+      <% if !@editing %>
+        <h5>Subi una foto de perfil:</h5>
+      <% else %>
+        <h5>Cambiar la foto de perfil:</h5>
+      <% end %>
+      <div style="width:151px; height:151px; border:1px solid">
+        <center><img id="image"></img></center>
+      </div>
+      <%= f.file_field :avatar, class: "image-selector" %>
+    </div>
+    <br>
+    <%= f.submit "Aceptar", class: "secondary small button" %>
 <% end %>

@@ -11,15 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141010160639) do
+ActiveRecord::Schema.define(version: 20141014195326) do
+
+  create_table "animal_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "breeds", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pet_images", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "id_pet"
+  end
 
   create_table "pets", force: true do |t|
     t.string   "name"
-    t.string   "kind_of_animal"
-    t.string   "breed"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sex"
+    t.integer  "id_animal_type"
+    t.integer  "id_breed"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
 end

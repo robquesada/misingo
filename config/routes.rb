@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   #get 'layouts/application'
   get 'login', to: 'login#index', as: 'login'
+  post 'welcome', to: 'main#welcome', as: 'welcome'
   get 'home', to: 'main#home', as: 'home'
   resources :pets
   #get 'pet/new', to: 'pets#new'
