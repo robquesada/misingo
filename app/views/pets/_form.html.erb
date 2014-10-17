@@ -1,6 +1,15 @@
 <%= form_for @pet do |f| %>
+    <% if @pet.errors.any? %>
+      <div id="error_explanation">
+        <p>Lo sentimos, no se pudo guardar la informacion:</p>
+        <% @pet.errors.full_messages.each do |msg| %>
+          <p><%= msg %><p>
+        <% end %>
+      </div>
+    <% end %>
     <%= f.text_field :name, placeholder: "Nombre" %>
-    <%= f.select :kind, options_for_select(%w[Perro Gato]) %>
+    <%= f.select :kind_of_animal, options_for_select(%w[Perro Gato]) %>
+    <%= f.select :breed, options_for_select(%w[ --Raza-- Siames Schnauzer]) %>
     <%= f.text_area :description, placeholder: "Descripcion" %>
     <%= f.submit "Aceptar", class: "button" %>
 <% end %>

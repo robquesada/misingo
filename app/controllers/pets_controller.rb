@@ -7,8 +7,11 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
  
-    @pet.save
-    redirect_to @pet
+    if @pet.save
+      redirect_to @pet
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -42,7 +45,7 @@ class PetsController < ApplicationController
 
   private
     def pet_params
-      params.require(:pet).permit(:name, :kind, :description)
+      params.require(:pet).permit(:name, :kind_of_animal, :breed, :description)
     end
 
 end
