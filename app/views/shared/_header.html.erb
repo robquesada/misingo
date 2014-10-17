@@ -1,19 +1,27 @@
-<div class="row">
-    <div class="large-12 columns">
-      <div class="main-wrapper">
-        <h1>OREJAS</h1>
-        <h3>Comunidad virtual de mascotas</h3>
-        <hr>
-        <div class="row">
-          <div class="large-6 columns large-centered">
-            <ul class="button-group even-4">
-              <li><a href="#" class="button">Home</a></li>
-              <li><a href="#" class="button">About</a></li>
-              <li><a href="#" class="button">Adopt</a></li>
-              <li><a href="#" class="button">Contact</a></li>
-            </ul>
+<style type="text/css">
+h3{color:black;}
+a{color:black;}
+li{color:black;}
+</style>
+<section class="hero-header">
+  <div class="row">
+      <div class="large-12 columns">
+        <div class="main-wrapper">
+        <br>
+          <h3>OREJAS: Comunidad virtual de mascotas</h3>
+          <p><%= current_user.email %> <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %> </p>
+          <hr>
+          <div class="row">
+            <div class="large-6 columns large-centered">
+              <ul class="button-group even-4">
+                <li><a href="#" class="button">Inicio</a></li>
+                <li><a href="#" class="button">Busco dueño</a></li>
+                <li><a href="#" class="button">Busco mascota</a></li>
+                <li><a href="#" class="button">Busco familia</a></li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
+    </div>
   </div>
-</div>
+</style>
