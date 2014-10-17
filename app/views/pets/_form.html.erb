@@ -1,0 +1,6 @@
+<%= form_for @pet do |f| %>
+    <%= f.text_field :name, placeholder: "Nombre" %>
+    <%= f.select :kind, options_for_select(%w[Perro Gato]) %>
+    <%= f.text_area :description, placeholder: "Descripcion" %>
+    <%= f.submit "Aceptar", class: "button" %>
+<% end %>

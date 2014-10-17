@@ -17,7 +17,11 @@
     <hr/>
   </div>
 </div>
-<%= yield %>
+<div class="row">
+  <div class="large-13 columns" role="content">
+    <%= yield %>
+  </div>
+</div>
 <%= render "shared/footer" %>
 <%= javascript_include_tag "application" %>
 </body>
