@@ -7,22 +7,16 @@ class PetsController < ApplicationController
   
   def create
     @pet = Pet.new(pet_params)
-    @pet.id_user = current_user.id
-    if @pet.save
-      redirect_to @pet
-    else
-      render 'new'
-    end
+    @pet.user_id = current_user.id
+    @pet.save ? (redirect_to @pet) : (render 'new')
   end
 
   def show
     @pet = Pet.find(params[:id])
-    @animal_type = AnimalType.find(@pet.id_animal_type)
-    @breed = Breed.find(@pet.id_breed)
   end
 
   def index
-    @pets = Pet.where(id_user: current_user.id)
+    @pets = Pet.where(user_id: current_user.id)
   end
 
   def edit
@@ -32,24 +26,18 @@ class PetsController < ApplicationController
 
   def update
     @pet = Pet.find(params[:id])
- 
-    if @pet.update(pet_params)
-      redirect_to @pet
-    else
-      render 'edit'
-    end
+    @pet.update(pet_params) ? (redirect_to @pet) : (render 'edit')
   end
 
   def destroy
     @pet = Pet.find(params[:id])
     @pet.destroy
- 
     redirect_to pets_path
   end
 
   private
     def pet_params
-      params.require(:pet).permit(:name, :id_animal_type, :id_breed, :description, :sex, :avatar, :id_user)
+      params.require(:pet).permit(:name, :animal_type_id, :breed_id, :description, :sex, :avatar, :id_user)
     end
 
 end

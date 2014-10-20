@@ -1,3 +1,3 @@
 class Breed < ActiveRecord::Base
-    belongs_to :pet
+    has_many :pets
 end

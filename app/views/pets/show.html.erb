@@ -5,7 +5,7 @@
         <hr>
           <div class="panel">
             <%= image_tag @pet.avatar.url(:medium) %><br>
-            <p>Es un <%= @animal_type.name.downcase %> <%= @pet.sex.downcase %> de raza <%= @breed.name.downcase %></p><br>
+            <p>Es un <%= @pet.animal_type.name.downcase %> <%= @pet.sex.downcase %> de raza <%= @pet.breed.name.downcase %></p><br>
           </ul>
           </div>
         </p>
