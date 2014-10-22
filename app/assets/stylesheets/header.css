@@ -1,6 +1,6 @@
 //= depend_on_asset "wall.png"
 
 .hero-in{
-    /*background-image:url("wall.jpg");*/
-    background-image:url('<%= asset_path("wall.png") %>');
+    background-image:url("wall.jpg");
+    /*background-image:url('<%= asset_path("wall.png") %>');*/
 }
