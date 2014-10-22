@@ -1,3 +1,5 @@
+//= depend_on_asset "wall.png"
+
 body{font-family:'Raleway',sans-serif;font-size:18px;}
 hr{text-align:center;margin:0 auto;opacity:0.5;}
 ul{text-transform:uppercase;}
