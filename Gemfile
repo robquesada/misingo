@@ -26,3 +26,5 @@ end
 
 gem "paperclip", "~> 4.2"
 gem 'database_cleaner'
+
+gem 'rails_12factor', group: :production
