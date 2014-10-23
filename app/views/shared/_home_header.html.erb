@@ -1,4 +1,5 @@
-<div class="row">
+<section class="hero">
+  <div class="row">
     <div class="large-12 columns">
       <div class="main-wrapper">
         <h1>OREJAS</h1>
@@ -7,13 +8,25 @@
         <div class="row">
           <div class="large-6 columns large-centered">
             <ul class="button-group even-4">
-              <li><a href="#" class="button">Nosotros</a></li>
-              <li><a href="#" class="button">Adopciones</a></li>
-              <li><a href="#" class="button">Extravíos</a></li>
-              <li><a href="#" class="button">Contacto</a></li>
+              <li><a href="#" class="home button">Nosotros</a></li>
+              <li><a href="#" class="home button">Adopciones</a></li>
+              <li><a href="#" class="home button">Extravíos</a></li>
+              <li><a href="#" class="home button">Contacto</a></li>
             </ul>
           </div>
         </div>
       </div>
+    </div>
   </div>
-</div>
+  <div class="row">
+    <div class="large-6 columns about-box">
+      <div class="black-box">
+            <h2>Somos OREJAS, la comunidad de mascotas ticas.</h2>
+            <p>Virtualizá la información de tu mascota gratis. Nosotros te ayudamos en casos de extravíos, adopciones e información del mundo animal.
+            <p>¿Interesado(a)?</p>
+            <%= button_to "Iniciar con tu cuenta de Facebook →", welcome_path, class: "home secondary small button" %>
+            <br><%= link_to "Iniciar sesión con tu cuenta de OREJAS →", new_user_session_path %>
+      </div>
+    </div>
+  </div>
+</section>

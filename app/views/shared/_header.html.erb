@@ -8,21 +8,27 @@ li{color:black;}
   <div class="row">
       <div class="large-12 columns">
         <div class="main-wrapper">
-        <br>
-          <h3>OREJAS: Comunidad virtual de mascotas</h3>
-          <p><%= current_user.email %> <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %> </p>
+        <hr><br>
+          <div class="row">
+            <div class="large-8 columns">
+              <label>OREJAS: Comunidad virtual de mascotas</label>
+            </div>
+            <div class="large-4 columns">
+              <%= current_user.email %> <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+            </div>
+          </div>
           <hr>
           <div class="row">
             <div class="large-6 columns large-centered">
               <ul class="button-group even-4">
-                <li><a href="#" class="button">Inicio</a></li>
-                <li><a href="#" class="button">Busco dueño</a></li>
-                <li><a href="#" class="button">Busco mascota</a></li>
-                <li><a href="#" class="button">Busco familia</a></li>
+                <li><a href="#" class="home button">Inicio</a></li>
+                <li><a href="#" class="home button">Adopciones</a></li>
+                <li><a href="#" class="home button">Extravíos</a></li>
+                <li><a href="#" class="home button">Sugerencias</a></li>
               </ul>
             </div>
           </div>
         </div>
     </div>
   </div>
-</style>
+</section>

@@ -39,10 +39,12 @@
       </div>
       <div class="large-6 columns">
         <label>Raza
-          <%= collection_select(:pet, :breed_id, Breed.where(id: 1), :id, :name, {}, {:id=>'breed-dog'}) %>
-          <%= collection_select(:pet, :breed_id, Breed.where(id: 2), :id, :name, {}, {:id=>'breed-cat', :style=>'display:none'}) %>
+          <div id = "test-js">
+            <%= collection_select(:pet, :breed_id, @breed, :id, :name, {}, {:id=>'breeds'}) %>
+          </div>
         </label>
       </div>
     </div>
-    <%= f.submit "Aceptar", class: "secondary small button right" %>
+    
+    <br><%= f.submit "Aceptar", class: "secondary small button right" %>
 <% end %>
