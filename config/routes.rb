@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'home', to: 'main#home', as: 'home'
   get 'breed/:id', to: 'pets#breed_change', as: 'breed_change'
   resources :pets
-  get 'new_lost', to: 'pets#new_lost', as: 'new_lost'
-
+  resources :lost_reports
+  
   root 'login#index'
 end

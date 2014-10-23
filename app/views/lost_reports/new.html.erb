@@ -1,0 +1,60 @@
+<%= render "shared/header" %>
+<div class="large-12 columns">
+    <div class="row">
+      <br>
+      <h3>Llená los datos de la desaparición de tu mascota</h3>
+      <hr>
+        <div class="row">
+          <div class="large-6 columns">
+          <br><br>
+            <%= form_for @lost_report do |f| %>
+              <% if @lost_report.errors.any? %>
+                <div id="error_explanation">
+                  <p>Lo sentimos, no se pudo guardar la información:</p>
+                  <% @lost_report.errors.full_messages.each do |msg| %>
+                    <p><%= msg %><p>
+                  <% end %>
+                </div>
+              <% end %>
+              <div class="row">
+                <div class="large-6 columns">
+                  <%= f.text_field :owner, placeholder: "Nombre de la dueña o el dueño" %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-6 columns">
+                    <%= f.text_field :phone_number1, placeholder: "Número de teléfono" %>
+                </div>
+                <div class="large-6 columns">
+                    <%= f.text_field :phone_number2, placeholder: "Otro número de teléfono" %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-6 columns">
+                  <label>Provincia
+                  </label>
+                </div>
+                <div class="large-6 columns">
+                  <label>Dirección exacta
+                    <%= f.text_area :address, placeholder: "Mencioná también lugares aledaños" %>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>Descripción breve
+                    <%= f.text_area :description, placeholder: "Mencioná características que identifiquen a tu mascota." %>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-6 columns">
+                    <%= f.check_box :reward %><label>Doy recompensa</label>
+                </div>
+              </div>
+              <br><%= f.submit "Ayudar a difundir por redes sociales", class: "secondary small button right" %>
+            <% end %>
+          </div>
+        </div>
+    </div>
+</div>
