@@ -6,5 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Breed.create([{ name: 'Saguate' }, { name: 'Dalmata' }, {name: 'Gran Danes'}, {name: 'Schnauzer'}])
+Breed.create([{ name: 'Zaguate' }, { name: 'Dalmata' }, {name: 'Gran Danes'}, {name: 'Schnauzer'}])
 AnimalType.create([{ name: 'Perro' }, { name: 'Gato' }])
+Province.create([{ name: 'Alajuela' }, { name: 'Cartago' }, { name: 'Guanacaste' }, { name: 'Heredia' }, { name: 'Limón' }, { name: 'Puntarenas' }, { name: 'San José' }])

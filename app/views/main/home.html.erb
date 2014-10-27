@@ -4,5 +4,10 @@
         <h3>OREJAS, la web de las mascotas</h3>
         <hr>
         <%= link_to "Ver mis mascotas", pets_path %><br><br>
+        <%= button_to "Registrar nueva mascota", new_pet_path, class: "button" %>
+        <%= form_tag(new_pet_path, method: "post") do %>
+       		<%= hidden_field_tag 'is_lost', true %>
+       		<%= submit_tag "Registrar mascota perdida", class: "button" %>
+        <% end %>
     </div>
 </div>

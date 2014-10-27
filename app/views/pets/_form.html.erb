@@ -3,7 +3,7 @@
       <div id="error_explanation">
         <p>Lo sentimos, no se pudo guardar la informacion:</p>
         <% @pet.errors.full_messages.each do |msg| %>
-          <p><%= msg %><p>
+          <label><%= msg %><label>
         <% end %>
       </div>
     <% end %>
@@ -45,6 +45,10 @@
         </label>
       </div>
     </div>
-    
-    <br><%= f.submit "Aceptar", class: "secondary small button right" %>
+    <%= f.hidden_field :is_lost, :value => @lost %>
+    <% if @lost %>
+      <br><%= f.submit "Aceptar e ir a registrar datos de la desaparición", class: "secondary small button right" %>
+    <% else %>
+      <br><%= f.submit "Aceptar", class: "secondary small button right" %>
+    <% end %>
 <% end %>

@@ -1,0 +1,28 @@
+<%= render "shared/header" %>
+<div class="large-12 columns">
+    <div class="row">
+        <br>
+        <h3>Se ha publicado la información de su mascota en OREJAS</h3>
+        <hr>
+        <center>
+          <br><p>La información será visible por todos los usuarios del sitio y pronto
+          se publicará en el Facebook de OREJAS</p>
+        </center>
+        <div class="large-6 columns">
+          <div class="panel">
+            <label>Estas son asociaciones cerca de <%= @lost_report.province.name %> que te pueden ayudar con tu búsqueda</label>
+            <ul>
+              <li>Esta</li>
+              <li>Aquella</li>
+              <li>La otra</li>
+            </ul>
+          </div>
+        </div>
+        <div class="large-6 columns">
+          <div class="panel">
+            <label>Copiá este link y compartilo en tus redes sociales</label>
+            <label>[LINK]</label>
+          </div>
+        </div>
+    </div>
+</div>

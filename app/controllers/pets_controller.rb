@@ -4,12 +4,18 @@ class PetsController < ApplicationController
     @pet = Pet.new
     @editing = false
     @breed = Breed.where(id: 1)
+    (params[:is_lost] == 'true') ? (@lost = true) : (@lost = false)
   end
 
   def create
     @pet = Pet.new(pet_params)
     @pet.user_id = current_user.id
-    @pet.save ? (redirect_to @pet) : (render 'new')
+
+    if @pet.save
+      (params[:pet][:is_lost] == "true") ? (redirect_to '/extravios/nuevo/'+@pet.id.to_s) : (redirect_to @pet)
+    else 
+      render 'new'
+    end
   end
 
   def show
@@ -46,7 +52,7 @@ class PetsController < ApplicationController
 
   private
     def pet_params
-      params.require(:pet).permit(:name, :animal_type_id, :breed_id, :description, :sex, :avatar, :id_user)
+      params.require(:pet).permit(:name, :animal_type_id, :breed_id, :description, :sex, :avatar, :user_id)
     end
 
 end

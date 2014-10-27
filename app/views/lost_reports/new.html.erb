@@ -2,7 +2,7 @@
 <div class="large-12 columns">
     <div class="row">
       <br>
-      <h3>Llená los datos de la desaparición de tu mascota</h3>
+      <h3>Llená los datos de la desaparición de tu mascota <%= @pet.name %></h3>
       <hr>
         <div class="row">
           <div class="large-6 columns">
@@ -32,6 +32,7 @@
               <div class="row">
                 <div class="large-6 columns">
                   <label>Provincia
+                    <%= collection_select(:lost_report, :province_id, Province.all, :id, :name) %>
                   </label>
                 </div>
                 <div class="large-6 columns">
@@ -49,9 +50,10 @@
               </div>
               <div class="row">
                 <div class="large-6 columns">
-                    <%= f.check_box :reward %><label>Doy recompensa</label>
+                    <%= f.check_box :reward %><label>Ofrezco recompensa</label>
                 </div>
               </div>
+              <%= hidden_field_tag 'pet_id', @pet.id %>
               <br><%= f.submit "Ayudar a difundir por redes sociales", class: "secondary small button right" %>
             <% end %>
           </div>
