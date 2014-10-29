@@ -13,14 +13,25 @@ describe LostReport, "validations" do
 		expect(lost_report).to be_valid
 	end
 
+	it "validates owner name and last name" do
+		lost_report = LostReport.new(owner: "Pepe Soto",
+									 phone_number1: 12345678,
+									 phone_number2: 12345678,)
+	
+		expect(lost_report).to be_valid
+	end
+
 	it "validates owner name" do
-		lost_report = LostReport.new(owner: 123)
+		lost_report = LostReport.new(owner: 123,
+									 phone_number1: 12345678,
+									 phone_number2: 12345678)
 	
 		expect(lost_report).to_not be_valid
 	end
 
 	it "validates phone numbers" do
-		lost_report = LostReport.new(phone_number1: 123)
+		lost_report = LostReport.new(phone_number1: 123,
+									 phone_number2: 12345678)
 	
 		expect(lost_report).to_not be_valid
 	end

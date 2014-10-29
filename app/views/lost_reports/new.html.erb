@@ -12,14 +12,17 @@
             <br>
           </div>
           <div class="large-6 columns left">
-            <br><br>
+            <br>
               <%= form_for @lost_report do |f| %>
                 <% if @lost_report.errors.any? %>
                   <div id="error_explanation">
-                    <label>Lo sentimos, no se pudo guardar la información:</label>
-                    <% @lost_report.errors.full_messages.each do |msg| %>
-                      <p><%= msg %></p>
-                    <% end %>
+                    <div data-alert class="alert-box alert radius">
+                        Lo sentimos, no se pudo guardar la información:
+                        <% @lost_report.errors.full_messages.each do |msg| %>
+                          <br><%= msg %>
+                        <% end %>
+                      <a href="#" class="close">&times;</a>
+                    </div>
                   </div>
                 <% end %>
                 <div class="row">

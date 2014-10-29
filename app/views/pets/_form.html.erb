@@ -1,15 +1,14 @@
 <%= form_for @pet do |f| %>
     <% if @pet.errors.any? %>
       <div id="error_explanation">
-        <label>Lo sentimos, no se pudo guardar la información:</label>
-        <% @pet.errors.full_messages.each do |msg| %>
-          <label><%= msg %></label>
-        <% end %>
+        <div data-alert class="alert-box alert radius">
+            Lo sentimos, no se pudo guardar la información:
+            <% @pet.errors.full_messages.each do |msg| %>
+              <br><%= msg %>
+            <% end %>
+          <a href="#" class="close">&times;</a>
+        </div>
       </div>
-    <% end %>
-    <% if @editing %>
-      <%= image_tag @pet.avatar.url(:thumb) %>
-      <br><br>
     <% end %>
     <div class="panel">
       <% if !@editing %>
@@ -18,7 +17,11 @@
         <label>Cambiar la foto de perfil</label>
       <% end %>
       <div style="width:151px; height:151px; border:1px solid">
-        <center><img id="image"></img></center>
+        <% if @editing %>
+          <center><%= image_tag @pet.avatar.url(:profile), id:"image" %></center>
+        <% else %>
+          <center><img id="image"></img></center>
+        <% end %>
       </div>
       <%= f.file_field :avatar, class: "image-selector" %>
     </div>

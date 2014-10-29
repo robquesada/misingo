@@ -14,7 +14,7 @@
               <li><label>PROVINCIA</label></li>
               <li>
               <%= form_tag("/inicio", method: "get") do %>
-                <%= collection_select(:province, :province_id, Province.all, :id, :name, selected: 7) %>
+                <%= collection_select(:province, :province_id, Province.all, :id, :name, include_blank: "Ver todas", selected: @province_id) %>
                 <%= submit_tag "Buscar", class: "small button" %>
               <% end %>
               </li>
