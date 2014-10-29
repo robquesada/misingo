@@ -1,5 +1,4 @@
 //= depend_on_asset "wall.jpg"
-//= depend_on_asset "background.png"
 
 /*background-image:url('<%= asset_path('background.png') %> ');*/
 
@@ -28,10 +27,15 @@ h4{font-family:'American Typewriter','Courier New',Courier,Monaco,mono;color:#00
 .button:hover{color:rgba(255,255,255,0.7);background-color:transparent;}
 footer p,footer a{font-size:14px;}
 .hero{padding-bottom:50px;background-image:url('<%= asset_path('wall.jpg') %> ');background-size:cover;box-shadow:inset 0px 0px 0 2000px rgba(0,0,0,0.2);}
-.hero-content{padding-top:40px;padding-bottom:40px;background-color:#EAEAEA;}
-.panel{margin:40px 0 40px 0;border:none;background-color:#EAEAEA;}
+.hero-content{padding-top:40px;padding-bottom:40px;background-color:;}
+.panel{margin:40px 0 40px 0;border:none;background-color:#EAEAEA;max-width: 500px;}
 .large-4 img{box-shadow:2px 2px 10px rgba(0,0,0,0.1);}
 .radius.right.button{color:#000;border:2px #000 solid;border-radius:5px;padding:15px 50px 15px 50px;margin:0;font-size:0.8125em;}
 @media only screen and (min-width: 64.063em) {.radius.right.button{color:#000;border:2px #000 solid;border-radius:5px;padding:15px 50px 15px 50px;margin-top:25px;font-size:0.8125em;}}
 @media only screen and (min-width: 40.063em) {.radius.right.button{color:#000;border:2px #000 solid;border-radius:5px;padding:15px 50px 15px 50px;margin-top:25px;font-size:0.8125em;}}
 .radius.right.button:hover{background-color:rgba(0,0,0,0.1);}
+
+i.add-pet {display: inline-block;width: 30px;height: 30px;background-image:url('<%= asset_path('add_pet.svg') %> ');}
+i.lost-report {display: inline-block;width: 30px;height: 30px;background-image:url('<%= asset_path('lost_report.svg') %> ');}
+i.lost-pet {display: inline-block;width: 50px;height: 38px;background-image:url('<%= asset_path('dog6.svg') %> ');}
+a.header{font-family:'American Typewriter','Courier New',Courier,Monaco,mono;font-size:24px;color:black;text-align:center;}

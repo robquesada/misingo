@@ -1,13 +1,42 @@
+<%= render "shared/header" %>
 <div class="large-12 columns">
     <div class="row">
         <br>
-        <h3>OREJAS, la web de las mascotas</h3>
-        <hr>
-        <%= link_to "Ver mis mascotas", pets_path %><br><br>
-        <%= button_to "Registrar nueva mascota", new_pet_path, class: "button" %>
-        <%= form_tag(new_pet_path, method: "post") do %>
-       		<%= hidden_field_tag 'is_lost', true %>
-       		<%= submit_tag "Registrar mascota perdida", class: "button" %>
-        <% end %>
+        <center>
+          <a class="header">Mascotas desaparecidas</a>
+        </center>
+      <hr>
+        <div class="row">
+        <center>
+          <div class="large-3 columns">
+            <ul class="side-nav">
+              <li class="divider"></li>
+              <li><label>PROVINCIA</label></li>
+              <li>
+              <%= form_tag("/inicio", method: "get") do %>
+                <%= collection_select(:province, :province_id, Province.all, :id, :name, selected: 7) %>
+                <%= submit_tag "Buscar", class: "small button" %>
+              <% end %>
+              </li>
+              <li><%= link_to "Ver mis mascotas", pets_path %></li>
+              <li><%= link_to "Registrar una mascota", new_pet_path %></li>
+              <%= form_tag(new_pet_path, method: "post") do %>
+                <%= hidden_field_tag 'is_lost', true %>
+                <li><%= submit_tag "Registrar mascota perdida", class: "small button" %></li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="large-7 columns left">
+            <% @lost_reports.each do |lost| %>
+              <div class="panel radius">
+                <h3>SE BUSCA <%= lost.pet.name.upcase %></h3>
+                <a href="#"><%= image_tag lost.pet.avatar.url(:medium) %></a>
+                <p>Se perdió en <%= lost.province.name %></p>
+                <%= link_to "Ver más información", new_pet_path %>
+              </div>
+            <% end %>
+          </div>
+        </center>
+      </div>
     </div>
 </div>

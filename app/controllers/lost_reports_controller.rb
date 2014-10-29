@@ -6,7 +6,10 @@ class LostReportsController < ApplicationController
 
 	def create
 		@lost_report = LostReport.new(lost_report_params)
-		@lost_report.pet_id = params[:pet_id]
+		@pet = Pet.where(id: params[:pet_id]).first
+		@lost_report.pet_id = @pet.id
+		@lost_report.owner = lost_report_params[:owner].titleize
+
 		@lost_report.save ? (redirect_to @lost_report) : (render 'new')
 	end
 

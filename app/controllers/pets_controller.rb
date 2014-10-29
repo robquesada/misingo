@@ -10,6 +10,8 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
     @pet.user_id = current_user.id
+    @breed = Breed.where(id: pet_params[:breed_id])
+    @pet.name = pet_params[:name].capitalize
 
     if @pet.save
       (params[:pet][:is_lost] == "true") ? (redirect_to '/extravios/nuevo/'+@pet.id.to_s) : (redirect_to @pet)

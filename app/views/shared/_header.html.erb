@@ -4,31 +4,37 @@ a{color:black;}
 li{color:black;}
 </style>
 
-<section class="hero-in">
-  <div class="row">
-      <div class="large-12 columns">
-        <div class="main-wrapper">
-        <hr><br>
-          <div class="row">
-            <div class="large-8 columns">
-              <label>OREJAS: Comunidad virtual de mascotas</label>
-            </div>
-            <div class="large-4 columns">
-              <%= current_user.email %> <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="large-6 columns large-centered">
-              <ul class="button-group even-4">
-                <li><a href="#" class="home button">Inicio</a></li>
-                <li><a href="#" class="home button">Adopciones</a></li>
-                <li><a href="#" class="home button">Extravíos</a></li>
-                <li><a href="#" class="home button">Sugerencias</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+<div id="intro">
+     <div class="contain-to-grid">
+        <nav class="top-bar" data-topbar>
+           <ul class="title-area">
+              <li class="name">
+                <h1><a href="/inicio" style="color:#5bdea9; font-family:'Source Sans Pro',Gabriola; font-size:30px; font-weight:300;">BUSCA MASCOTAS</a></h1>
+              </li>
+               <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+              <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+
+               <section class="top-bar-section">
+                  <ul class="right">
+                      <li class="active"><a href='/inicio'>Inicio</a></li>
+                       <li><a href='#'>Sugerencias</a></li>
+                       <li class="has-dropdown">
+                        <a href="#">Mascotas</a>
+                        <ul class="dropdown">
+                          <li><a href="mascotas/nueva">Registrar desaparición</a></li>
+                          <li><a href="pets">Ver mis mascotas</a></li>
+                        </ul>
+                      </li>
+                       <li><a href='#'>Nosotros</a></li>
+                      <li class="has-dropdown">
+                        <a href="#">Usuario</a>
+                        <ul class="dropdown">
+                          <li><a href='#'>Ver perfil</a></li>
+                          <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+                        </ul>
+                      </li>
+                </ul>        
+              </section>
+        </nav>
     </div>
-  </div>
-</section>

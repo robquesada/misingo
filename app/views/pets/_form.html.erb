@@ -1,9 +1,9 @@
 <%= form_for @pet do |f| %>
     <% if @pet.errors.any? %>
       <div id="error_explanation">
-        <p>Lo sentimos, no se pudo guardar la informacion:</p>
+        <label>Lo sentimos, no se pudo guardar la información:</label>
         <% @pet.errors.full_messages.each do |msg| %>
-          <label><%= msg %><label>
+          <label><%= msg %></label>
         <% end %>
       </div>
     <% end %>
