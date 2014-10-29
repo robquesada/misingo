@@ -2,6 +2,7 @@ class LostReportsController < ApplicationController
 	def new
 		@lost_report = LostReport.new
 		@pet = Pet.find(params[:id])
+		@editing = false
 	end
 
 	def create
@@ -13,8 +14,18 @@ class LostReportsController < ApplicationController
 		@lost_report.save ? (redirect_to @lost_report) : (render 'new')
 	end
 
+	def edit
+		@lost_report = LostReport.find(params[:id])
+		@editing = true
+	end
+
 	def show
 		@lost_report = LostReport.find(params[:id])
+	end
+
+	def update
+		@lost_report = LostReport.find(params[:id])
+    	@lost_report.update(lost_report_params) ? (redirect_to @lost_report) : (render 'edit')
 	end
 
 	private

@@ -14,7 +14,7 @@ class PetsController < ApplicationController
     @pet.name = pet_params[:name].capitalize
 
     if @pet.save
-      (params[:pet][:is_lost] == "true") ? (redirect_to '/extravios/nuevo/'+@pet.id.to_s) : (redirect_to @pet)
+      (params[:pet][:is_lost] == "true") ? (redirect_to '/extravios/'+@pet.id.to_s+'/nuevo') : (redirect_to @pet)
     else 
       render 'new'
     end
