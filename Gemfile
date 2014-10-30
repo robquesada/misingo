@@ -24,6 +24,8 @@ group :development, :test do
     gem 'binding_of_caller'
 end
 
+gem 'rmagick'
+
 gem "paperclip", "~> 4.2"
 gem 'database_cleaner'
 
