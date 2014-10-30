@@ -25,6 +25,10 @@
             <label>id: <%= @lost_report.id %></label>
             <label>mascota: <%= @lost_report.pet.name %></label>
             <label>Due;o: <%= @lost_report.owner %></label>
+            <%= form_tag(flyer_lost_report_path, target: "_blank", method: "post") do %>
+              <%= hidden_field_tag 'lost_report_id', @lost_report.id %>
+              <br><%= submit_tag "Generar anuncio", class: "button" %>
+            <% end %>
           </div>
         </div>
     </div>
