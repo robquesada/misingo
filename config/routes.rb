@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/extravios/:id/editar', to: "lost_reports#edit", as: 'edit_lost_report'
   patch '/extravios/:id', to: "lost_reports#update"
   get '/extravios/:id', to: "lost_reports#show", as: 'lost_report'
+  resources :lost_reports
 
   root 'login#index'
 end

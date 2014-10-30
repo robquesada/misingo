@@ -24,6 +24,7 @@ class LostReportsController < ApplicationController
 	end
 
 	def update
+		@editing = true
 		@lost_report = LostReport.find(params[:id])
     	@lost_report.update(lost_report_params) ? (redirect_to @lost_report) : (render 'edit')
 	end
