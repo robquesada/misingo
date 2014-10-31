@@ -1,35 +1,49 @@
 <%= render "shared/header" %>
 <div class="large-12 columns">
-    <div class="row">
-        <br>
-        <h3>Se ha publicado la información de su mascota en BUSCAMASCOTAS</h3>
-        <hr>
-        <center>
-          <br><p>La información será visible por todos los usuarios del sitio y pronto
-          se publicará en el Facebook de BUSCAMASCOTAS</p>
-        </center>
-        <div class="large-6 columns">
-          <div class="panel">
-            <label>Estas son asociaciones cerca de <%= @lost_report.province.name %> que te pueden ayudar con tu búsqueda</label>
-            <ul>
-              <li>Esta</li>
-              <li>Aquella</li>
-              <li>La otra</li>
-            </ul>
-          </div>
-        </div>
-        <div class="large-6 columns">
-          <div class="panel">
-            <label>Copiá este link y compartilo en tus redes sociales</label>
-            <label>[LINK]</label>
-            <label>id: <%= @lost_report.id %></label>
-            <label>mascota: <%= @lost_report.pet.name %></label>
-            <label>Due;o: <%= @lost_report.owner %></label>
-            <%= form_tag(flyer_lost_report_path, target: "_blank", method: "post") do %>
-              <%= hidden_field_tag 'lost_report_id', @lost_report.id %>
-              <br><%= submit_tag "Generar anuncio", class: "button" %>
+  <div class="row">
+    <br>
+    <h3>SE BUSCA <b><%= @lost_report.pet.name.upcase %></b></h3>
+    <hr>
+    <div class="large-6 columns">
+      <center>
+      <div class="panel radius">
+
+        <%= image_tag(@lost_report.pet.avatar.url(:medium)) %>
+        <% if @lost_report.reward==1 %>
+        <br><span class="[success alert secondary] [round radius] label">Se ofrece recompensa</span>
+        <% end %>
+        <div class="panel callout radius">
+          <center>
+            <b>Perdido en: </b><%= @lost_report.province.name %>. <%= @lost_report.address %><br>
+            <b><%= @lost_report.pet.breed.name %></b>, <%= @lost_report.pet.sex.downcase %>. <%= @lost_report.description %>
+            <br><b>Teléfonos</b>: <%= @lost_report.phone_number1 %>
+            <% if !@lost_report.phone_number2.nil? %>
+            <a> / <%= @lost_report.phone_number2 %></a>
             <% end %>
-          </div>
+            <br>
+            <%= link_to "Editar información", edit_lost_report_path(@lost_report) %>
+          </center>
         </div>
+      </div>
+      </center>
     </div>
+    <div class="large-6 columns">
+      <div class="panel">
+        <center>
+          <label>Copiá este link y compartilo en tus redes sociales</label>
+          <%= text_field_tag "buscamascotas.com", placeholder: "buscamascotas.com" %>
+          <%= form_tag(flyer_lost_report_path, target: "_blank", method: "post") do %>
+          <%= hidden_field_tag 'lost_report_id', @lost_report.id %>
+          <br><%= submit_tag "Generar anuncio", class: "button [radius round]" %>
+          <% end %>
+        </center>
+        <br><label>Estas asociaciones cerca de <%= @lost_report.province.name %> te pueden ayudar con tu búsqueda:</label>
+        <ul>
+          <li>Esta</li>
+          <li>Aquella</li>
+          <li>La otra</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

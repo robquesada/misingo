@@ -86,7 +86,6 @@ class LostReportsController < ApplicationController
 	  def draw_text_in_image(image, move, text, text_size, stroke, gravity)
 		txt = Draw.new
 		image.annotate(txt, 0,0,0,move, text){ 
-			  txt.font_family = 'arial'
 			  txt.gravity = gravity
 			  txt.pointsize = text_size
 			  txt.stroke = stroke

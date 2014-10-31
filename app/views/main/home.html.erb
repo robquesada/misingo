@@ -26,17 +26,7 @@
               <% end %>
             </ul>
           </div>
-          <div class="large-7 columns left">
-            <% @lost_reports.each do |lost| %>
-              <div class="panel radius">
-                <h3>SE BUSCA <%= lost.pet.name.upcase %></h3>
-                <a href="#"><%= image_tag lost.pet.avatar.url(:medium) %></a>
-                <p>Se perdió en <%= lost.province.name %></p>
-                <%= link_to "Ver más información", new_pet_path %>
-                <%= link_to "Editar información", edit_lost_report_path(lost) %>
-              </div>
-            <% end %>
-          </div>
+          <%= render 'lost_pet' %>
         </center>
       </div>
     </div>

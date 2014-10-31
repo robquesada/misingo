@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   patch '/extravios/:id', to: "lost_reports#update"
   get '/extravios/:id', to: "lost_reports#show", as: 'lost_report'
   post '/extravios/:id/anuncio', to: "lost_reports#show_flyer", as: 'flyer_lost_report'
-  resources :lost_reports
 
   root 'login#index'
 end
