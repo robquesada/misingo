@@ -5,7 +5,7 @@
         <center>
           <a class="header">Mascotas desaparecidas</a>
         </center>
-      <hr>
+      <hr><br>
         <div class="row">
         <center>
           <div class="large-3 columns">
@@ -14,19 +14,15 @@
               <li><label>PROVINCIA</label></li>
               <li>
               <%= form_tag("/inicio", method: "get") do %>
-                <%= collection_select(:province, :province_id, Province.all, :id, :name, include_blank: "Ver todas", selected: @province_id) %>
-                <%= submit_tag "Buscar", class: "small button" %>
+                <%= collection_select(:province, :province_id, Province.all, :id, :name, {include_blank: "Ver todas", selected: @province_id}, {class: 'select search'}) %>
+                <%= submit_tag "Buscar", class: "small button search" %>
               <% end %>
               </li>
+              <li><%= link_to "Registrar desaparición", new_pet_path %></li>
               <li><%= link_to "Ver mis mascotas", pets_path %></li>
-              <li><%= link_to "Registrar una mascota", new_pet_path %></li>
-              <%= form_tag(new_pet_path, method: "post") do %>
-                <%= hidden_field_tag 'is_lost', true %>
-                <li><%= submit_tag "Registrar mascota perdida", class: "small button" %></li>
-              <% end %>
             </ul>
           </div>
-          <%= render 'lost_pet' %>
+          <%= render 'lost_pet' %>         
         </center>
       </div>
     </div>

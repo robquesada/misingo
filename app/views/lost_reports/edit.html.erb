@@ -1,21 +1,21 @@
 <%= render "shared/header" %>
 <div class="large-12 columns">
+  <div class="row">
+    <br>
+    <center>
+      <i class="lost-report"></i>&nbsp;<a class="header">Editar los datos de la desaparición de <%= @lost_report.pet.name %></a>
+    </center>
+    <hr>
     <div class="row">
-      <br>
-        <center>
-          <i class="lost-report"></i>&nbsp;<a class="header">Editar los datos de la desaparición de <%= @lost_report.pet.name %></a>
-        </center>
-      <hr>
-        <div class="row">
-	        <center>
-	          <div class="large-3 columns">
-	            <br>
-	          </div>
-	          <div class="large-6 columns left">
-	            <br>
-					<%= render 'form' %>
-			  </div>
-	        </center>
+      <center>
+        <div class="large-3 columns">
+          <br>
         </div>
+        <div class="large-6 columns left">
+          <br>
+          <%= render 'form' %>
+        </div>
+      </center>
     </div>
+  </div>
 </div>

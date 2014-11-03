@@ -8,7 +8,7 @@
         <center>
             <div class="panel">
                 <%= image_tag @pet.avatar.url(:medium) %><br>
-                <p>Es un <%= @pet.animal_type.name.downcase %> <%= @pet.sex.downcase %> de raza <%= @pet.breed.name.downcase %></p>
+                <p>Es un <%= @pet.breed.animal_type.name.downcase %> <%= @pet.sex.downcase %> de raza <%= @pet.breed.name.downcase %></p>
             </div>
             </center>
           </div>

@@ -12,14 +12,19 @@
                 <br>
               </div>
                 <div class="large-10 columns left">
+                    <%= button_to 'Registra otra mascota desaparecida', new_pet_path, class:"button left" %>
                     <ul class="small-block-grid-3">
                         <% @pets.each do |pet| %>
-                            <li><a href="#"><%= image_tag pet.avatar.url(:medium) %></a>
-                            <p>Nombre: <%= pet.name %> <%= link_to 'Editar', edit_pet_path(pet) %>
-                            <%= link_to 'Eliminar', pet_path(pet), method: :delete, data: { confirm: 'Esta seguro?' } %></p></li>
+                            <li>
+                                <%= link_to image_tag(pet.avatar.url(:medium)), edit_pet_path(pet) %>
+                                <div class="panel grid radius">
+                                    <b><%= pet.name %></b>
+                                    <br><%= link_to 'Editar', edit_pet_path(pet) %> |
+                                    <%= link_to 'Eliminar', pet_path(pet), method: :delete, data: { confirm: '¿Está seguro?' } %>
+                                </div>
+                            </li>
                         <% end %>
                     </ul>
-                    <%= link_to 'Registra otra de tus mascotas', new_pet_path %>
                 </div>
             </center>
         </div>
