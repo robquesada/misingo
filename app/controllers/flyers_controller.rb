@@ -22,24 +22,26 @@ class FlyersController < ApplicationController
   end
 
   def generate_header_information(image)
+    gravity = Magick::NorthGravity
     draw_text_in_image(image, 20, "SE BUSCA " + @lost_report.pet.name.upcase,
-                       50, 'black', Magick::NorthGravity)
+                       50, 'black', gravity)
 
     draw_text_in_image(image, 70, word_wrap("Es un " + @lost_report.pet.breed.name + ". " + @lost_report.description, line_width: 55),
-                       20, 'none', Magick::NorthGravity)
+                       20, 'none', gravity)
   end
 
   def generate_footer_information(image)
+    gravity = Magick::SouthGravity
     draw_text_in_image(image, 100, "* SE OFRECE RECOMPENSA *",
-                       25, 'none', Magick::SouthGravity) if @lost_report.reward == 1
+                       25, 'none', gravity) if @lost_report.reward == 1
 
     phones_text = "TELÉFONOS: " + @lost_report.phone_number1
     phones_text = phones_text + (" / " + @lost_report.phone_number2) if !@lost_report.phone_number2.nil?
     draw_text_in_image(image, 70, phones_text,
-                       25, 'none', Magick::SouthGravity)
+                       25, 'none', gravity)
 
     draw_text_in_image(image, 25, word_wrap("Perdido en " + @lost_report.province.name + ". " + @lost_report.address, line_width: 55),
-                       20, 'none', Magick::SouthGravity)
+                       20, 'none', gravity)
   end
 
   def word_wrap(text, options = {})
@@ -51,14 +53,14 @@ class FlyersController < ApplicationController
   end
 
   def draw_text_in_image(image, move, text, text_size, stroke, gravity)
-    txt = Draw.new
-    image.annotate(txt, 0,0,0,move, text) do
-      txt.gravity = gravity
-      txt.pointsize = text_size
-      txt.stroke = stroke
-      txt.fill = 'black'
-      txt.font_weight = Magick::BoldWeight
-      txt.text_antialias = true
+    draw = Draw.new
+    image.annotate(draw, 0,0,0,move, text) do
+      draw.gravity = gravity
+      draw.pointsize = text_size
+      draw.stroke = stroke
+      draw.fill = 'black'
+      draw.font_weight = Magick::BoldWeight
+      draw.text_antialias = true
     end
   end
 end

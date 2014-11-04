@@ -6,23 +6,23 @@
     <hr>
     <div class="large-6 columns">
       <center>
-      <div class="panel radius">
-        <%= image_tag(@pet.avatar.url(:medium)) %>
-        <% if @lost_report.reward==1 %>
-          <br><span class="[success alert secondary] [round radius] label">Se ofrece recompensa</span>
-        <% end %>
-        <div class="panel callout radius">
-          <center>
-            <b>Perdido en: </b><%= @lost_report.province.name %>. <%= @lost_report.address %><br>
-            <b><%= @pet.breed.name %></b>, <%= @pet.sex.downcase %>. <%= @lost_report.description %>
-            <br><b>Teléfonos</b>: <%= @lost_report.phone_number1 %>
-            <% if !@lost_report.phone_number2.nil? %>
-            / <%= @lost_report.phone_number2 %><br>
-            <% end %>
-            <%= link_to "Editar información", edit_pet_lost_report_path(@pet) %>
-          </center>
+        <div class="panel radius">
+          <%= image_tag(@pet.avatar.url(:medium)) %>
+          <% if @lost_report.reward==1 %>
+            <br><span class="[success alert secondary] [round radius] label">Se ofrece recompensa</span>
+          <% end %>
+          <div class="panel callout radius">
+            <center>
+              <b>Perdido en: </b><%= @lost_report.province.name %>. <%= @lost_report.address %><br>
+              <b><%= @pet.breed.name %></b>, <%= @pet.sex.downcase %>. <%= @lost_report.description %>
+              <br><b>Teléfonos</b>: <%= @lost_report.phone_number1 %>
+              <% if !@lost_report.phone_number2.nil? %>
+              / <%= @lost_report.phone_number2 %><br>
+              <% end %>
+              <%= link_to "Editar información", edit_pet_lost_report_path(@pet) %>
+            </center>
+          </div>
         </div>
-      </div>
       </center>
     </div>
     <div class="large-6 columns">

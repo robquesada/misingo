@@ -1,3 +1,3 @@
 class Province < ActiveRecord::Base
-	has_many :lost_reports
+  has_many :lost_reports
 end

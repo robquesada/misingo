@@ -1,5 +1,7 @@
 class LostReportsController < ApplicationController
+  
   before_filter :find_pet
+  before_filter :find_lost_report, only: [:show, :edit, :update]
 
   def new
     @lost_report = @pet.build_lost_report
@@ -14,16 +16,11 @@ class LostReportsController < ApplicationController
     end
   end
 
-  def edit
-    @lost_report = @pet.lost_report
-  end
+  def edit; end
 
-  def show
-    @lost_report = @pet.lost_report
-  end
+  def show; end
 
   def update
-    @lost_report = @pet.lost_report
     if @lost_report.update(lost_report_params)
       redirect_to pet_lost_report_path(@pet)
     else
@@ -35,6 +32,10 @@ class LostReportsController < ApplicationController
 
   def find_pet
     @pet = Pet.find(params[:pet_id])
+  end
+
+  def find_lost_report
+    @lost_report = @pet.lost_report
   end
 
   def lost_report_params

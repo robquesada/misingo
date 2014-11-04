@@ -4,22 +4,18 @@
     <li>
       
       <% pet = lost.pet %>
-
+      
       <div class="panel radius">
         <%= link_to(pet_lost_report_path(lost.pet)) do %>
           <h3>SE BUSCA <b><%= pet.name.upcase %></b></h3>
         <% end %>
-
         <%= link_to image_tag(pet.avatar.url(:medium)), pet_lost_report_path(pet) %>
-
         <% if lost.reward==1 %>
           <br><span class="[success alert secondary] [round radius] label">Se ofrece recompensa</span>
         <% else %>
           <br><span class="[success warning secondary] [round radius] label">Se busca</span>
         <% end %>
-
         <p>Perdido en <b><%= lost.province.name %></b></p>
-
         <dl class="accordion" data-accordion>
           <dd class="accordion-navigation">
             <a href="#panel3", class="accordion">Ver información</a>
@@ -41,7 +37,6 @@
           </dd>
         </dl>
       </div>
-
     </li>
   <% end %>
   </div>

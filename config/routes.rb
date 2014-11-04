@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'iniciar', to: 'login#index', as: 'login'
-  match 'bienvenido' => "main#welcome", as: 'welcome', via: [:get, :post]
   get 'inicio', to: 'main#home', as: 'home'
   get 'breed/:id', to: 'pets#breed_change', as: 'breed_change'
 

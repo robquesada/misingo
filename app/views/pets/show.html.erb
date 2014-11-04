@@ -1,17 +1,17 @@
 <%= render "shared/header" %>
 <div class="large-12 columns">
-    <div class="row">
-        <br>
-        <h3>Información de <%= @pet.name %></h3>
-        <hr>
-        <div class="large-12 columns">
-        <center>
-            <div class="panel">
-                <%= image_tag @pet.avatar.url(:medium) %><br>
-                <p>Es un <%= @pet.breed.animal_type.name.downcase %> <%= @pet.sex.downcase %> de raza <%= @pet.breed.name.downcase %></p>
-            </div>
-            </center>
-          </div>
-        </p>
+  <div class="row">
+    <br>
+    <h3>Información de <%= @pet.name %></h3>
+    <hr>
+    <div class="large-12 columns">
+      <center>
+        <div class="panel">
+          <%= image_tag @pet.avatar.url(:medium) %>
+          <br>
+          <p>Es un <%= @pet.breed.animal_type.name.downcase %> <%= @pet.sex.downcase %> de raza <%= @pet.breed.name.downcase %></p>
+        </div>
+      </center>
     </div>
+  </div>
 </div>
