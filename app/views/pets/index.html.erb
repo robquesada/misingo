@@ -1,34 +1,32 @@
 <%= render "shared/header" %>
 <div class="large-12 columns">
   <div class="row">
-  <br>
+    <div class="row final"></div>
     <center>
       <a class="header">Mis mascotas</a>
     </center>
   <hr>
-  <br>
-  <div class="row">
-      <center>
-        <div class="large-1 columns">
-          <br>
-        </div>
-        <div class="large-10 columns left">
-          <%= button_to 'Registra otra mascota desaparecida', new_pet_path, class:"button left" %>
-          <ul class="small-block-grid-3">
-            <% @pets.each do |pet| %>
-              <li>
-                <%= link_to image_tag(pet.avatar.url(:medium)), edit_pet_path(pet) %>
-                <div class="panel grid radius">
-                  <b><%= pet.name %></b>
-                  <br>
-                  <%= link_to 'Editar', edit_pet_path(pet) %> |
-                  <%= link_to 'Eliminar', pet_path(pet), method: :delete, data: { confirm: '¿Está seguro?' } %>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </center>
-    </div>  
+    <div class="row">
+        <center>
+          <div class="large-1 columns">
+            <div class="row final"></div>
+          </div>
+          <div class="large-10 columns left">
+            <%= button_to 'Registra otra mascota desaparecida', new_pet_path, class:"small button left" %>
+            <ul class="small-block-grid-3">
+              <% @pets.each do |pet| %>
+                <li>
+                  <%= link_to image_tag(pet.avatar.url(:medium)), edit_pet_path(pet) %>
+                  <div class="panel grid radius">
+                    <p class="marginless"><b><%= pet.name %></b></p>
+                    <%= link_to 'Editar', edit_pet_path(pet) %> |
+                    <%= link_to 'Eliminar', pet_path(pet), method: :delete, data: { confirm: '¿Está seguro?' } %>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </center>
+      </div>  
   </div>
 </div>

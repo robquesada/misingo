@@ -4,7 +4,7 @@
       <div data-alert class="alert-box alert radius">
         Lo sentimos, no se pudo guardar la información:
         <% @lost_report.errors.full_messages.each do |msg| %>
-          <br><%= msg %>
+          <div class="row"><%= msg %></div>
         <% end %>
         <a href="#" class="close">&times;</a>
       </div>
@@ -39,12 +39,11 @@
       <%= f.text_area :description, placeholder: "Mencioná características que identifiquen a tu mascota." %>
     </div>
   </div>
-  <div class="row">
+  <div class="row final">
     <div class="large-6 columns">
       <%= f.check_box :reward %><label>Ofrezco recompensa</label>
     </div>
   </div>
-  <br>
   <% if @lost_report.new_record? %>
     <%= f.submit "Ayudar a difundir por redes sociales", class: "secondary small button right" %>
   <% else %>
