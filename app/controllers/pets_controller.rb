@@ -4,6 +4,7 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
+    @breeds = Breed.all
   end
 
   def create
@@ -23,7 +24,7 @@ class PetsController < ApplicationController
   end
 
   def edit
-    @breeds = Breed.where(id: @pet.breed_id)
+    @breeds = Breed.all
   end
 
   def update

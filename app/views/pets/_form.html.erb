@@ -40,13 +40,14 @@
   </div>
   <div class="row final">
     <div class="large-6 columns">
+      <% @pet.new_record? ? selected = 0 : selected = @pet.breed.animal_type_id %>
       <label>Animal
-      <%= select_tag :animal_type_id, options_from_collection_for_select(AnimalType.all, :id, :name) %>
+      <%= select_tag :animal_type_id, options_from_collection_for_select(AnimalType.all, :id, :name, selected: selected) %>
       </label>
     </div>
     <div class="large-6 columns">
       <%= f.label :breed %>
-      <%= f.select :breed_id, options_for_select(Breed.all.map{ |c| [c.name, c.id, { data: { animal_type: c.animal_type_id } } ] }) %>
+      <%= f.select :breed_id, options_for_select(@breeds.map{ |c| [c.name, c.id, { data: { animal_type: c.animal_type_id } } ] }, selected: @pet.breed_id) %>
     </div>
   </div>
   <%= f.submit "Aceptar y continuar", class: "secondary small button right" %>
