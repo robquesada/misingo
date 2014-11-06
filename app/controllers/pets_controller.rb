@@ -1,10 +1,10 @@
 class PetsController < ApplicationController
 
   before_filter :find_pet, only: [:show, :edit, :update, :destroy]
+  before_filter :find_breeds, only: [:new, :edit]
 
   def new
     @pet = Pet.new
-    @breeds = Breed.all
   end
 
   def create
@@ -23,9 +23,7 @@ class PetsController < ApplicationController
     @pets = Pet.where(user_id: current_user.id)
   end
 
-  def edit
-    @breeds = Breed.all
-  end
+  def edit; end
 
   def update
     @pet.update(pet_params) ? (redirect_to @pet) : (render 'edit')
@@ -40,6 +38,10 @@ class PetsController < ApplicationController
 
   def find_pet
     @pet = Pet.find(params[:id])
+  end
+
+  def find_breeds
+    @breeds = Breed.order(:name)
   end
 
   def pet_params

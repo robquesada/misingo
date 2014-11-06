@@ -52,3 +52,10 @@
   </div>
   <%= f.submit "Aceptar y continuar", class: "secondary small button right" %>
 <% end %>
+<script type="text/javascript">
+    <% if !@pet.new_record? %>
+      setTimeout(function(){
+        $('#pet_breed_id').val("<%= @pet.breed.id %>");
+      },100);
+    <% end %>
+</script>

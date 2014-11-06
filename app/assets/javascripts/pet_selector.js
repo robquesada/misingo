@@ -13,7 +13,7 @@ selectBreeds = function() {
         $(this).show();
         $('#pet_breed_id').val($(this).val());
       }
-    });  
+    });
   };
 
   changeBreeds();
