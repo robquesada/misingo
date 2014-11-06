@@ -1,4 +1,5 @@
-$(function(){
+var showPreview;
+showPreview = function() {
   $('#image-selector').change(function(){
     if (this.files && this.files[0]) {
       var reader = new FileReader();
@@ -10,16 +11,7 @@ $(function(){
       reader.readAsDataURL(this.files[0]);
     }
   });
+};
 
-  // pet-selectors, needs refactor
-  $('#animal_type_id').change(function(){
-    $('#pet_breed_id > option').each(function() {
-      if($(this).attr('data-animal-type') != $('#animal_type_id option:selected').val()){
-        $(this).hide();
-      }else{
-        $(this).show();
-        $('#pet_breed_id').val($(this).val());
-      }
-    });
-  });
-});
+$(document).ready(showPreview);
+$(document).on('page:load', showPreview);
