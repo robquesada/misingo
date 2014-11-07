@@ -1,0 +1,13 @@
+<% if flash[:error] %>
+  <div id="error_explanation">
+    <div data-alert class="alert-box alert radius">
+        Lo sentimos, no se pudo guardar la información:
+        <% flash[:error].each do |attr, messages| %>
+          <% messages.each do | msg | %>
+            <div class="row"><%= msg.capitalize %></div>
+          <% end %>
+        <% end %>
+      <a href="#" class="close">&times;</a>
+    </div>
+  </div>
+<% end %>

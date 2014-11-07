@@ -1,15 +1,5 @@
 <%= form_for @pet do |f| %>
-  <% if @pet.errors.any? %>
-    <div id="error_explanation">
-      <div data-alert class="alert-box alert radius">
-          Lo sentimos, no se pudo guardar la información:
-          <% @pet.errors.full_messages.each do |msg| %>
-            <div class="row"><%= msg %></div>
-          <% end %>
-        <a href="#" class="close">&times;</a>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'shared/flash_messages' %>
   <div class="panel">
     <% if @pet.new_record? %>
       <label>Subí una foto de perfil</label>

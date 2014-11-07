@@ -1,7 +1,7 @@
 class PetsController < ApplicationController
 
   before_filter :find_pet, only: [:show, :edit, :update, :destroy]
-  before_filter :find_breeds, only: [:new, :edit]
+  before_filter :find_breeds, only: [:new, :edit, :create]
 
   def new
     @pet = Pet.new
@@ -13,6 +13,7 @@ class PetsController < ApplicationController
     if @pet.save
       redirect_to new_pet_lost_report_path(@pet)
     else
+      flash.now[:error] = @pet.errors.messages
       render 'new'
     end
   end
@@ -20,7 +21,7 @@ class PetsController < ApplicationController
   def show; end
 
   def index
-    @pets = Pet.where(user_id: current_user.id)
+    @pets = current_user.pets
   end
 
   def edit; end

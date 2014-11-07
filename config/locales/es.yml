@@ -1,0 +1,38 @@
+es:
+  activerecord:
+    models:
+      breed:
+        one: "Raza"
+        other: "Razas"
+    attributes:
+      lost_report:
+        province: "Provincia"
+        description: "Descripción breve"
+        address: "Dirección exacta"
+        owner: "Dueño"
+        phone_number1: "Primer número de teléfono"
+      pet:
+        name: "Nombre"
+        breed: "Raza"
+        avatar: "Foto de perfil"
+        avatar_content_type: "Foto de perfil"
+      breed:
+        animal_type: "Animal"
+    errors:
+      models:
+        pet:
+          attributes:
+            avatar:
+              blank: "La %{attribute} no puede estar en blanco"
+            avatar_content_type:
+              invalid: "La %{attribute} no es un tipo de archivo válido"
+            name:
+              blank: "El %{attribute} no puede estar en blanco"
+              invalid: "El %{attribute} debe contener solo letras"
+        lost_report:
+          attributes:
+            owner:
+              invalid: "El nombre del %{attribute} debe tener solo letras"
+            phone_numbers:
+              blank: "Debe ingresar al menos un número de teléfono"
+              invalid: "El número de teléfono %{index} es inválido"

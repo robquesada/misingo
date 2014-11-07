@@ -13,7 +13,7 @@
           </div>
           <div class="large-10 columns left">
             <%= button_to 'Registra otra mascota desaparecida', new_pet_path, class:"small button left" %>
-            <ul class="small-block-grid-3">
+            <ul class="small-block-grid-1 large-block-grid-3">
               <% @pets.each do |pet| %>
                 <li>
                   <%= link_to image_tag(pet.avatar.url(:medium)), edit_pet_path(pet) %>

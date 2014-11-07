@@ -1,14 +1,3 @@
 en:
   hello: "Hello world"
-
-  activerecord:
-    attributes:
-      lost_report:
-        province: "Provincia"
-        description: "Descripción breve"
-        address: "Dirección exacta"
-      pet:
-        name: "Nombre"
-        breed: "Raza"
-      breed:
-        animal_type: "Animal"
+  

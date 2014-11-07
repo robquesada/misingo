@@ -24,10 +24,9 @@ class FlyersController < ApplicationController
 
   def generate_header_information(image)
     gravity = Magick::NorthGravity
-    draw_text_in_image(image, 20, "SE BUSCA " + @lost_report.pet.name.upcase,
+    draw_text_in_image(image, 20, "SE BUSCA #{@lost_report.pet.name.upcase}",
                        50, 'black', gravity)
-    draw_text_in_image(image, 70, word_wrap("Es un " + get_breed + ". " +
-                       @lost_report.description, line_width: 55), 20, 'none', gravity)
+    draw_text_in_image(image, 70, word_wrap("Es un #{get_breed}. #{@lost_report.description}", line_width: 55), 20, 'none', gravity)
   end
 
   def get_breed
@@ -42,18 +41,9 @@ class FlyersController < ApplicationController
     gravity = Magick::SouthGravity
     draw_text_in_image(image, 100, "* SE OFRECE RECOMPENSA *",
                        25, 'none', gravity) if @lost_report.reward == 1
-    draw_text_in_image(image, 70, get_phone_numbers, 25, 'none', gravity)
-    draw_text_in_image(image, 25, word_wrap("Perdido en " + @lost_report.province.name + ". " +
-                                            @lost_report.address, line_width: 55),
+    draw_text_in_image(image, 70, @lost_report.phone_numbers.join(" / "), 25, 'none', gravity)
+    draw_text_in_image(image, 25, word_wrap("Perdido en #{@lost_report.province.name}. #{@lost_report.address}", line_width: 55),
                                             20, 'none', gravity)
-  end
-
-  def get_phone_numbers
-    if @lost_report.phone_number2.empty?
-      "LLAME AL TELÉFONO: " + @lost_report.phone_number1
-    else
-      "TELÉFONOS: " + @lost_report.phone_number1 + " / " + @lost_report.phone_number2
-    end
   end
 
   def word_wrap(text, options = {})

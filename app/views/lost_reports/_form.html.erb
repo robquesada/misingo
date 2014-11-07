@@ -1,15 +1,5 @@
 <%= form_for [@pet, @lost_report], url: pet_lost_report_path do |f| %>
-  <% if @lost_report.errors.any? %>
-    <div id="error_explanation">
-      <div data-alert class="alert-box alert radius">
-        Lo sentimos, no se pudo guardar la información:
-        <% @lost_report.errors.full_messages.each do |msg| %>
-          <div class="row"><%= msg %></div>
-        <% end %>
-        <a href="#" class="close">&times;</a>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'shared/flash_messages' %>
   <div class="row">
     <div class="large-6 columns">
       <%= f.text_field :owner, placeholder: "Nombre de la dueña o el dueño"%>
@@ -17,10 +7,10 @@
   </div>
   <div class="row">
     <div class="large-6 columns">
-      <%= f.text_field :phone_number1, placeholder: "Número de teléfono" %>
+      <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[0], name: "lost_report[phone_numbers][]", placeholder: "Número de teléfono" %>
     </div>
     <div class="large-6 columns">
-      <%= f.text_field :phone_number2, placeholder: "Otro número de teléfono" %>
+      <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[1] , name: "lost_report[phone_numbers][]", placeholder: "Otro número de teléfono" %>
     </div>
   </div>
   <div class="row">
