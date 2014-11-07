@@ -17,8 +17,15 @@
           </p>
           <div class="panel callout radius">
             <center>
-              <p class="marginless"><b>Perdido en: </b><%= @lost_report.province.name %>. <%= @lost_report.address %></p>
-              <p class="marginless"><b><%= @pet.breed.name %></b>, <%= @pet.sex.downcase %>. <%= @lost_report.description %></p>
+              <p class="marginless"><b>Perdido en: </b><%= @lost_report.province.name %>. 
+              <%= @lost_report.address %></p>
+              <p class="marginless">
+              <% if @pet.breed.name == 'Otra' %>
+                <b><%= @pet.breed.animal_type.name %></b>,
+              <% else %>
+                <b><%= @pet.breed.name %></b>,
+              <% end %>
+              <%= @pet.sex.downcase %>. <%= @lost_report.description %></p>
               <p class="marginless"><b>Teléfonos</b>: <%= @lost_report.phone_number1 %>
               <% if !@lost_report.phone_number2.nil? %>
               / <%= @lost_report.phone_number2 %></p>

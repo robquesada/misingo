@@ -18,30 +18,42 @@ class FlyersController < ApplicationController
     generate_footer_information(image)
 
     image.format = 'jpeg'
-    send_data image.to_blob, :stream => 'false', :filename => 'flyer.jpg', :type => 'image/jpeg', :disposition => 'inline'
+    send_data image.to_blob, :stream => 'false', :filename => 'flyer.jpg',
+                             :type => 'image/jpeg', :disposition => 'inline'
   end
 
   def generate_header_information(image)
     gravity = Magick::NorthGravity
     draw_text_in_image(image, 20, "SE BUSCA " + @lost_report.pet.name.upcase,
                        50, 'black', gravity)
+    draw_text_in_image(image, 70, word_wrap("Es un " + get_breed + ". " +
+                       @lost_report.description, line_width: 55), 20, 'none', gravity)
+  end
 
-    draw_text_in_image(image, 70, word_wrap("Es un " + @lost_report.pet.breed.name + ". " + @lost_report.description, line_width: 55),
-                       20, 'none', gravity)
+  def get_breed
+    if @lost_report.pet.breed.name == 'Otra'
+      @lost_report.pet.breed.animal_type.name
+    else
+      @lost_report.pet.breed.name
+    end
   end
 
   def generate_footer_information(image)
     gravity = Magick::SouthGravity
     draw_text_in_image(image, 100, "* SE OFRECE RECOMPENSA *",
                        25, 'none', gravity) if @lost_report.reward == 1
+    draw_text_in_image(image, 70, get_phone_numbers, 25, 'none', gravity)
+    draw_text_in_image(image, 25, word_wrap("Perdido en " + @lost_report.province.name + ". " +
+                                            @lost_report.address, line_width: 55),
+                                            20, 'none', gravity)
+  end
 
-    phones_text = "TELÉFONOS: " + @lost_report.phone_number1
-    phones_text = phones_text + (" / " + @lost_report.phone_number2) if !@lost_report.phone_number2.nil?
-    draw_text_in_image(image, 70, phones_text,
-                       25, 'none', gravity)
-
-    draw_text_in_image(image, 25, word_wrap("Perdido en " + @lost_report.province.name + ". " + @lost_report.address, line_width: 55),
-                       20, 'none', gravity)
+  def get_phone_numbers
+    if @lost_report.phone_number2.empty?
+      "LLAME AL TELÉFONO: " + @lost_report.phone_number1
+    else
+      "TELÉFONOS: " + @lost_report.phone_number1 + " / " + @lost_report.phone_number2
+    end
   end
 
   def word_wrap(text, options = {})
