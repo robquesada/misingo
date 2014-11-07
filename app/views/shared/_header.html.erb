@@ -1,0 +1,28 @@
+<div id="intro">
+  <div class="contain-to-grid">
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/inicio" style="color:#5bdea9; font-family:'Arial',Gabriola; font-size:30px; font-weight:300;">busca<b>mascotas</b></a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#">
+          <span>Menú</span></a>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><%= nav_link 'Inicio', home_path %></li>
+          <li><%= nav_link 'Registrar desaparición', new_pet_path %></li>
+          <li><%= nav_link 'Mis mascotas', pets_path %></li>
+          <li class="has-dropdown">
+          <a href="#">Usuario</a>
+            <ul class="dropdown">
+              <li><a href='#'>Ver perfil</a></li>
+              <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </nav>
+  </div>
+</div>

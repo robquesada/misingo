@@ -1,28 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title><%= content_for?(:title) ? yield(:title) : "Comunidad virtual de mascotas" %></title>
-
-<%= stylesheet_link_tag "application" %>
-<%= javascript_include_tag "vendor/modernizr" %>
-<%= csrf_meta_tags %>
-</head>
-<body>
-<div class="row">
-  <div class="large-12 columns">
-    <h1>Bienvenido <small>La comunidad virtual para su mascota.</small></h1>
-    <hr/>
-  </div>
-</div>
-<div class="row">
-  <div class="large-13 columns" role="content">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= content_for?(:title) ? yield(:title) : "Mascotas desaparecidas en Costa Rica" %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
     <%= yield %>
-  </div>
-</div>
-<%= render "shared/footer" %>
-<%= javascript_include_tag "application" %>
-</body>
-<html>
+    <%= render "shared/footer" %>
+  </body>
+</html>

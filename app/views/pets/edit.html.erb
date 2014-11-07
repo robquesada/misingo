@@ -1,8 +1,20 @@
-<h3>Editar mascota</h3><br><br>
+<%= render "shared/header" %>
+<div class="large-12 columns">
   <div class="row">
-  <center>
-    <div class="large-6 columns">
-      <%= render 'form' %>
+    <div class="row final"></div>
+      <center>
+        <a class="header">Editar información de <%= @pet.name %></a>
+      </center>
+    <hr>
+    <div class="row">
+      <center>
+        <div class="large-3 columns">
+          <div class="row final"></div>
+        </div>
+        <div class="large-6 columns left">
+          <%= render 'form' %>
+        </div>
+      </center>
     </div>
-  </center>
-</div><br><br><br><br><br><br><br><br>
+  </div>
+</div>
