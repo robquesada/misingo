@@ -1,0 +1,14 @@
+<dl class="accordion" data-accordion>
+  <dd class="accordion-navigation">
+    <a href='#panel<%= i %>', class="accordion">Ver información</a>
+    <div id='panel<%= i %>', class="content">
+      <center>
+        <p class="marginless"><b>Dirección: </b><%= lost.province.name %>. <%= lost.address %></p>
+        <p class="marginless"><b><%= pet.breed.name %></b>, <%= pet.sex.downcase %>. <%= lost.description %></p>
+        <p class="marginless"><b>Teléfonos</b>: <%= lost.phone_numbers.join(" / ") %>
+        </p>
+        <p class="marginless"><%= link_to "Editar información", edit_pet_lost_report_path(pet) %></p>
+      </center>
+    </div>
+  </dd>
+</dl>
