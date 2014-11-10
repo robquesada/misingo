@@ -1,39 +1,20 @@
 require 'rails_helper'
 
 describe LostReport, "validations" do
-  it "validates all the expected fields" do
-    lost_report = LostReport.new(owner: "Pepe",
-                                 description: "Es grande",
-                                 phone_number1: 12345678,
-                                 phone_number2: 12345678,
-                                 reward: 1)
+  
+  subject { FactoryGirl.create(:lost_report, owner: "Pepe",
+                                             description: "Es grande",
+                                             address: "Cerca de la casa de don Josefino",
+                                             phone_numbers: ["12345678"]) }
 
-    expect(lost_report.owner).to eq "Pepe"
-    expect(lost_report.description).to eq "Es grande"
-    expect(lost_report).to be_valid
-  end
+  it { should be_valid }
+  it { should belong_to(:province) }
+  it { should belong_to(:pet) }
+  it { should serialize(:phone_numbers) }
+  it { should allow_value('Pepe', 'Pepe Soto').for(:owner) }
+  it { should_not allow_value('123').for(:owner) }
+  it { should validate_presence_of(:address) }
+  it { should validate_presence_of(:description) }
+  its(:owner){ should eq "Pepe" }
 
-  it "validates owner name and last name" do
-    lost_report = LostReport.new(owner: "Pepe Soto",
-                                 phone_number1: 12345678,
-                                 phone_number2: 12345678)
-
-    expect(lost_report).to be_valid
-  end
-
-  it "validates owner name" do
-    lost_report = LostReport.new(owner: 123,
-                                 phone_number1: 12345678,
-                                 phone_number2: 12345678)
-
-    expect(lost_report).to_not be_valid
-  end
-
-  it "validates phone numbers with only 8 digits" do
-    lost_report = LostReport.new(owner: "Pepe",
-                                 phone_number1: 123234533,
-                                 phone_number2: 12345678)
-
-    expect(lost_report).to_not be_valid
-  end
 end

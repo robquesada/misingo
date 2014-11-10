@@ -7,7 +7,7 @@ class LostReport < ActiveRecord::Base
 
   validates_format_of :owner, :with => /^([a-zA-Z]+\s)*[a-zA-Z]+$/, multiline: true
   validates :phone_numbers, phone_number: true
-  validates :address, :description, presence: true
+  validates_presence_of :address, :description
 
   def phone_numbers
     (super || []).reject(&:blank?) 

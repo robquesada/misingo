@@ -25,6 +25,11 @@ group :development, :test do
   gem 'binding_of_caller'
 end
 
+group :test do
+  gem 'shoulda-matchers', require: false
+  gem 'shoulda'
+end
+
 gem 'rmagick'
 
 gem "paperclip", "~> 4.2"
