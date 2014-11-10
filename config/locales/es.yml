@@ -10,7 +10,7 @@ es:
         description: "Descripción breve"
         address: "Dirección exacta"
         owner: "Dueño"
-        phone_number1: "Primer número de teléfono"
+        phone_numbers: "Números de teléfono"
       pet:
         name: "Nombre"
         breed: "Raza"
@@ -23,9 +23,9 @@ es:
         pet:
           attributes:
             avatar:
-              blank: "La %{attribute} no puede estar en blanco"
+              blank: "Debe subir una %{attribute}"
             avatar_content_type:
-              invalid: "La %{attribute} no es un tipo de archivo válido"
+              invalid: "La %{attribute} no tiene un tipo de archivo válido"
             name:
               blank: "El %{attribute} no puede estar en blanco"
               invalid: "El %{attribute} debe contener solo letras"
@@ -36,3 +36,7 @@ es:
             phone_numbers:
               blank: "Debe ingresar al menos un número de teléfono"
               invalid: "El número de teléfono %{index} es inválido"
+            address:
+              blank: "Debe ingresar la %{attribute} de la desaparición"
+            description:
+              blank: "ingrese una %{attribute} de su mascota"

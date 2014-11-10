@@ -10,7 +10,7 @@ class Pet < ActiveRecord::Base
                                  :thumb => "100x100#",
                                  :profile => "150x150#",
                                  :flyer => "462x526#"},
-                                 :default_url => "/images/:style/missing.png",
+                              :default_url => "/images/:style/missing.png",
                               :processor => "mini_magick", 
                               :convert_options => 
                                 {:flyer => "-background white -compose Copy -gravity center -extent 612x792"}

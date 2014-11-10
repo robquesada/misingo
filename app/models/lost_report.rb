@@ -6,7 +6,7 @@ class LostReport < ActiveRecord::Base
   before_save :titleize_owner
 
   validates_format_of :owner, :with => /^([a-zA-Z]+\s)*[a-zA-Z]+$/, multiline: true
-  validate :validate_phone_numbers
+  validate :phone_numbers_present, :phone_numbers_format
   validates :address, :description, presence: true
 
   def phone_numbers
@@ -31,7 +31,7 @@ class LostReport < ActiveRecord::Base
   def phone_numbers_present
     if phone_numbers.empty?
       locale_blank_path = "activerecord.errors.models.lost_report.attributes.phone_numbers.blank"
-      errors.add(:phone_numbers, I18n.t(locale_blank_path).gsub("%{index}", index.next.to_s))
+      errors.add(:phone_numbers, I18n.t(locale_blank_path))
     end
   end
 end

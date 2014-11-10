@@ -7,9 +7,11 @@
   </div>
   <div class="row">
     <div class="large-6 columns">
-      <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[0], name: "lost_report[phone_numbers][]", placeholder: "Número de teléfono" %>
+      <%= f.label :phone_numbers %>
+      <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[0], name: "lost_report[phone_numbers][]", placeholder: "Ejemplo: 88112233" %>
     </div>
     <div class="large-6 columns">
+      <%= f.label "Opcional" %>
       <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[1] , name: "lost_report[phone_numbers][]", placeholder: "Otro número de teléfono" %>
     </div>
   </div>

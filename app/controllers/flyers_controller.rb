@@ -41,7 +41,7 @@ class FlyersController < ApplicationController
     gravity = Magick::SouthGravity
     draw_text_in_image(image, 100, "* SE OFRECE RECOMPENSA *",
                        25, 'none', gravity) if @lost_report.reward == 1
-    draw_text_in_image(image, 70, @lost_report.phone_numbers.join(" / "), 25, 'none', gravity)
+    draw_text_in_image(image, 70, "Teléfonos: #{@lost_report.phone_numbers.join(" / ")}", 25, 'none', gravity)
     draw_text_in_image(image, 25, word_wrap("Perdido en #{@lost_report.province.name}. #{@lost_report.address}", line_width: 55),
                                             20, 'none', gravity)
   end
