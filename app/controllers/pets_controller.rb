@@ -1,7 +1,7 @@
 class PetsController < ApplicationController
 
   before_filter :find_pet, only: [:show, :edit, :update, :destroy]
-  before_filter :find_breeds, only: [:new, :edit, :create]
+  before_filter :find_breeds, only: [:new, :edit, :update, :create]
 
   def new
     @pet = Pet.new
@@ -27,7 +27,12 @@ class PetsController < ApplicationController
   def edit; end
 
   def update
-    @pet.update(pet_params) ? (redirect_to @pet) : (render 'edit')
+    if @pet.update(pet_params)
+      redirect_to @pet
+    else 
+      flash.now[:error] = @pet.errors.messages
+      render 'edit'
+    end
   end
 
   def destroy
@@ -46,6 +51,6 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(:pet).permit(:name, :breed_id, :description, :sex, :avatar)
+    params.require(:pet).permit(:name, :breed_id, :sex, :avatar)
   end
 end

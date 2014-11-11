@@ -13,10 +13,8 @@ class FlyersController < ApplicationController
 
   def generate_flyer
     image = ImageList.new((@pet.avatar.path.sub! '/original/', '/flyer/'))
-
     generate_header_information(image)
     generate_footer_information(image)
-
     image.format = 'jpeg'
     send_data image.to_blob, :stream => 'false', :filename => 'flyer.jpg',
                              :type => 'image/jpeg', :disposition => 'inline'
@@ -26,7 +24,8 @@ class FlyersController < ApplicationController
     gravity = Magick::NorthGravity
     draw_text_in_image(image, 20, "SE BUSCA #{@lost_report.pet.name.upcase}",
                        50, 'black', gravity)
-    draw_text_in_image(image, 70, word_wrap("Es un #{get_breed}. #{@lost_report.description}", line_width: 55), 20, 'none', gravity)
+    draw_text_in_image(image, 70, word_wrap("Es un #{get_breed}. #{@lost_report.description}", line_width: 55),
+                       20, 'none', gravity)
   end
 
   def get_breed
@@ -48,7 +47,6 @@ class FlyersController < ApplicationController
 
   def word_wrap(text, options = {})
     line_width = options.fetch(:line_width, 80)
-
     text.split("\n").collect! do |line|
       line.length > line_width ? line.gsub(/(.{1,#{line_width}})(\s+|$)/, "\\1\n").strip : line
     end * "\n"

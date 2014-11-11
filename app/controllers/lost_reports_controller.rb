@@ -25,6 +25,7 @@ class LostReportsController < ApplicationController
     if @lost_report.update(lost_report_params)
       redirect_to pet_lost_report_path(@pet)
     else
+      flash.now[:error] = @lost_report.errors.messages
       render 'edit'
     end
   end
