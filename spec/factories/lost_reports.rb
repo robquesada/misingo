@@ -6,6 +6,7 @@ FactoryGirl.define do
     description "MyText"
     phone_numbers ["12345678", "12345678"]
     reward 1
+    province_id 1
   end
 
   factory :invalid_lost_report, parent: :lost_report do
