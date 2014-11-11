@@ -7,8 +7,9 @@ describe LostReportsController, "validations" do
   end
 
   context "render templates" do
-    subject { post :create, pet_id: @pet.id, lost_report: FactoryGirl.attributes_for(:lost_report) }
-    it { expect(subject).to redirect_to pet_lost_report_path(@pet) }
+    it { expect(get :new, pet_id: @pet.id).to render_template("new") }
+    it { expect(get :show, pet_id: @pet.id).to render_template("show") }
+    it { expect(get :edit, pet_id: @pet.id).to render_template("edit") }
   end
   
   context "create lost report with valid attributes" do
