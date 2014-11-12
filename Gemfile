@@ -20,13 +20,14 @@ group :test do
   gem 'rspec-rails'
   gem 'rspec-its'
   gem 'factory_girl_rails'
-  gem 'awesome_print'
-  gem 'better_errors'
   gem 'binding_of_caller'
   gem 'shoulda-matchers', require: false
   gem 'shoulda'
   gem 'database_cleaner'
 end
+
+gem 'awesome_print'
+gem 'better_errors'
 
 gem 'rmagick'
 
