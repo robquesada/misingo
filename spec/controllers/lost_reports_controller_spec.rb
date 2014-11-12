@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe LostReportsController, "validations" do
+describe LostReportsController do
   let(:pet) { FactoryGirl.create(:pet) }
 
   describe "GET new" do
