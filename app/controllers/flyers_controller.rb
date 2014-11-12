@@ -1,5 +1,3 @@
-require 'pet_project/flyers/generator'
-
 class FlyersController < ApplicationController
 
   def show
@@ -12,7 +10,7 @@ class FlyersController < ApplicationController
   private
 
   def flyer
-    generator = PetProject::Flyers::Generator.new(@pet, @lost_report)
+    generator = PetProject::Flyers::Presenter.new(@pet, @lost_report)
     generator.generate_flyer
   end
 end
