@@ -7,10 +7,10 @@ describe FlyersController do
     let(:pet) { FactoryGirl.create(:pet, lost_report: lost_report) }
 
     let(:flyer) { double("Flyer", to_blob: "12312jklasdjasd812") }
-    let(:flyers_generator) { double("PetProject::Flyers::Presenter", generate_flyer: flyer) }
+    let(:flyers_generator) { double("PetProject::Flyers::Interactor", generate_flyer: flyer) }
 
     before do
-      allow(PetProject::Flyers::Presenter).to receive(:new) { flyers_generator }
+      allow(PetProject::Flyers::Interactor).to receive(:new) { flyers_generator }
     end
 
     it "finds the pet" do
@@ -25,7 +25,7 @@ describe FlyersController do
 
     describe "generating the flyer" do
       it "creates a generator" do
-        expect(PetProject::Flyers::Presenter).to receive(:new).with(pet, lost_report)
+        expect(PetProject::Flyers::Interactor).to receive(:new).with(pet, lost_report)
         get :show, pet_id: pet.id
       end
 

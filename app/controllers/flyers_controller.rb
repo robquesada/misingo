@@ -10,7 +10,7 @@ class FlyersController < ApplicationController
   private
 
   def flyer
-    generator = PetProject::Flyers::Presenter.new(@pet, @lost_report)
+    generator = PetProject::Flyers::Interactor.new(@pet, @lost_report)
     generator.generate_flyer
   end
 end

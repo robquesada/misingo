@@ -2,22 +2,17 @@ require 'rails_helper'
 
 describe PetProject::Flyers::Templates::Default do
 
-  let(:breed) { FactoryGirl.create(:breed) }
-  let(:pet) { FactoryGirl.create(:pet, breed: breed) }
-  let(:province) { FactoryGirl.create(:province) }
-  let(:lost_report) { FactoryGirl.create(:lost_report, pet: pet, province: province) }
-
-  let(:image_path) { String }
+  let(:image_path) { "pet/cat.jpg" }
   let(:flyer) { double("Magick::ImageList", { 'format=' => 'jpeg', 'annotate' => 'jpeg' }) }
 
-  let(:flyer_info) { { pet_name: pet.name,
-                       pet_breed: pet.breed, 
-                       avatar: pet.avatar,
-                       description: lost_report.description,
-                       reward: lost_report.reward,
-                       phone_numbers: lost_report.phone_numbers,
-                       province: lost_report.province,
-                       address: lost_report.address
+  let(:flyer_info) { { pet_name: "Pipo",
+                       pet_breed: "Zaguate", 
+                       avatar_path: image_path,
+                       description: "Tiene una mancha en la oreja",
+                       reward: 1,
+                       phone_numbers: ["12345678", "87654321"],
+                       province_name: "Alajuela",
+                       address: "Cerca del McDonald's del centro"
                    } }
 
   let(:default_template) { PetProject::Flyers::Templates::Default.new(flyer_info) }

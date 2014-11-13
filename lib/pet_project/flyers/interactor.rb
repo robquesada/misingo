@@ -2,16 +2,18 @@ module PetProject
   module Flyers
     class Interactor
 
-      def generate_info(pet, lost_report)
-        flyer_info = { pet_name: pet.name,
-                       pet_breed: pet.breed, 
-                       avatar: pet.avatar,
-                       description: lost_report.description,
-                       reward: lost_report.reward,
-                       phone_numbers: lost_report.phone_numbers,
-                       province: lost_report.province,
-                       address: lost_report.address
-                     }
+      attr_accessor :pet, :lost_report
+
+      def initialize(pet, lost_report)
+        self.pet = pet
+        self.lost_report = lost_report
+      end
+
+      def generate_flyer
+        presenter = PetProject::Flyers::Presenter.new
+        flyer_info = presenter.generate_info(pet, lost_report)
+        template = PetProject::Flyers::Templates::Default.new(flyer_info)
+        template.generate_flyer
       end
 
     end

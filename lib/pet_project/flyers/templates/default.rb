@@ -15,7 +15,7 @@ module PetProject
         end
 
         def generate_flyer
-          image = ImageList.new((flyer_info[:avatar].path.sub! '/original/', '/flyer/'))
+          image = ImageList.new(flyer_info[:avatar_path])
           generate_header_information(image)
           generate_footer_information(image)
           image.format = 'jpeg'
@@ -33,10 +33,10 @@ module PetProject
         end
 
         def get_breed
-          if flyer_info[:pet_breed].name == 'Otra'
-            flyer_info[:pet_breed].animal_type.name
+          if flyer_info[:pet_breed] == 'Otra'
+            flyer_info[:pet_animal_type]
           else
-            flyer_info[:pet_breed].name
+            flyer_info[:pet_breed]
           end
         end
 
@@ -45,7 +45,7 @@ module PetProject
           draw_text_in_image(image, 100, "* SE OFRECE RECOMPENSA *",
                              25, 'none', gravity) if flyer_info[:reward] == 1
           draw_text_in_image(image, 70, "Teléfonos: #{flyer_info[:phone_numbers].join(" / ")}", 25, 'none', gravity)
-          draw_text_in_image(image, 25, word_wrap("Perdido en #{flyer_info[:province].name}. #{flyer_info[:address]}", line_width: 55),
+          draw_text_in_image(image, 25, word_wrap("Perdido en #{flyer_info[:province_name]}. #{flyer_info[:address]}", line_width: 55),
                                                   20, 'none', gravity)
         end
 
