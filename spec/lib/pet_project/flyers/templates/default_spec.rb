@@ -5,7 +5,8 @@ describe PetProject::Flyers::Templates::Default do
   let(:image_path) { "pet/cat.jpg" }
   let(:flyer) { double("Magick::ImageList", { 'format=' => 'jpeg', 'annotate' => 'jpeg' }) }
 
-  let(:flyer_info) { { pet_name: "Pipo",
+  let(:flyer_info) { { 
+                       pet_name: "Pipo",
                        pet_breed: "Zaguate", 
                        avatar_path: image_path,
                        description: "Tiene una mancha en la oreja",
@@ -17,7 +18,7 @@ describe PetProject::Flyers::Templates::Default do
 
   let(:default_template) { PetProject::Flyers::Templates::Default.new(flyer_info) }
 
-  describe "generating flyer" do
+  describe "#generate_flyer" do
 
     before do
       allow(Magick::ImageList).to receive(:new) { flyer }
@@ -31,16 +32,12 @@ describe PetProject::Flyers::Templates::Default do
       expect(Magick::ImageList).to receive(:new).with(image_path)
     end
 
-    it "generates header information" do
-      expect(default_template).to receive(:generate_header_information).with(flyer)
-    end
-
-    it "generates footer information" do
-      expect(default_template).to receive(:generate_footer_information).with(flyer)
-    end
-
     it "sets image format" do
       expect(flyer).to receive(:format=).with(String)
+    end
+
+    it "returns the image" do
+      expect(default_template.generate_flyer).to eq(flyer)
     end
   end
 

@@ -3,6 +3,9 @@ class Pet < ActiveRecord::Base
   belongs_to :breed
   has_one :lost_report
 
+  delegate :name, to: :breed, prefix: true
+  delegate :animal_type_name, to: :breed
+
   before_save :capitalize_name
 
   has_attached_file :avatar, :styles => 

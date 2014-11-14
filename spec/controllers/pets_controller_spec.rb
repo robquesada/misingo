@@ -22,7 +22,7 @@ describe PetsController do
     context "pet with valid attributes" do
       subject { post :create, pet: FactoryGirl.attributes_for(:pet) }
       
-      it "has one new pet" do
+      it "creates a new pet" do
         expect{subject}.to change(Pet,:count).by(1)
       end
       
@@ -34,7 +34,7 @@ describe PetsController do
     context "pet with invalid attributes" do
       subject { post :create, pet: FactoryGirl.attributes_for(:invalid_pet) }
       
-      it "does not has a new pet" do
+      it "does not create a new pet" do
         expect{subject}.to_not change(Pet,:count)
       end
       
