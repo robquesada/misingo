@@ -1,10 +1,20 @@
 FactoryGirl.define do
+
   factory :lost_report do
     address "Cerca de aqui"
     owner "Pedro"
     description "MyText"
-    phone_number1 12345678
-    phone_number2 12345678
+    phone_numbers ["12345678", "12345678"]
     reward 1
+    
+    after(:create) do |lost_report|
+      lost_report.pet = create(:pet)
+      lost_report.province = create(:province)
+    end
   end
+
+  factory :invalid_lost_report, parent: :lost_report do
+    phone_numbers ["", ""]
+  end
+
 end

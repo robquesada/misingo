@@ -12,6 +12,7 @@ class LostReportsController < ApplicationController
     if @lost_report.save
       redirect_to pet_lost_report_path(@pet)
     else
+      flash.now[:error] = @lost_report.errors.messages
       render 'new'
     end
   end
@@ -24,6 +25,7 @@ class LostReportsController < ApplicationController
     if @lost_report.update(lost_report_params)
       redirect_to pet_lost_report_path(@pet)
     else
+      flash.now[:error] = @lost_report.errors.messages
       render 'edit'
     end
   end
@@ -41,12 +43,11 @@ class LostReportsController < ApplicationController
   def lost_report_params
     params.require(:lost_report).permit(
       :owner,
-      :phone_number1,
-      :phone_number2,
       :province_id,
       :address,
       :description,
-      :reward
+      :reward,
+      :phone_numbers => []
     )
   end
 end
