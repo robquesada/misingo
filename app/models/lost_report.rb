@@ -3,10 +3,7 @@ class LostReport < ActiveRecord::Base
   belongs_to :pet
   serialize :phone_numbers
 
-  delegate :name, to: :pet, prefix: true
-  delegate :avatar, to: :pet, prefix: true
-  delegate :breed_name, to: :pet, prefix: true
-  delegate :name, to: :province, prefix: true
+  delegate :name, :avatar, :breed_name, to: :pet, prefix: true
   delegate :animal_type_name, to: :pet
 
   before_save :titleize_owner
