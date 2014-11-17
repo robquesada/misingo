@@ -20,10 +20,6 @@ class PetsController < ApplicationController
 
   def show; end
 
-  def index
-    @pets = current_user.pets
-  end
-
   def edit; end
 
   def update

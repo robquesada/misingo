@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'perfil', to: 'users#index', as: 'profile'
+
   root 'login#index'
 end

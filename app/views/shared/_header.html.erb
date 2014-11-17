@@ -13,11 +13,14 @@
         <ul class="right">
           <li><%= nav_link 'Inicio', home_path %></li>
           <li><%= nav_link 'Registrar desaparición', new_pet_path %></li>
-          <li><%= nav_link 'Adopciones', pets_path %></li>
+          <li><%= nav_link 'Adopciones', login_path %></li>
           <li class="has-dropdown">
-          <a href="#"><%= current_user.name %> <%= image_tag(current_user.image, height: '35', width: '35') %></a>
+          <a href="#">
+            <% current_user.image.nil? ? @image = 'profile_default.png' : @image = current_user.image %>
+            <%= current_user.name %> <%= image_tag(@image, height: '35', width: '35') %>
+          </a>
             <ul class="dropdown">
-              <li><%= nav_link 'Ver mi cuenta', pets_path %></li>
+              <li><%= nav_link 'Ver mi cuenta', profile_path %></li>
               <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
