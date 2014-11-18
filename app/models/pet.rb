@@ -1,7 +1,7 @@
 class Pet < ActiveRecord::Base
   belongs_to :user
   belongs_to :breed
-  has_one :lost_report
+  has_one :lost_report, dependent: :destroy
 
   delegate :name, to: :breed, prefix: true
   delegate :animal_type_name, to: :breed
