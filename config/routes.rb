@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   get 'iniciar', to: 'login#index', as: 'login'
   get 'inicio', to: 'main#home', as: 'home'
-  get 'breed/:id', to: 'pets#breed_change', as: 'breed_change'
 
   resources :pets, path: 'mascotas' do
     resource :lost_report, path: 'extravios' do

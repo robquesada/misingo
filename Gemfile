@@ -26,7 +26,7 @@ group :test do
   gem 'database_cleaner'
 end
 
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '~> 2.0.0'
 
 gem 'awesome_print'
 gem 'better_errors'

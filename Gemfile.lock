@@ -212,7 +212,7 @@ DEPENDENCIES
   foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
-  omniauth-facebook
+  omniauth-facebook (~> 2.0.0)
   paperclip (~> 4.2)
   pg
   rails (~> 4.1.6)

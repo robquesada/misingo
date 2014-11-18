@@ -1,6 +1,6 @@
 <div class="large-12 columns">
   <div class="row">
-    <br>
+    <div class="row final"></div>
     <h3>Crear cuenta</h3>
     <hr>
     <div class="panel">
@@ -8,7 +8,8 @@
         <%= devise_error_messages! %>
         <%= f.text_field :name, placeholder:"María", autofocus: true %>
         <%= f.email_field :email, placeholder:"E-mail", autofocus: true %>
-        <% if @validatable %>(<%= @minimum_password_length %> caracteres como mínimo)<% end %><br />
+        <%= "#{@minimum_password_length} caracteres como mínimo" if @validatable %>
+        <div class="row final"></div>
         <%= f.password_field :password, placeholder: "Nueva contraseña", autocomplete: "off" %>
         <%= f.password_field :password_confirmation, placeholder: "Ingrese de nuevo la contraseña", autocomplete: "off" %>
         <div><%= f.submit "Crear cuenta", class:"button" %></div>
