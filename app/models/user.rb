@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :pets, dependent: :destroy
 
   def self.from_omniauth(auth)
-    # uid: User ID
+    # uid: User ID in the provider
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]

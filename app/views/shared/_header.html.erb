@@ -17,7 +17,7 @@
           <li class="has-dropdown">
           <a>
             <% current_user.image.nil? ? @image = 'profile_default.png' : @image = current_user.image %>
-            <%= current_user.name %> <%= image_tag(@image, height: '35', width: '35') %>
+            <%= current_user.name %> <%= image_tag(@image, class:"mini profile") %>
           </a>
             <ul class="dropdown">
               <li><%= nav_link 'Ver mi cuenta', profile_path %></li>
