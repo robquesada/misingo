@@ -40,7 +40,9 @@
       <%= f.select :breed_id, options_for_select(@breeds.map{ |c| [c.name, c.id, { data: { animal_type: c.animal_type_id } } ] }, selected: @pet.breed_id) %>
     </div>
   </div>
-  <%= f.submit "Aceptar y continuar", class: "secondary small button right" %>
+  <% @pet.new_record? ? text = "Aceptar y continuar" : text = "Guardar" %>
+  <%= f.submit text, class: "small button right" %>
+  <%= link_to "Editar información de la desaparición", edit_pet_lost_report_path(@pet), class: "secondary small button right" if !@pet.new_record? %>
 <% end %>
 <script type="text/javascript">
     <% if !@pet.new_record? %>
