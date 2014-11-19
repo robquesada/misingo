@@ -6,7 +6,7 @@ describe Pet, "validations" do
 
   it { should belong_to(:user) }
   it { should belong_to(:breed) }
-  it { should have_one(:lost_report) }
+  it { should have_one(:lost_report).dependent(:destroy) }
   it { should have_attached_file(:avatar) }
   it { should allow_value('Pipo', 'Pepe').for(:name) }
   it { should_not allow_value('Pepe Soto').for(:name) }

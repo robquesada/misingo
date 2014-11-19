@@ -6,12 +6,6 @@ describe PetsController do
     sign_in FactoryGirl.create(:user)
   end
 
-  describe "GET index" do
-    it "renders index template" do
-      expect(get :index).to be_success
-    end
-  end
-
   describe "GET new" do
     it "renders new template" do
       expect(get :new).to render_template("new")
