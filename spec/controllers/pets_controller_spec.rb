@@ -2,9 +2,7 @@ require 'rails_helper'
 
 describe PetsController do
 
-  before :each do
-    sign_in FactoryGirl.create(:user)
-  end
+  login_user
 
   describe "GET new" do
     it "renders new template" do
