@@ -16,6 +16,7 @@ gem 'rmagick', '2.13.3'
 gem 'paperclip', '~> 4.2'
 gem 'awesome_print', '~> 1.2.0'
 gem 'better_errors', '~> 2.0.0'
+gem 'activeadmin', github: 'activeadmin'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', '~> 1.1.3', group: :development
