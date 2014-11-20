@@ -2,15 +2,7 @@ require 'rails_helper'
 
 describe PetsController do
 
-  before :each do
-    sign_in FactoryGirl.create(:user)
-  end
-
-  describe "GET index" do
-    it "renders index template" do
-      expect(get :index).to be_success
-    end
-  end
+  login_user
 
   describe "GET new" do
     it "renders new template" do
