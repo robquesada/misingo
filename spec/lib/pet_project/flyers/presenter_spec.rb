@@ -17,7 +17,7 @@ describe PetProject::Flyers::Presenter do
           pet_name: lost_report.pet_name,
           pet_breed: lost_report.pet_breed_name, 
           pet_animal_type: lost_report.animal_type_name,
-          avatar_path: (lost_report.pet_avatar.path.sub! '/original/', '/flyer/'),
+          avatar_path: lost_report.pet_avatar.url(:flyer),
           description: lost_report.description,
           reward: lost_report.reward,
           phone_numbers: lost_report.phone_numbers,
@@ -27,5 +27,4 @@ describe PetProject::Flyers::Presenter do
       )
     end
   end
-
 end

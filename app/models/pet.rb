@@ -21,9 +21,9 @@ class Pet < ActiveRecord::Base
                               {
                                 flyer: "-background white -compose Copy -gravity center -extent 612x792"
                               }
-                              
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-  validates_format_of :name, :with => /^[a-zA-Z]+$/, :multiline => true
+
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  validates_format_of :name, with: /^[a-zA-Z]+$/, multiline: true
   validates :avatar, presence: true
 
   def capitalize_name
