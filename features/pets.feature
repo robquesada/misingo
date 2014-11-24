@@ -1,6 +1,6 @@
 Feature: Pets module
 
-  Scenario: Add a lost pet to the site
+  Scenario: Register a pet to the site
     Given I'm a logged in user
     And I want to add a lost pet
     When I click "Registrar desaparición"

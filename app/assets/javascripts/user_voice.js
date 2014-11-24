@@ -1,11 +1,11 @@
 UserVoice=window.UserVoice||[];
 
 (function(){
-  var uv=document.createElement('script');
-  uv.type='text/javascript';
-  uv.async=true;
-  uv.src='//widget.uservoice.com/2CQcrjs0m6S56p6qpJl3g.js';
-  var s=document.getElementsByTagName('script')[0];
+  var uv = document.createElement('script');
+  uv.type = 'text/javascript';
+  uv.async = true;
+  uv.src = '//widget.uservoice.com/2CQcrjs0m6S56p6qpJl3g.js';
+  var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(uv,s)
 })();
 
