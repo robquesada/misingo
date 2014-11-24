@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe LostReportsController do
+
+  login_user
   let(:pet) { FactoryGirl.create(:pet) }
 
   describe "GET new" do
@@ -46,34 +48,45 @@ describe LostReportsController do
   end
 
   describe "PUT update" do
+    let(:pet) { FactoryGirl.create(:pet, user: subject.current_user) }
     let(:lost_report) { FactoryGirl.create(:lost_report, pet_id: pet.id) }
+    let(:new_attributes) { { address: 'Guadalupe' } }
 
     before do
-      put :update, {pet_id: pet.id, id: lost_report.to_param, lost_report: new_attributes}
+      put :update, { pet_id: pet.id, id: lost_report.to_param, lost_report: new_attributes }
       lost_report.reload
     end
 
-    context "update lost report with valid attributes" do
-      let(:new_attributes) { { address: 'Guadalupe' } }
+    context "when lost report is not owned by the user" do
+      let(:user_not_owner) { FactoryGirl.create(:user) }
+      let(:pet) { FactoryGirl.create(:pet, user: user_not_owner) }
 
-      it "updates the requested pet" do
-        expect(assigns(:lost_report)).to have_attributes(new_attributes)
+      it "redirects to home page" do
+        expect(response).to redirect_to(home_path)
       end
     end
 
-    context "update lost report with invalid attributes" do
-      let(:new_attributes) { { phone_numbers: ["123"] } }
-
-      it "does not update the requested pet" do
-        expect(lost_report.phone_numbers).not_to eq(["123"])
+    context "when lost report is owned by the user" do
+      context "update lost report with valid attributes" do
+        it "updates the requested pet" do
+          expect(assigns(:lost_report)).to have_attributes(new_attributes)
+        end
       end
 
-      it "adds errors messages" do
-        expect(response.flash[:error]).to be_present
-      end
+      context "update lost report with invalid attributes" do
+        let(:new_attributes) { { phone_numbers: ["123"] } }
 
-      it "renders edit template" do
-        expect(response).to render_template :edit
+        it "does not update the requested pet" do
+          expect(lost_report.phone_numbers).not_to eq(["123"])
+        end
+
+        it "adds errors messages" do
+          expect(response.flash[:error]).to be_present
+        end
+
+        it "renders edit template" do
+          expect(response).to render_template :edit
+        end
       end
     end
   end

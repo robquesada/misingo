@@ -17,10 +17,11 @@ gem 'paperclip', '~> 4.2'
 gem 'awesome_print', '~> 1.2.0'
 gem 'better_errors', '~> 2.0.0'
 gem 'activeadmin', github: 'activeadmin'
-
+gem 'aws-sdk-v1', '~> 1.59.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', '~> 1.1.3', group: :development
 gem 'rails_12factor', '~> 0.0.3', group: :production
+gem 'dotenv-rails', '~> 1.0.2', groups: [:development, :test]
 
 group :test do
   gem 'rspec-rails', '~> 3.1.0'
@@ -30,4 +31,8 @@ group :test do
   gem 'shoulda-matchers', '~> 2.7.0', require: false
   gem 'shoulda', '~> 3.5.0'
   gem 'database_cleaner', '~> 1.3.0'
+  gem 'cucumber-rails', '~> 1.4.2', require: false
+  gem 'capybara', '~> 2.4.4'
+  gem 'launchy', '~> 2.4.3'
+  gem 'faker', '~> 1.4.3'
 end
