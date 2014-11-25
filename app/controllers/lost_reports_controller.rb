@@ -1,5 +1,4 @@
 class LostReportsController < ApplicationController
-  
   before_filter :find_pet
   before_filter :find_lost_report, only: [:show, :edit, :update]
   before_filter :validate_owner, only: [:edit, :update]
@@ -52,7 +51,7 @@ class LostReportsController < ApplicationController
       :address,
       :description,
       :reward,
-      :phone_numbers => []
+      phone_numbers: []
     )
   end
 end

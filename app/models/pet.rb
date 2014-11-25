@@ -8,18 +8,18 @@ class Pet < ActiveRecord::Base
 
   before_save :capitalize_name
 
-  has_attached_file :avatar,  styles:  
+  has_attached_file :avatar,  styles:
                               {
-                                medium: "300x300#",
-                                thumb: "100x100#",
-                                profile: "150x150#",
-                                flyer: "462x526#"
+                                medium: '300x300#',
+                                thumb: '100x100#',
+                                profile: '150x150#',
+                                flyer: '462x526#'
                               },
-                              default_url: "/images/:style/missing.png",
-                              processor: "mini_magick", 
-                              convert_options: 
+                              default_url: '/images/:style/missing.png',
+                              processor: 'mini_magick',
+                              convert_options:
                               {
-                                flyer: "-background white -compose Copy -gravity center -extent 612x792"
+                                flyer: '-background white -compose Copy -gravity center -extent 612x792'
                               }
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
@@ -27,6 +27,6 @@ class Pet < ActiveRecord::Base
   validates :avatar, presence: true
 
   def capitalize_name
-    self.name = self.name.capitalize
+    self.name = name.capitalize
   end
 end

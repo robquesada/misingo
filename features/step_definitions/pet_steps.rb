@@ -1,5 +1,4 @@
 Given(/^I want to add a lost pet$/) do
-  FactoryGirl.create(:breed)
   visit home_path
 end
 
@@ -19,12 +18,12 @@ When(/^select 'Hembra' in the sex field$/) do
   choose('pet_sex_hembra')
 end
 
-When(/^select 'Perro' in the animal type field$/) do
-  select("Perro", from: 'animal_type_id')
+When(/^select "(.*?)" in the animal type field$/) do |pet_animal_type|
+  select(pet_animal_type, from: 'animal_type_id')
 end
 
 When(/^select "(.*?)" in the breed field$/) do |pet_breed|
-  select("Zaguate", from: 'pet_breed_id')
+  select(pet_breed, from: 'pet_breed_id')
 end
 
 When(/^click "(.*?)" button to finish$/) do |accept_button|

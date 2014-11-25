@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-describe Pet, "validations" do
-  
+describe Pet, 'validations' do
   subject { FactoryGirl.create(:pet) }
 
   it { should belong_to(:user) }
@@ -11,5 +10,4 @@ describe Pet, "validations" do
   it { should allow_value('Pipo', 'Pepe').for(:name) }
   it { should_not allow_value('Pepe Soto').for(:name) }
   it { should_not allow_value('123').for(:name) }
-
 end

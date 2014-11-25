@@ -2,9 +2,9 @@ module UserStepHelpers
   def log_in_as(user)
     @user = user
     visit new_user_session_path
-    fill_in("user_email", with: @user.email)
-    fill_in("user_password", with: @user.password)
-    click_button("Iniciar")
+    fill_in('user_email', with: @user.email)
+    fill_in('user_password', with: @user.password)
+    click_button('Iniciar')
   end
 end
 

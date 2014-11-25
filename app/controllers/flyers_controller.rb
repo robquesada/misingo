@@ -1,5 +1,4 @@
 class FlyersController < ApplicationController
-
   def show
     @pet = Pet.find(params[:pet_id])
     @lost_report = @pet.lost_report

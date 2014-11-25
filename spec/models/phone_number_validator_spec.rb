@@ -15,13 +15,12 @@ describe PhoneNumberValidator do
   end
 
   context 'with valid phone numbers' do
-    before { allow(subject).to receive(:phone_numbers).and_return(["85423423", "12345678"]) }
+    before { allow(subject).to receive(:phone_numbers).and_return(%w(85423423 12345678)) }
     it { should be_valid }
   end
 
   context 'with invalid phone numbers' do
-    before { allow(subject).to receive(:phone_numbers).and_return(["abc", "12345678"]) }
+    before { allow(subject).to receive(:phone_numbers).and_return(%w(abc 12345678)) }
     it { should_not be_valid }
   end
-
 end

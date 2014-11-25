@@ -13,13 +13,12 @@ class LostReport < ActiveRecord::Base
   validates_presence_of :address, :description
 
   def phone_numbers
-    (super || []).reject(&:blank?) 
+    (super || []).reject(&:blank?)
   end
-  
+
   private
 
   def titleize_owner
-    self.owner = self.owner.titleize
+    self.owner = owner.titleize
   end
-
 end

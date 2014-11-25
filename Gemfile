@@ -18,6 +18,7 @@ gem 'awesome_print', '~> 1.2.0'
 gem 'better_errors', '~> 2.0.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'aws-sdk-v1', '~> 1.59.0'
+gem 'rubocop', '~> 0.27.1', require: false
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', '~> 1.1.3', group: :development
 gem 'rails_12factor', '~> 0.0.3', group: :production

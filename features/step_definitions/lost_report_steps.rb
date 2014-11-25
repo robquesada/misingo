@@ -1,6 +1,5 @@
 When(/^I am on the page for add the information of the lost$/) do
   @pet = FactoryGirl.create(:pet)
-  FactoryGirl.create(:province)
   visit new_pet_lost_report_path(@pet)
 end
 
@@ -12,8 +11,8 @@ When(/^enter "(.*?)" in the phone field$/) do |phone_number|
   fill_in('lost_report_phone_numbers', with: phone_number, match: :prefer_exact)
 end
 
-When(/^select 'Alajuela' in the province select$/) do
-  select("Alajuela", from: 'lost_report_province_id')
+When(/^select "(.*?)" in the province select$/) do |province|
+  select(province, from: 'lost_report_province_id')
 end
 
 When(/^enter "(.*?)" in the address field$/) do |address|

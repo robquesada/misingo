@@ -1,11 +1,9 @@
 module PetProject
   module Flyers
     module Templates
-      
       require 'RMagick'
       
       class Default
-
       include Magick
 
         attr_accessor :flyer_info
@@ -21,18 +19,18 @@ module PetProject
           image.format = 'jpeg'
           return image
         end
-        
+
         private
 
         def generate_header_information(image)
           gravity = Magick::NorthGravity
           draw_text_in_image(image, 20, "SE BUSCA #{flyer_info[:pet_name].upcase}",
                              50, 'black', gravity)
-          draw_text_in_image(image, 70, word_wrap("Es un #{get_breed}. #{flyer_info[:description]}", line_width: 55),
-                             20, 'none', gravity)
+          draw_text_in_image(image, 70, word_wrap("Es un #{pet_breed}. #{flyer_info[:description]}",
+                                        line_width: 55), 20, 'none', gravity)
         end
 
-        def get_breed
+        def pet_breed
           if flyer_info[:pet_breed] == 'Otra'
             flyer_info[:pet_animal_type]
           else
@@ -42,11 +40,11 @@ module PetProject
 
         def generate_footer_information(image)
           gravity = Magick::SouthGravity
-          draw_text_in_image(image, 100, "* SE OFRECE RECOMPENSA *",
+          draw_text_in_image(image, 100, '* SE OFRECE RECOMPENSA *',
                              25, 'none', gravity) if flyer_info[:reward] == 1
-          draw_text_in_image(image, 70, "Teléfonos: #{flyer_info[:phone_numbers].join(" / ")}", 25, 'none', gravity)
-          draw_text_in_image(image, 25, word_wrap("Perdido en #{flyer_info[:province_name]}. #{flyer_info[:address]}", line_width: 55),
-                                                  20, 'none', gravity)
+          draw_text_in_image(image, 70, "Teléfonos: #{flyer_info[:phone_numbers].join(' / ')}", 25, 'none', gravity)
+          draw_text_in_image(image, 25, word_wrap("Perdido en #{flyer_info[:province_name]}. #{flyer_info[:address]}",
+                                        line_width: 55), 20, 'none', gravity)
         end
 
         def word_wrap(text, options = {})
@@ -58,7 +56,7 @@ module PetProject
 
         def draw_text_in_image(image, move, text, text_size, stroke, gravity)
           draw = Draw.new
-          image.annotate(draw, 0,0,0,move, text) do
+          image.annotate(draw, 0, 0, 0, move, text) do
             draw.gravity = gravity
             draw.pointsize = text_size
             draw.stroke = stroke
