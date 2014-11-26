@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe LostReport, 'validations' do
-  subject { FactoryGirl.create(:lost_report, owner: 'Pepe',
+  subject { FactoryGirl.create(:lost_report, owner: 'pepe',
                                              description: 'Es grande',
                                              address: 'Cerca de la casa de don Josefino',
                                              phone_numbers: ['12345678']) }

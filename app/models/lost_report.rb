@@ -19,6 +19,6 @@ class LostReport < ActiveRecord::Base
   private
 
   def titleize_owner
-    owner.titleize
+    self.owner = owner.titleize
   end
 end
