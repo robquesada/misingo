@@ -11,7 +11,7 @@
             <% end %>
             <div class="row">
               <%= render partial: 'shared/social_shares',
-              locals: { url: 'http://localhost:3000/mascotas/' + lost.id.to_s + '/extravios/' } %>
+              locals: { url: pet_lost_report_url(lost) } %>
               <%= render partial: 'lost_pet_info', locals: { i: i, pet: pet, lost: lost } %>
             </div>
         </div>

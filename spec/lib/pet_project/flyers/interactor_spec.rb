@@ -25,7 +25,7 @@ describe PetProject::Flyers::Interactor do
       expect(PetProject::Flyers::Presenter).to receive(:new)
     end
 
-    it 'receive the flyer info from presenter' do
+    it 'receives the flyer info from presenter' do
       expect(presenter).to receive(:generate_info).with(lost_report)
     end
     

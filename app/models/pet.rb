@@ -27,6 +27,6 @@ class Pet < ActiveRecord::Base
   validates :avatar, presence: true
 
   def capitalize_name
-    self.name = name.capitalize
+    name.capitalize
   end
 end

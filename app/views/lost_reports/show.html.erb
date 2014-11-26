@@ -20,12 +20,9 @@
               <p class="marginless"><b>Perdido en: </b><%= @lost_report.province.name %>. 
               <%= @lost_report.address %></p>
               <p class="marginless">
-              <% if @pet.breed.name == 'Otra' %>
-                <b><%= @pet.breed.animal_type.name %></b>,
-              <% else %>
-                <b><%= @pet.breed.name %></b>,
-              <% end %>
-              <%= @pet.sex.downcase %>. <%= @lost_report.description %></p>
+              <% breed = (@pet.breed_name == 'Otra') ? @pet.animal_type_name : @pet.breed_name %>
+              <b><%= breed %></b> 
+              (<%= @pet.sex.downcase %>). <%= @lost_report.description %></p>
               <p class="marginless"><b>Teléfonos</b>: <%= @lost_report.phone_numbers.join(" / ") %>
               <%= link_to "Editar información", edit_pet_lost_report_path(@pet) %>
             </center>
@@ -38,7 +35,7 @@
         <center>
           <label>Compartilo en tus redes sociales</label>
           <%= render partial: 'shared/social_shares',
-              locals: {:url => 'http://localhost:3000/mascotas/' + @lost_report.id.to_s + '/extravios/'} %>
+              locals: { url: pet_lost_report_url(@pet) } %>
           <div class="row final"></div>
           <label>Generá un anuncio e imprimilo</label>
           <%= link_to "Generar Anuncio", pet_lost_report_flyer_path(@pet), class: "button [radius round]", target: "_blank" %>
