@@ -1,7 +1,7 @@
 class LostReportsController < ApplicationController
-  
   before_filter :find_pet
   before_filter :find_lost_report, only: [:show, :edit, :update]
+  before_filter :validate_owner, only: [:edit, :update]
 
   def new
     @lost_report = @pet.build_lost_report
@@ -40,6 +40,10 @@ class LostReportsController < ApplicationController
     @lost_report = @pet.lost_report
   end
 
+  def validate_owner
+    redirect_to home_path unless current_user == @pet.user
+  end
+
   def lost_report_params
     params.require(:lost_report).permit(
       :owner,
@@ -47,7 +51,7 @@ class LostReportsController < ApplicationController
       :address,
       :description,
       :reward,
-      :phone_numbers => []
+      phone_numbers: []
     )
   end
 end

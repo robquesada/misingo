@@ -1,7 +1,6 @@
 module PetProject
   module Flyers
     class Interactor
-
       attr_accessor :lost_report
 
       def initialize(lost_report)
@@ -14,7 +13,6 @@ module PetProject
         template = PetProject::Flyers::Templates::Default.new(flyer_info)
         template.generate_flyer
       end
-
     end
   end
 end

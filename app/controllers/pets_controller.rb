@@ -1,7 +1,7 @@
 class PetsController < ApplicationController
-
   before_filter :find_pet, only: [:show, :edit, :update, :destroy]
   before_filter :find_breeds, only: [:new, :edit, :update, :create]
+  before_filter :validate_owner, only: [:edit, :update]
 
   def new
     @pet = Pet.new
@@ -25,7 +25,7 @@ class PetsController < ApplicationController
   def update
     if @pet.update(pet_params)
       redirect_to @pet
-    else 
+    else
       flash.now[:error] = @pet.errors.messages
       render 'edit'
     end
@@ -44,6 +44,10 @@ class PetsController < ApplicationController
 
   def find_breeds
     @breeds = Breed.order(:name)
+  end
+
+  def validate_owner
+    redirect_to home_path unless current_user == @pet.user
   end
 
   def pet_params
