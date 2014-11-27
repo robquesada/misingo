@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :province do
-    name "Alajuela"
+    name 'Alajuela'
   end
 end

@@ -1,5 +1,4 @@
 class MainController < ApplicationController
-
   def welcome; end
 
   def home
@@ -9,5 +8,6 @@ class MainController < ApplicationController
       @lost_reports = LostReport.where(province_id: params[:province][:province_id])
       @province_id = params[:province][:province_id]
     end
+    @lost_reports = @lost_reports.order('created_at DESC')
   end
 end

@@ -33,3 +33,4 @@ bower.json
 .keep
 .DS_Store
 .c9/
+.env

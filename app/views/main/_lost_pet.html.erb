@@ -1,19 +1,31 @@
-<div class="large-8 columns left">
+<div class="row final"></div>
+<div class="large-1 columns"><div class="row final"></div></div>
+<div class="large-10 columns">
+  <ul class="small-block-grid-1 large-block-grid-3">
     <% @lost_reports.each_with_index do |lost, i| %>
-      <% pet = lost.pet %>
-      <div class="large-6 small-12 columns">
-        <div class="panel radius">
-          <%= link_to(pet_lost_report_path(lost.pet)) do %>
-            <h3>SE BUSCA <b><%= pet.name.upcase %></b></h3>
-          <% end %>
-          <%= link_to image_tag(pet.avatar.url(:medium)), pet_lost_report_path(pet) %>
-          <% if lost.reward==1 %>
-            <p class="marginless"><span class="[success alert secondary] [round radius] label">Se ofrece recompensa</span></p>
-          <% else %>
-            <p class="marginless"><span class="[success warning secondary] [round radius] label">Se busca</span></p>
-          <% end %>
-          <%= render partial: 'lost_pet_info', locals: {:i => i, :pet => pet, :lost => lost} %>
+      <li>
+        <% pet = lost.pet %>
+            <%= link_to image_tag(pet.avatar.url(:medium)), pet_lost_report_path(pet) %>
+            <div class="panel pet grid radius">
+            <%= link_to(pet_lost_report_path(lost.pet)) do %>
+              <h3>SE BUSCA <b><%= pet.name.upcase %></b></h3>
+            <% end %>
+            <div class="row">
+              <%= render partial: 'shared/social_shares',
+              locals: { url: pet_lost_report_url(lost) } %>
+              <p>Perdido en <b><%= lost.province.name %></b></p>
+              <dl class="accordion" data-accordion>
+                <dd class="accordion-navigation">
+                  <a href='#panel<%= i %>', class="accordion">Ver información</a>
+                  <div id='panel<%= i %>', class="content">
+                    <%= render partial: 'shared/lost_pet_info', locals: { lost: lost } %>
+                  </div>
+                </dd>
+              </dl>
+            </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </li>
+  </ul>
 </div>
+<div class="large-1 columns"></div>

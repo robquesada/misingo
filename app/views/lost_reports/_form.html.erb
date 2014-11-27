@@ -36,9 +36,7 @@
       <%= f.check_box :reward %><label>Ofrezco recompensa</label>
     </div>
   </div>
-  <% if @lost_report.new_record? %>
-    <%= f.submit "Ayudar a difundir por redes sociales", class: "secondary small button right" %>
-  <% else %>
-    <%= f.submit "Editar", class: "secondary small button right" %>
-  <% end %>
+  <% text = @lost_report.new_record? ? "Ayudar a difundir por redes sociales" : "Guardar" %>
+  <%= f.submit text, class: "small button right" %>
+  <%= link_to "Editar datos de #{@pet.name}", edit_pet_path(@pet), class: "secondary small button right" if !@lost_report.new_record? %>
 <% end %>

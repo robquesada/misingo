@@ -3,23 +3,44 @@
     <nav class="top-bar" data-topbar>
       <ul class="title-area">
         <li class="name">
-          <h1><a href="/inicio" style="color:#5bdea9; font-family:'Arial',Gabriola; font-size:30px; font-weight:300;">busca<b>mascotas</b></a></h1>
+          <h1><%= link_to 'buscamascotas', home_path, class:"title" %></h1>
         </li>
-        <li class="toggle-topbar menu-icon"><a href="#">
+        <li class="toggle-topbar menu-icon"><a>
           <span>Menú</span></a>
         </li>
       </ul>
       <section class="top-bar-section">
         <ul class="right">
           <li><%= nav_link 'Inicio', home_path %></li>
-          <li><%= nav_link 'Registrar desaparición', new_pet_path %></li>
-          <li><%= nav_link 'Mis mascotas', pets_path %></li>
           <li class="has-dropdown">
-          <a href="#">Usuario</a>
-            <ul class="dropdown">
-              <li><a href='#'>Ver perfil</a></li>
-              <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
-            </ul>
+            <% if current_user.nil? %>
+              <a>Registrar desaparición</a>
+              <ul class="dropdown">
+                <li><%= nav_link 'Iniciar con Facebook', user_omniauth_authorize_path(:facebook) %></li>
+                <li><%= nav_link 'Iniciar con Buscamascotas', new_user_session_path %></li>
+              </ul>
+            <% else %>
+              <%= nav_link 'Registrar desaparición', new_pet_path %>
+            <% end %>
+          </li>
+          <li><%= nav_link 'Adopciones', '/inicio/' %></li>
+          <li class="has-dropdown">
+            <% if current_user.nil? %>
+              <a>Iniciar sesión</a>
+              <ul class="dropdown">
+                <li><%= nav_link 'Iniciar con Facebook', user_omniauth_authorize_path(:facebook) %></li>
+                <li><%= nav_link 'Iniciar con Buscamascotas', new_user_session_path %></li>
+              </ul>
+            <% else %>
+              <a>
+                <% image = current_user.image.nil? ? 'profile_default.png' : current_user.image %>
+                <%= current_user.name %> <%= image_tag(image, class:"mini profile") %>
+              </a>
+              <ul class="dropdown">
+                <li><%= nav_link 'Ver mi cuenta', profile_path %></li>
+                <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            <% end %>
           </li>
         </ul>
       </section>

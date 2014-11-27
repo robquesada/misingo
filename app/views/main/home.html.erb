@@ -7,23 +7,19 @@
         </center>
         <hr>
         <div class="row">
-        <center>
-          <div class="large-3 columns">
-            <ul class="side-nav">
-              <li class="divider"></li>
-              <li><label>PROVINCIA</label></li>
-              <li>
-              <%= form_tag("/inicio", method: "get") do %>
-                <%= collection_select(:province, :province_id, Province.all, :id, :name, {include_blank: "Ver todas", selected: @province_id}, {class: 'select search'}) %>
-                <%= submit_tag "Buscar", class: "small button search" %>
+          <center>
+            <div class="row final"></div>
+            <div class="large-12 columns">
+              <%= form_tag(home_path, method: "get") do %>
+                <%= collection_select(:province, :province_id, Province.all, :id, :name,
+                { include_blank: "Ver todas", selected: @province_id }, { class: 'select search' }) %>
+                <%= button_tag(type: "submit", class: "small button search") do %>
+                    Buscar <i class="step fi-magnifying-glass"></i>
+                <% end %>
               <% end %>
-              </li>
-              <li><%= link_to "Registrar desaparición", new_pet_path %></li>
-              <li><%= link_to "Ver mis mascotas", pets_path %></li>
-            </ul>
-          </div>
-          <%= render 'lost_pet' %>         
-        </center>
+            </div>
+            <%= render 'lost_pet' %>
+          </center>  
       </div>
     </div>
 </div>

@@ -6,6 +6,7 @@ require 'rspec/rails'
 require 'rspec/its'
 require 'shoulda/matchers'
 require 'paperclip/matchers'
+require 'capybara/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -32,6 +33,8 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include Paperclip::Shoulda::Matchers
   config.include Devise::TestHelpers, type: :controller
+  config.extend LoginMacros, type: :controller
+  config.include OmniauthMacros
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
