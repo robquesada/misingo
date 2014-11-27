@@ -16,13 +16,13 @@
             <% end %>
           </p>
           <div class="panel callout radius">
-            <%= render partial: 'shared/lost_pet_info', locals: { lost: @lost_report } %>
+            <%= render partial: 'shared/lost_pet_info', locals: { lost_report: @lost_report } %>
           </div>
         </div>
       </center>
     </div>
     <div class="large-6 columns">
-      <%= render partial: 'social_share_options', locals: { lost: @lost_report } %>
+      <%= render partial: 'social_share_options', locals: { lost_report: @lost_report } %>
     </div>
   </div>
 </div>

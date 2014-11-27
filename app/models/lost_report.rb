@@ -12,6 +12,8 @@ class LostReport < ActiveRecord::Base
   validates :phone_numbers, phone_number: true
   validates_presence_of :address, :description
 
+  default_scope { order('created_at DESC') }
+
   def phone_numbers
     (super || []).reject(&:blank?)
   end
