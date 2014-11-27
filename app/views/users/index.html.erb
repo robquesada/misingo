@@ -18,7 +18,7 @@
               <% @pets.each do |pet| %>
                 <li>
                   <%= link_to image_tag(pet.avatar.url(:medium)), edit_pet_path(pet) %>
-                  <div class="panel grid radius">
+                  <div class="panel pet grid radius">
                     <p class="marginless"><b><%= pet.name %></b></p>
                     <%= link_to 'Editar', edit_pet_path(pet) %> |
                     <%= link_to 'Eliminar', pet_path(pet), method: :delete, data: { confirm: '¿Está seguro?' } %>
