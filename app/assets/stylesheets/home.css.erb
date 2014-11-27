@@ -2,12 +2,18 @@ p{
   margin-bottom: 10px;
 }
 
+p.white{
+  color: white;
+  font-size: 18px;
+}
+
 p.marginless{
   margin-bottom: 0px;
+  font-size: 14px;
 }
 
 a.accordion{
-  line-height: 0.5;
+  line-height: 0px;
 }
 
 a.header{
@@ -86,4 +92,14 @@ div.fb-like.fb_iframe_widget{
 
 .select.search {
   width: 130px;
+}
+
+.accordion.accordion-navigation > a,
+.accordion dd > a{
+  max-width: 255px;
+}
+
+.accordion.accordion-navigation > .content.active,
+.accordion dd > .content.active {
+  max-width: 255px;
 }

@@ -1,0 +1,9 @@
+<% pet = lost.pet %>
+<p class="marginless"><i class="step fi-marker size-16"></i> <%= lost.province.name %>. <%= lost.address %></p>
+  <p class="marginless"><i class="step fi-paw size-16"></i> <%= pet.breed_name %> (<%= pet.sex %>).
+  <p class="marginless"><i class="step fi-pencil size-16"></i> <%= lost.description %></p>
+  <p class="marginless"><i class="step fi-telephone size-16"></i> <%= lost.phone_numbers.join(" / ") %>
+  </p>
+<% if current_user == pet.user %>
+  <p class="marginless"><%= link_to "Editar información", edit_pet_lost_report_path(pet) %></p>
+<% end %>
