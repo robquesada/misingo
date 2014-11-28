@@ -1,5 +1,6 @@
-ActiveRecord::Schema.define(version: 20141120221216) do
+ActiveRecord::Schema.define(version: 20141202172600) do
 
+  # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "active_admin_comments", force: true do |t|
@@ -96,7 +97,6 @@ ActiveRecord::Schema.define(version: 20141120221216) do
     t.string   "uid"
     t.string   "name"
     t.string   "image"
-    t.string   "hometown"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
