@@ -1,3 +1,6 @@
+AdminUser.create({ email: 'admin@example.com',
+                   password: 'adminpass' })
+
 AnimalType.create([{ name: 'Perro' },
                    { name: 'Gato' }])
 
