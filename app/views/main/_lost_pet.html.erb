@@ -1,22 +1,22 @@
-<div class="row final"></div>
-<div class="large-1 columns"><div class="row final"></div></div>
-<div class="large-10 columns">
-  <ul class="small-block-grid-1 large-block-grid-3">
+<div class='row final'></div>
+<div class='large-1 columns'><div class='row final'></div></div>
+<div class='large-10 columns'>
+  <ul class='small-block-grid-1 large-block-grid-3'>
     <% @lost_reports.each_with_index do |lost_report, index, pet = lost_report.pet| %>
       <li>
         <%= link_to image_tag(pet.avatar.url(:medium)), pet_lost_report_path(pet) %>
-        <div class="panel pet grid radius">
+        <div class='panel pet grid radius'>
           <%= link_to(pet_lost_report_path(lost_report.pet)) do %>
             <h3>SE BUSCA <b><%= pet.name.upcase %></b></h3>
           <% end %>
-          <div class="row">
+          <div class='row'>
             <%= render partial: 'shared/social_shares',
             locals: { url: pet_lost_report_url(lost_report) } %>
             <p>Perdido en <b><%= lost_report.province.name %></b></p>
-            <dl class="accordion" data-accordion>
-              <dd class="accordion-navigation">
-                <a href='#panel<%= index %>', class="accordion">Ver información</a>
-                <div id='panel<%= index %>', class="content">
+            <dl class='accordion' data-accordion>
+              <dd class='accordion-navigation'>
+                <a href='#panel<%= index %>', class='accordion'>Ver información</a>
+                <div id='panel<%= index %>', class='content'>
                   <%= render partial: 'shared/lost_pet_info', locals: { lost_report: lost_report } %>
                 </div>
               </dd>
@@ -27,4 +27,4 @@
     <% end %>
   </ul>
 </div>
-<div class="large-1 columns"></div>
+<div class='large-1 columns'></div>

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= content_for?(:title) ? yield(:title) : "Mascotas desaparecidas en Costa Rica" %></title>
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application" %>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title><%= content_for?(:title) ? yield(:title) : 'Mascotas desaparecidas en Costa Rica' %></title>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag 'vendor/modernizr' %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
-    <meta name="google-site-verification" content='<%= ENV['GOOGLE_VERIFICATION_CODE'] %>' />
+    <meta name='google-site-verification' content='<%= ENV['GOOGLE_VERIFICATION_CODE'] %>' />
   </head>
   <body>
     <%= yield %>
-    <%= render "shared/footer" %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

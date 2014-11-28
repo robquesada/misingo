@@ -1,21 +1,21 @@
-<div id="intro">
-  <div class="contain-to-grid">
-    <nav class="top-bar" data-topbar>
-      <ul class="title-area">
-        <li class="name">
+<div id='intro'>
+  <div class='contain-to-grid'>
+    <nav class='top-bar' data-topbar>
+      <ul class='title-area'>
+        <li class='name'>
           <h1><%= link_to 'buscamascotas', home_path, class:"title" %></h1>
         </li>
-        <li class="toggle-topbar menu-icon"><a>
+        <li class='toggle-topbar menu-icon'><a>
           <span>Menú</span></a>
         </li>
       </ul>
-      <section class="top-bar-section">
-        <ul class="right">
+      <section class='top-bar-section'>
+        <ul class='right'>
           <li><%= nav_link 'Inicio', home_path %></li>
-          <li class="has-dropdown">
+          <li class='has-dropdown'>
             <% if current_user.nil? %>
               <a>Registrar desaparición</a>
-              <ul class="dropdown">
+              <ul class='dropdown'>
                 <li><%= nav_link 'Iniciar con Facebook', user_omniauth_authorize_path(:facebook) %></li>
                 <li><%= nav_link 'Iniciar con Buscamascotas', new_user_session_path %></li>
               </ul>
@@ -24,10 +24,10 @@
             <% end %>
           </li>
           <li><%= nav_link 'Adopciones', '/inicio/' %></li>
-          <li class="has-dropdown">
+          <li class='has-dropdown'>
             <% if current_user.nil? %>
               <a>Iniciar sesión</a>
-              <ul class="dropdown">
+              <ul class='dropdown'>
                 <li><%= nav_link 'Iniciar con Facebook', user_omniauth_authorize_path(:facebook) %></li>
                 <li><%= nav_link 'Iniciar con Buscamascotas', new_user_session_path %></li>
               </ul>
@@ -36,9 +36,9 @@
                 <% image = current_user.image.nil? ? 'profile_default.png' : current_user.image %>
                 <%= current_user.name %> <%= image_tag(image, class:"mini profile") %>
               </a>
-              <ul class="dropdown">
+              <ul class='dropdown'>
                 <li><%= nav_link 'Ver mi cuenta', profile_path %></li>
-                <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
               </ul>
             <% end %>
           </li>

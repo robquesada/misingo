@@ -1,33 +1,33 @@
-<section class="hero">
-  <div class="row">
-    <div class="large-12 columns">
-      <div class="main-wrapper">
+<section class='hero'>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <div class='main-wrapper'>
         <h1>BUSCA MASCOTAS</h1>
-        <center><p class="white">Te ayudamos a buscar a tu mascota perdida</p></center>
+        <center><p class='white'>Te ayudamos a buscar a tu mascota perdida</p></center>
         <hr>
-        <div class="row">
-          <div class="large-6 columns large-centered">
-            <ul class="button-group even-3">
-              <li><a href="#" class="button login">Extravíos</a></li>
-              <li><a href="#" class="button login">Adopciones</a></li>
-              <li><a href="#" class="button login">Contacto</a></li>
+        <div class='row'>
+          <div class='large-6 columns large-centered'>
+            <ul class='button-group even-3'>
+              <li><a href='#' class='button login'>Extravíos</a></li>
+              <li><a href='#' class='button login'>Adopciones</a></li>
+              <li><a href='#' class='button login'>Contacto</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="large-6 columns about-box right">
-      <div class="black-box">
+  <div class='row'>
+    <div class='large-6 columns about-box right'>
+      <div class='black-box'>
         <h2>Somos BUSCA MASCOTAS</h2>
         <p>Virtualizá la información de tu mascota gratis. Nosotros te ayudamos en casos de extravíos, adopciones e información del mundo animal.</p>
-        <p><%= button_to "Ingresar al sitio web →", home_path, method: :get, class: "secondary small button login" %></p>
+        <p><%= button_to 'Ingresar al sitio web →', home_path, method: :get, class: 'secondary small button login' %></p>
         <p>También podés</p>
-        <p><%= button_to(user_omniauth_authorize_path(:facebook), class: "secondary small button facebook") do %>
-        Ingresar con Facebook <i class="fi-social-facebook size-18"></i>
+        <p><%= button_to(user_omniauth_authorize_path(:facebook), class: 'secondary small button facebook') do %>
+        Ingresar con Facebook <i class='fi-social-facebook size-18'></i>
         <% end %></p>
-        <p><%= link_to "Ingresar con cuenta Buscamascotas →", new_user_session_path %></p>
+        <p><%= link_to 'Ingresar con cuenta Buscamascotas →', new_user_session_path %></p>
       </div>
     </div>
   </div>

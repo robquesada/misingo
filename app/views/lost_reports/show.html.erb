@@ -1,27 +1,27 @@
-<%= render "shared/header" %>
-<div class="large-12 columns">
-  <div class="row">
-    <div class="row final"></div>
-    <center><i class="step fi-megaphone size-21"></i>&nbsp;<a class="header">SE BUSCA <b><%= @pet.name.upcase %></b></a></center>
+<%= render 'shared/header' %>
+<div class='large-12 columns'>
+  <div class='row'>
+    <div class='row final'></div>
+    <center><i class='step fi-megaphone size-21'></i>&nbsp;<a class='header'>SE BUSCA <b><%= @pet.name.upcase %></b></a></center>
     <hr>
-    <div class="large-6 columns">
+    <div class='large-6 columns'>
       <center>
-        <div class="panel radius">
+        <div class='panel radius'>
           <%= image_tag(@pet.avatar.url(:medium)) %>
-          <p class="marginless">
+          <p class='marginless'>
             <% if @lost_report.reward==1 %>
-              <span class="[success alert secondary] [round radius] label">Se ofrece recompensa</span>
+              <span class='[success alert secondary] [round radius] label'>Se ofrece recompensa</span>
             <% else %>
-              <span class="[success warning secondary] [round radius] label">Se busca</span>
+              <span class='[success warning secondary] [round radius] label'>Se busca</span>
             <% end %>
           </p>
-          <div class="panel callout radius">
+          <div class='panel callout radius'>
             <%= render partial: 'shared/lost_pet_info', locals: { lost_report: @lost_report } %>
           </div>
         </div>
       </center>
     </div>
-    <div class="large-6 columns">
+    <div class='large-6 columns'>
       <%= render partial: 'social_share_options', locals: { lost_report: @lost_report } %>
     </div>
   </div>
