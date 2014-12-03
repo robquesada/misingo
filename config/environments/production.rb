@@ -35,10 +35,6 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
-  config.assets.precompile += %w(*.js *svg)
-  config.assets.precompile += [/\.(?:svg|eot|woff|ttf)$/]
-  config.assets.precompile += [/^[^_]\w+\.(css|css.scss)$/]
-  config.assets.precompile += %w(active_admin.css active_admin.js active_admin/print.css)
   
   # Generate digests for assets URLs.
   config.assets.digest = true
