@@ -1,52 +1,28 @@
-<%= render "shared/header" %>
-<div class="large-12 columns">
-  <div class="row">
-    <div class="row final"></div>
-    <center><a class="header">SE BUSCA <b><%= @pet.name.upcase %></b></a></center>
+<%= render 'shared/header' %>
+<div class='large-12 columns'>
+  <div class='row'>
+    <div class='row final'></div>
+    <center><i class='step fi-megaphone size-21'></i>&nbsp;<a class='header'>SE BUSCA <b><%= @pet.name.upcase %></b></a></center>
     <hr>
-    <div class="large-6 columns">
+    <div class='large-6 columns'>
       <center>
-        <div class="panel radius">
+        <div class='panel radius'>
           <%= image_tag(@pet.avatar.url(:medium)) %>
-          <p class="marginless">
+          <p class='marginless'>
             <% if @lost_report.reward==1 %>
-              <span class="[success alert secondary] [round radius] label">Se ofrece recompensa</span>
+              <span class='[success alert secondary] [round radius] label'>Se ofrece recompensa</span>
             <% else %>
-              <span class="[success warning secondary] [round radius] label">Se busca</span>
+              <span class='[success warning secondary] [round radius] label'>Se busca</span>
             <% end %>
           </p>
-          <div class="panel callout radius">
-            <center>
-              <p class="marginless"><b>Perdido en: </b><%= @lost_report.province.name %>. 
-              <%= @lost_report.address %></p>
-              <p class="marginless">
-              <% breed = (@pet.breed_name == 'Otra') ? @pet.animal_type_name : @pet.breed_name %>
-              <b><%= breed %></b> 
-              (<%= @pet.sex.downcase %>). <%= @lost_report.description %></p>
-              <p class="marginless"><b>Teléfonos</b>: <%= @lost_report.phone_numbers.join(" / ") %>
-              <%= link_to "Editar información", edit_pet_lost_report_path(@pet) %>
-            </center>
+          <div class='panel callout radius'>
+            <%= render partial: 'shared/lost_pet_info', locals: { lost_report: @lost_report } %>
           </div>
         </div>
       </center>
     </div>
-    <div class="large-6 columns">
-      <div class="panel">
-        <center>
-          <label>Compartilo en tus redes sociales</label>
-          <%= render partial: 'shared/social_shares',
-              locals: { url: pet_lost_report_url(@pet) } %>
-          <div class="row final"></div>
-          <label>Generá un anuncio e imprimilo</label>
-          <%= link_to "Generar Anuncio", pet_lost_report_flyer_path(@pet), class: "button [radius round]", target: "_blank" %>
-        </center>
-        <p><label>Estas asociaciones cerca de <%= @lost_report.province.name %> te pueden ayudar con tu búsqueda:</label></p>
-        <ul>
-          <li>Esta</li>
-          <li>Aquella</li>
-          <li>La otra</li>
-        </ul>
-      </div>
+    <div class='large-6 columns'>
+      <%= render partial: 'social_share_options', locals: { lost_report: @lost_report } %>
     </div>
   </div>
 </div>

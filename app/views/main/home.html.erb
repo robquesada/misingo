@@ -1,23 +1,22 @@
-<%= render "shared/header" %>
-<div class="large-12 columns">
-    <div class="row">
-        <div class="row final"></div>
+<%= render 'shared/header' %>
+<div class='large-12 columns'>
+    <div class='row'>
+        <div class='row final'></div>
         <center>
-          <a class="header">Mascotas desaparecidas</a>
+          <a class='header'>Mascotas desaparecidas</a>
         </center>
         <hr>
-        <div class="row">
+        <div class='row'>
           <center>
-            <div class="row final"></div>
-            <div class="large-6 columns">
-              <%= form_tag("/inicio", method: "get") do %>
-                <%= submit_tag "Buscar", class: "small button search right" %>
+            <div class='row final'></div>
+            <div class='large-12 columns'>
+              <%= form_tag(home_path, method: 'get') do %>
                 <%= collection_select(:province, :province_id, Province.all, :id, :name,
-                { include_blank: "Ver todas", selected: @province_id }, { class: 'select search right' }) %>
+                { include_blank: 'Ver todas', selected: @province_id }, { class: 'select search' }) %>
+                <%= button_tag(type: 'submit', class: 'small button search') do %>
+                    Buscar <i class='step fi-magnifying-glass'></i>
+                <% end %>
               <% end %>
-            </div>
-            <div class="large-6 columns">
-              <%= link_to "Registrar desaparición", new_pet_path, id: "add_lost_pet", class: "small button search left" %>
             </div>
             <%= render 'lost_pet' %>
           </center>  

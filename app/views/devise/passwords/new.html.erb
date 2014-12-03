@@ -1,12 +1,22 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
-
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class="large-12 columns">
+  <div class="row">
+    <div class="row final"></div>
+    <center><a class="header">¿Olvidó su contraseña?</a></center>
+    <hr>
+    <div class="large-6 columns">
+      <div class="panel radius">
+        <center>
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <%= devise_error_messages! %>
+            <div><%= f.label "Ingrese su E-mail" %>
+            <%= f.email_field :email, placeholder: "Dirección de correo electrónico", autofocus: true %></div>
+            <div><%= f.submit "Envíenme instrucciones para recuperar mi contraseña", class: "small button radius" %></div>
+          <% end %>
+        </center>
+      </div>
+      <div class="panel radius">
+        <%= render partial: 'devise/shared/sessions.html.erb' %>
+      </div>
+    </div>
+  </div>
+</div>

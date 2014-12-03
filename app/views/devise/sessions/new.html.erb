@@ -1,7 +1,8 @@
+<div class="row final"></div>
 <div class="large-12 columns">
   <div class="row">
     <div class="row final">
-    <h3>Iniciar sesión</h3>
+    <center><a class="header">Iniciar sesión</a></center>
     <hr>
     <div class="large-6 columns about-box">
       <div class="panel">
@@ -11,22 +12,24 @@
           <% if devise_mapping.rememberable? %>
             <%= f.check_box :remember_me %> <%= f.label "Recordar mis datos" %>
           <% end %>
-          <%= f.submit "Iniciar", class: "button expand [radius round]" %>
+          <%= f.submit "Iniciar", class: "small button expand [radius round]" %>
         <% end %>
         <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-          <%= link_to "¿Olvidó su contraseña?", new_password_path(resource_name) %>
+          <%= link_to "¿Olvidó su contraseña?", new_password_path(resource_name), class: "size-16" %>
         <% end %>
       </div>
     </div>
     <div class="large-6 columns">
-      <div class="panel">
-        <p>¿No tiene cuenta?</p>
-        <% if devise_mapping.registerable? && controller_name != 'registrations' %>
-          <%= link_to "Crear cuenta", new_registration_path(resource_name) %>
-        <% end %>
-        <p class="marginless"></p>
-        <div class="row final"></div>
-        <%= link_to "Ingresar con tu cuenta de Facebook", user_omniauth_authorize_path(:facebook) %>
+      <div class="panel radius">
+        <center>
+          <p>¿No tiene cuenta?</p>
+          <% if devise_mapping.registerable? && controller_name != 'registrations' %>
+            <%= link_to "Crear nueva cuenta", new_registration_path(resource_name), class: "small button radius" %>
+          <% end %>
+          <%= button_to(user_omniauth_authorize_path(:facebook), class: "secondary small button facebook") do %>
+            Crear cuenta con Facebook <i class="fi-social-facebook size-18"></i>
+          <% end %>
+        </center>
       </div>
     </div>
   </div>

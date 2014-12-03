@@ -1,44 +1,42 @@
 <%= form_for [@pet, @lost_report], url: pet_lost_report_path do |f| %>
   <%= render 'shared/flash_messages' %>
-  <div class="row">
-    <div class="large-6 columns">
-      <%= f.text_field :owner, placeholder: "Nombre de la dueña o el dueño"%>
+  <div class='row'>
+    <div class='large-6 columns'>
+      <%= f.text_field :owner, placeholder: 'Nombre de la dueña o el dueño' %>
     </div>
   </div>
-  <div class="row">
-    <div class="large-6 columns">
+  <div class='row'>
+    <div class='large-6 columns'>
       <%= f.label :phone_numbers %>
-      <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[0], name: "lost_report[phone_numbers][]", placeholder: "Ejemplo: 88112233" %>
+      <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[0], name: 'lost_report[phone_numbers][]', placeholder: 'Ejemplo: 88112233' %>
     </div>
-    <div class="large-6 columns">
-      <%= f.label "Opcional" %>
-      <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[1] , name: "lost_report[phone_numbers][]", placeholder: "Otro número de teléfono" %>
+    <div class='large-6 columns'>
+      <%= f.label 'Opcional' %>
+      <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[1] , name: 'lost_report[phone_numbers][]', placeholder: 'Otro número de teléfono' %>
     </div>
   </div>
-  <div class="row">
-    <div class="large-6 columns">
+  <div class='row'>
+    <div class='large-6 columns'>
       <%= f.label :province %>
       <%= collection_select(:lost_report, :province_id, Province.all, :id, :name) %>
     </div>
-    <div class="large-6 columns">
+    <div class='large-6 columns'>
       <%= f.label :address %>
-      <%= f.text_area :address, placeholder: "Mencioná también lugares aledaños" %>
+      <%= f.text_area :address, placeholder: 'Mencioná también lugares aledaños' %>
     </div>
   </div>
-  <div class="row">
-    <div class="large-12 columns">
+  <div class='row'>
+    <div class='large-12 columns'>
       <%= f.label :description %>
-      <%= f.text_area :description, placeholder: "Mencioná características que identifiquen a tu mascota." %>
+      <%= f.text_area :description, placeholder: 'Mencioná características que identifiquen a tu mascota.' %>
     </div>
   </div>
-  <div class="row final">
-    <div class="large-6 columns">
+  <div class='row final'>
+    <div class='large-6 columns'>
       <%= f.check_box :reward %><label>Ofrezco recompensa</label>
     </div>
   </div>
-  <% if @lost_report.new_record? %>
-    <%= f.submit "Ayudar a difundir por redes sociales", class: "secondary small button right" %>
-  <% else %>
-    <%= f.submit "Editar", class: "secondary small button right" %>
-  <% end %>
+  <% text = @lost_report.new_record? ? 'Ayudar a difundir por redes sociales' : 'Guardar' %>
+  <%= f.submit text, class: 'small button right' %>
+  <%= link_to "Editar datos de #{@pet.name}", edit_pet_path(@pet), class: 'secondary small button right' if !@lost_report.new_record? %>
 <% end %>

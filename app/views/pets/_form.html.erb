@@ -1,54 +1,54 @@
 <%= form_for @pet do |f| %>
   <%= render 'shared/flash_messages' %>
-  <div class="panel">
+  <div class='panel'>
     <% if @pet.new_record? %>
       <label>Subí una foto de perfil</label>
     <% else %>
       <label>Cambiar la foto de perfil</label>
     <% end %>
-    <div class="profile-pic-box">
+    <div class='profile-pic-box'>
       <% if !@pet.new_record? %>
-        <center><%= image_tag @pet.avatar.url(:profile), id:"image" %></center>
+        <center><%= image_tag @pet.avatar.url(:profile), id:'image' %></center>
       <% else %>
         <center>
-          <img id="image"></img>
+          <img id='image'></img>
         </center>
       <% end %>
     </div>
-    <%= f.file_field :avatar, id: "image-selector" %>
+    <%= f.file_field :avatar, id: 'image-selector' %>
   </div>
-  <div class="row final"></div>
-  <div class="row">
-    <div class="large-6 columns">
-      <%= f.text_field :name, placeholder: "Nombre", id:'nombre' %>
+  <div class='row final'></div>
+  <div class='row'>
+    <div class='large-6 columns'>
+      <%= f.text_field :name, placeholder: 'Nombre', id:'nombre' %>
     </div>
-    <div class="large-6 columns">
+    <div class='large-6 columns'>
       <%= f.radio_button :sex, 'Macho', checked: true %>
         <label>Es macho</label>
       <%= f.radio_button :sex, 'Hembra'%>
         <label>Es hembra</label>
     </div>
   </div>
-  <div class="row final">
-    <div class="large-6 columns">
+  <div class='row final'>
+    <div class='large-6 columns'>
       <% @pet.new_record? ? selected = 0 : selected = @pet.breed.animal_type_id %>
       <label>Animal
       <%= select_tag :animal_type_id, options_from_collection_for_select(AnimalType.all, :id, :name, selected: selected) %>
       </label>
     </div>
-    <div class="large-6 columns">
+    <div class='large-6 columns'>
       <%= f.label :breed %>
       <%= f.select :breed_id, options_for_select(@breeds.map{ |c| [c.name, c.id, { data: { animal_type: c.animal_type_id } } ] }, selected: @pet.breed_id) %>
     </div>
   </div>
-  <% text = @pet.new_record? ? "Aceptar y continuar" : "Guardar" %>
-  <%= f.submit text, class: "small button right" %>
-  <%= link_to "Editar información de la desaparición", edit_pet_lost_report_path(@pet), class: "secondary small button right" if !@pet.new_record? %>
+  <% text = @pet.new_record? ? 'Aceptar y continuar' : 'Guardar' %>
+  <%= f.submit text, class: 'small button right' %>
+  <%= link_to 'Editar información de la desaparición', edit_pet_lost_report_path(@pet), class: 'secondary small button right' if !@pet.new_record? %>
 <% end %>
-<script type="text/javascript">
-    <% if !@pet.new_record? %>
-      setTimeout(function(){
-        $('#pet_breed_id').val("<%= @pet.breed.id %>");
-      },100);
-    <% end %>
+<script type='text/javascript'>
+  <% if !@pet.new_record? %>
+    setTimeout(function(){
+      $('#pet_breed_id').val('<%= @pet.breed.id %>');
+    },100);
+  <% end %>
 </script>

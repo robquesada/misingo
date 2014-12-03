@@ -10,18 +10,20 @@ gem 'jquery-rails', '~> 3.1'
 gem 'turbolinks', '~> 2.4.0'
 gem 'jbuilder', '~> 2.0'
 gem 'foundation-rails', '~> 5.4.5.0'
+gem 'foundation-icons-sass-rails', '~> 3.0.0'
 gem 'devise', '~> 3.4.0'
 gem 'omniauth-facebook', '~> 2.0.0'
 gem 'rmagick', '2.13.3'
 gem 'paperclip', '~> 4.2'
+gem 'aws-sdk-v1', '~> 1.59.0'
 gem 'awesome_print', '~> 1.2.0'
 gem 'better_errors', '~> 2.0.0'
+gem 'annotate', '~> 2.6.5'
 gem 'activeadmin', github: 'activeadmin'
-gem 'aws-sdk-v1', '~> 1.59.0'
 gem 'rubocop', '~> 0.27.1', require: false
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', '~> 1.1.3', group: :development
-gem 'rails_12factor', '~> 0.0.3', group: :production
+gem 'rails_12factor', '~> 0.0.3', group: [:production, :staging]
 gem 'dotenv-rails', '~> 1.0.2', groups: [:development, :test]
 
 group :test do

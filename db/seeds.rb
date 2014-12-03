@@ -1,3 +1,6 @@
+AdminUser.create({ email: 'admin@example.com',
+                   password: 'adminpass' })
+
 AnimalType.create([{ name: 'Perro' },
                    { name: 'Gato' }])
 
@@ -36,7 +39,7 @@ Breed.create([{ name: 'Zaguate', animal_type_id: 1 },
               { name: 'Schnauzer', animal_type_id: 1 },
               { name: 'Siberian husky', animal_type_id: 1 },
               { name: 'Terrier', animal_type_id: 1 },
-                { name: 'Criollo', animal_type_id: 2 },
+                { name: 'Mestizo', animal_type_id: 2 },
                 { name: 'Otra', animal_type_id: 2 },
                 { name: 'Siamés', animal_type_id: 2 },
                 { name: 'Siberiano', animal_type_id: 2 },
