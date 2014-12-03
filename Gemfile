@@ -18,6 +18,7 @@ gem 'paperclip', '~> 4.2'
 gem 'aws-sdk-v1', '~> 1.59.0'
 gem 'awesome_print', '~> 1.2.0'
 gem 'better_errors', '~> 2.0.0'
+gem 'annotate', '~> 2.6.5'
 gem 'activeadmin', github: 'activeadmin'
 gem 'rubocop', '~> 0.27.1', require: false
 gem 'sdoc', '~> 0.4.0', group: :doc
