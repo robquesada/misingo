@@ -1,9 +1,11 @@
 <center>
   <div class='panel radius profile'>
-    <%= current_user.image.nil? ? image_tag('profile_default.png', class:'profile') : image_tag(current_user.image) %>
+    <%= current_user.image.nil? ? image_tag('profile_default.png', class: 'profile') : image_tag(current_user.image) %>
     <div class='row final'></div>
     <label><b><%= current_user.name %></b></label>
-    <label><b><%= current_user.email if current_user.provider.nil? %></b></label>
+    <% if current_user.provider.nil? %>
+      <label><b><%= current_user.email %></b></label>
+    <% end %>
   </div>
-  <%= link_to 'Registrar mascota desaparecida', new_pet_path, class:'small button' %>
+  <%= link_to 'Registrar mascota desaparecida', new_pet_path, class: 'small button' %>
 </center>
