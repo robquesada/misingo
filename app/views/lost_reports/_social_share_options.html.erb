@@ -1,24 +1,20 @@
 <% pet = lost_report.pet %>
-<div class='panel radius'>
-  <center>
-    <label>Compartilo en tus redes sociales</label>
-    <%= render partial: 'shared/social_shares',
-        locals: { url: pet_lost_report_url(pet) } %>
-    <div class='row final'></div>
-    <label>Generá un anuncio de búsqueda,</label>
-    <label>imprimilo y subilo a tus redes sociales</label>
-    <%= link_to(pet_lost_report_flyer_path(pet), class: 'secondary small button facebook', target: '_blank') do %>
-      Generar anuncio de búsqueda <i class='fi-download size-18'></i>
-    <% end %>
-    <div class='row final'></div>
-    <p><label>Estas asociaciones cerca de <%= lost_report.province.name %> te pueden ayudar con tu búsqueda:</label></p>
-    <dl class='accordion' data-accordion>
-      <dd class='accordion-navigation'>
-        <a href='#panel_associations', class='accordion'>Ver todas</a>
-        <div id='panel_associations', class='content'>
-          <p class='marginless'>Pronto tendremos disponible esta funcionalidad.</p>
-        </div>
-      </dd>
-    </dl>
-  </center>
-</div>
+<center>
+  <label>Compartir en redes sociales</label>
+  <%= render partial: 'shared/social_shares',
+      locals: { url: pet_lost_report_url(pet) } %>
+  <div class='row final'></div>
+  <%= link_to(pet_lost_report_flyer_path(pet), class: 'small button', target: '_blank') do %>
+    Imprimir
+  <% end %>
+  <div class='row final'></div>
+  <p><label>Ellos también  asociaciones cerca de <%= lost_report.province.name %> te pueden ayudar con tu búsqueda:</label></p>
+  <dl class='accordion' data-accordion>
+    <dd class='accordion-navigation'>
+      <a href='#panel_associations', class='accordion'>Ver todas</a>
+      <div id='panel_associations', class='content'>
+        <p class='marginless'>Pronto tendremos disponible esta funcionalidad.</p>
+      </div>
+    </dd>
+  </dl>
+</center>

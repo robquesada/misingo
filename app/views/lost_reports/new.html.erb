@@ -13,9 +13,27 @@
         </div>
         <div class='large-6 columns left'>
           <div class='row final'></div>
+          <ul class='breadcrumbs'>
+            <li class='unavailable', id='firstItemList'>Tu mascota</li>
+            <li class='current'><b>Info de contacto</b></li>
+            <li class='unavailable'>Finalizar</li>
+          </ul>
           <%= render 'form' %>
         </div>
       </center>
     </div>
   </div>
 </div>
+<script type='text/javascript'>
+  var submitted = false;
+  $(document).ready(function () {
+    window.onbeforeunload = function(){
+      if(!submitted){
+        return 'Si abandona la página, no se registrará su mascota.';
+      }
+    }
+    $(document).submit(function() {
+      submitted = true;
+    });
+  });
+</script>

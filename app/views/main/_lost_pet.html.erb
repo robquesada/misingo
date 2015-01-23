@@ -1,30 +1,46 @@
-<div class='row final'></div>
-<div class='large-1 columns'><div class='row final'></div></div>
-<div class='large-10 columns'>
-  <ul class='small-block-grid-1 large-block-grid-3'>
+<!-- Project Feed -->
+<div class="project-feed project-feed__3cols row">
+  <% @lost_reports.each_with_index do |lost_report, index, pet = lost_report.pet| %>
+    <div class="col-sm-6 col-md-4 project-item cats logo">
+      <div class="project-item-inner">
+        <figure class="alignnone project-img">
+          <%= link_to image_tag(pet.avatar.url(:medium)), pet_lost_report_path(pet) %>
+        </figure>
+        <div class="project-desc">
+          <h4 class="title">Se busca <%= pet.name %></h4>
+          <span class="desc"><%= pet.breed.name %></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+  <!-- <ul class='small-block-grid-1 large-block-grid-3'>
     <% @lost_reports.each_with_index do |lost_report, index, pet = lost_report.pet| %>
       <li>
-        <%= link_to image_tag(pet.avatar.url(:medium)), pet_lost_report_path(pet) %>
+        <div class='jm-item first'>
+          <div class='jm-item-wrapper'>
+            <div class='jm-item-image'>
+              <%= link_to image_tag(pet.avatar.url(:medium)), pet_lost_report_path(pet) %>
+              <div class='jm-item-button'>
+                <%= link_to 'Ver', pet_lost_report_path(lost_report.pet) %>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class='panel pet grid radius'>
           <%= link_to(pet_lost_report_path(lost_report.pet)) do %>
-            <h3>SE BUSCA <b><%= pet.name.upcase %></b></h3>
+            <h5>SE BUSCA <b><%= pet.name.upcase %></b></h5>
           <% end %>
           <div class='row'>
+            <p class='size-12 right'>
+              <%= lost_report.created_at.strftime("%d %b. %Y") %>
+              <i class='fi-marker size-12'></i> <%= lost_report.province.name %>
+            </p>
             <%= render partial: 'shared/social_shares',
             locals: { url: pet_lost_report_url(lost_report) } %>
-            <p>Perdido en <b><%= lost_report.province.name %></b></p>
-            <dl class='accordion' data-accordion>
-              <dd class='accordion-navigation'>
-                <a href='#panel<%= index %>', class='accordion'>Ver información</a>
-                <div id='panel<%= index %>', class='content'>
-                  <%= render partial: 'shared/lost_pet_info', locals: { lost_report: lost_report } %>
-                </div>
-              </dd>
-            </dl>
           </div>
         </div>
       </li>
     <% end %>
-  </ul>
-</div>
-<div class='large-1 columns'></div>
+  </ul> -->

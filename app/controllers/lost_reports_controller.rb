@@ -46,7 +46,6 @@ class LostReportsController < ApplicationController
 
   def lost_report_params
     params.require(:lost_report).permit(
-      :owner,
       :province_id,
       :address,
       :description,

@@ -8,13 +8,12 @@
         <hr>
         <div class='row'>
           <center>
-            <div class='row final'></div>
-            <div class='large-12 columns'>
+            <div>
               <%= form_tag(home_path, method: 'get') do %>
                 <%= collection_select(:province, :province_id, Province.all, :id, :name,
-                { include_blank: 'Ver todas', selected: @province_id }, { class: 'select search' }) %>
+                { include_blank: 'Provincias', selected: @province_id }, { class: 'select search' }) %>
                 <%= button_tag(type: 'submit', class: 'small button search') do %>
-                    Buscar <i class='step fi-magnifying-glass'></i>
+                    Buscar
                 <% end %>
               <% end %>
             </div>
