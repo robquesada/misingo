@@ -1,9 +1,20 @@
 <% pet = lost_report.pet %>
-<p class='marginless'><i class='step fi-marker size-16'></i> <%= lost_report.province.name %>. <%= lost_report.address %></p>
-  <p class='marginless'><i class='step fi-paw size-16'></i> <%= pet.breed_name %> (<%= pet.sex %>).
-  <p class='marginless'><i class='step fi-pencil size-16'></i> <%= lost_report.description %></p>
-  <p class='marginless'><i class='step fi-telephone size-16'></i> <%= lost_report.phone_numbers.join(' / ') %>
-  </p>
-<% if current_user == pet.user %>
-  <p class='marginless'><%= link_to 'Editar información', edit_pet_lost_report_path(pet) %></p>
-<% end %>
+<div class="pet info">
+  <ul>
+    <li>
+      <span><i class='fi-paw size-16'> </i>Raza</span><%= pet.breed_name %> (<%= pet.sex %>)
+    </li>
+    <li>
+      <span><i class='fi-pencil size-16'> </i>Descripción</span><%= lost_report.description %>
+    </li>
+    <li>
+      <span><i class='fi-marker size-16'> </i>Desaparición</span><%= lost_report.province.name %>. <%= lost_report.address %>
+    </li>
+    <li>
+      <span><i class='fi-telephone size-16'> </i>Teléfonos</span><%= lost_report.phone_numbers.join(' / ') %>
+    </li>
+  </ul>
+  <% if current_user == pet.user %>
+    <p class='marginless'><%= link_to 'Editar información', edit_pet_lost_report_path(pet) %></p>
+  <% end %>
+</div>

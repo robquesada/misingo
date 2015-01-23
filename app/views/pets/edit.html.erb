@@ -12,6 +12,12 @@
           <div class='row final'></div>
         </div>
         <div class='large-6 columns left'>
+          <ul class='breadcrumbs'>
+            <li class='current', id='firstItemList'>
+              <b>Editar a tu mascota</b>
+            </li>
+            <li><%= link_to 'Editar información de contacto', home_path %></li>
+          </ul>
           <%= render 'form' %>
         </div>
       </center>

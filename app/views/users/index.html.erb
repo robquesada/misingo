@@ -1,33 +1,241 @@
-<%= render 'shared/header' %>
-<div class='large-12 columns'>
-  <div class='row'>
-    <div class='row final'></div>
-    <center>
-      <a class='header'>Perfil</a>
-    </center>
-    <hr>
-    <div class='row'>
-        <center>
-          <div class='large-4 columns'>
-            <%= render 'user_info' %>
-          </div>
-          <div class='large-8 columns'>
-          <div class='row final'></div>
-          <div class='row final'></div>
-            <ul class='small-block-grid-1 large-block-grid-3'>
-              <% @pets.each do |pet| %>
-                <li>
-                  <%= link_to image_tag(pet.avatar.url(:medium)), edit_pet_path(pet) %>
-                  <div class='panel pet grid radius'>
-                    <p class='marginless'><b><%= pet.name %></b></p>
-                    <%= link_to 'Editar', edit_pet_path(pet) %> |
-                    <%= link_to 'Eliminar', pet_path(pet), method: :delete, data: { confirm: '¿Está seguro?' } %>
+<div class="site-wrapper">
+
+  <%= render 'shared/header'%>
+
+    <!-- Main -->
+    <div class="main" role="main">
+
+      <!-- Slider -->
+      <!-- Slider / End -->
+
+      <!-- Page Content -->
+      <section class="page-content">
+        <div class="container">
+
+          <!-- Light Section -->
+          <section class="section-light section-nomargin">
+            <div class="row">
+              <div class="col-md-8">
+                <h2 class="with-subtitle" data-animation="fadeInUp" data-animation-delay="0">Latest Listings <small data-animation="fadeInUp" data-animation-delay="100">Subtitle goes here</small></h2>
+                <div class="row">
+                  <div class="col-xs-6 col-sm-3 col-md-3" data-animation="fadeInLeft" data-animation-delay="0">
+                    <div class="job-listing-box">
+                      <figure class="job-listing-img">
+                        <a href="job-profile.html"><img src="http://placehold.it/160x160" alt=""></a>
+                      </figure>
+                      <div class="job-listing-body">
+                        <h4 class="name"><a href="job-profile.html">Samantha Doe</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      </div>
+                      <footer class="job-listing-footer">
+                        <ul class="meta">
+                          <li class="category">Cat Sitter</li>
+                          <li class="location"><a href="#">Orlando, FL</a></li>
+                          <li class="date">Posted 1 day ago</li>
+                        </ul>
+                      </footer>
+                    </div>
                   </div>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </center>
-      </div>  
-  </div>
+                  <div class="col-xs-6 col-sm-3 col-md-3" data-animation="fadeInLeft" data-animation-delay="200">
+                    <div class="job-listing-box">
+                      <figure class="job-listing-img">
+                        <a href="job-profile.html"><img src="http://placehold.it/160x160" alt=""></a>
+                      </figure>
+                      <div class="job-listing-body">
+                        <h4 class="name"><a href="job-profile.html">Molly Warren</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      </div>
+                      <footer class="job-listing-footer">
+                        <ul class="meta">
+                          <li class="category">Dog Sitter</li>
+                          <li class="location"><a href="#">Orlando, FL</a></li>
+                          <li class="date">Posted 2 days ago</li>
+                        </ul>
+                      </footer>
+                    </div>
+                  </div>
+
+                  <div class="clearfix visible-xs"></div>
+                  <div class="spacer visible-xs"></div>
+
+                  <div class="col-xs-6 col-sm-3 col-md-3" data-animation="fadeInLeft" data-animation-delay="400">
+                    <div class="job-listing-box">
+                      <figure class="job-listing-img">
+                        <a href="job-profile.html"><img src="http://placehold.it/160x160" alt=""></a>
+                      </figure>
+                      <div class="job-listing-body">
+                        <h4 class="name"><a href="job-profile.html">Jeff Black</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      </div>
+                      <footer class="job-listing-footer">
+                        <ul class="meta">
+                          <li class="category">Pet Sitter</li>
+                          <li class="location"><a href="#">Orlando, FL</a></li>
+                          <li class="date">Posted 3 days ago</li>
+                        </ul>
+                      </footer>
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-sm-3 col-md-3" data-animation="fadeInLeft" data-animation-delay="600">
+                    <div class="job-listing-box">
+                      <figure class="job-listing-img">
+                        <a href="job-profile.html"><img src="http://placehold.it/160x160" alt=""></a>
+                      </figure>
+                      <div class="job-listing-body">
+                        <h4 class="name"><a href="job-profile.html">Susan Smith</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      </div>
+                      <footer class="job-listing-footer">
+                        <ul class="meta">
+                          <li class="category">Cat Sitter</li>
+                          <li class="location"><a href="#">Orlando, FL</a></li>
+                          <li class="date">Posted 5 days ago</li>
+                        </ul>
+                      </footer>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4" data-animation="fadeInRight" data-animation-delay="0">
+                <div class="spacer-lg visible-sm visible-xs"></div>
+                <h2>Featured Listings</h2>
+                <!-- Featured Listings -->
+                <div class="owl-carousel owl-theme owl-featured-listings">
+                  <div class="job-listing-box featured">
+                    <figure class="job-listing-img">
+                      <a href="job-profile.html"><img src="http://placehold.it/708x671" alt=""></a>
+                    </figure>
+                    <div class="job-listing-holder">
+                      <div class="job-listing-body">
+                        <h4 class="name"><a href="job-profile.html">John Doe</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      </div>
+                      <footer class="job-listing-footer">
+                        <ul class="meta">
+                          <li class="category">Cat Sitter</li>
+                          <li class="location"><a href="#">Orlando, FL</a></li>
+                          <li class="date">Posted 5 days ago</li>
+                        </ul>
+                      </footer>
+                    </div>
+                  </div>
+                  <div class="job-listing-box featured">
+                    <figure class="job-listing-img">
+                      <a href="job-profile.html"><img src="http://placehold.it/708x671" alt=""></a>
+                    </figure>
+                    <div class="job-listing-holder">
+                      <div class="job-listing-body">
+                        <h4 class="name"><a href="job-profile.html">John Doe</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      </div>
+                      <footer class="job-listing-footer">
+                        <ul class="meta">
+                          <li class="category">Cat Sitter</li>
+                          <li class="location"><a href="#">Orlando, FL</a></li>
+                          <li class="date">Posted 5 days ago</li>
+                        </ul>
+                      </footer>
+                    </div>
+                  </div>
+                  <div class="job-listing-box featured">
+                    <figure class="job-listing-img">
+                      <a href="job-profile.html"><img src="http://placehold.it/708x671" alt=""></a>
+                    </figure>
+                    <div class="job-listing-holder">
+                      <div class="job-listing-body">
+                        <h4 class="name"><a href="job-profile.html">John Doe</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      </div>
+                      <footer class="job-listing-footer">
+                        <ul class="meta">
+                          <li class="category">Cat Sitter</li>
+                          <li class="location"><a href="#">Orlando, FL</a></li>
+                          <li class="date">Posted 5 days ago</li>
+                        </ul>
+                      </footer>
+                    </div>
+                  </div>
+                </div>
+                <!-- Featured Listings / End -->
+            
+              </div>
+            </div>
+          </section>
+          <!-- Light Section / End -->
+
+          <!-- Section -->
+          <section class="section section-nomargin">
+            <div class="row">
+              <div class="col-md-6" data-animation="fadeInLeft" data-animation-delay="0">
+                <div class="img-box">
+                  <img src="images/samples/img1.png" alt="">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <h2>For Pet Owners</h2>
+                <div class="icon-box circled icon-box-animated" data-animation="fadeInLeft" data-animation-delay="0">
+                  <div class="icon">
+                    <i class="entypo search"></i>
+                  </div>
+                  <div class="icon-box-body">
+                    <h4>Find Your Perfect Pet Sitter</h4>
+                    Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.
+                  </div>
+                </div>
+
+                <div class="icon-box circled icon-box-animated" data-animation="fadeInLeft" data-animation-delay="200">
+                  <div class="icon">
+                    <i class="entypo vcard"></i>
+                  </div>
+                  <div class="icon-box-body">
+                    <h4>Contact Pet Sitter</h4>
+                    Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.
+                  </div>
+                </div>
+
+                <div class="icon-box circled icon-box-animated" data-animation="fadeInLeft" data-animation-delay="400">
+                  <div class="icon">
+                    <i class="entypo check"></i>
+                  </div>
+                  <div class="icon-box-body">
+                    <h4>Hire with Confidence</h4>
+                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.</p>
+                  </div>
+                </div>
+
+                <a href="job-list.html" class="btn btn-primary">View All Pet Sitters <i class="fa fa-arrow-circle-o-right fa-lg fa-right"></i></a>
+
+              </div>
+            </div>
+
+            <hr class="lg">
+
+
+          </section>
+          <!-- Section / End -->
+
+        </div>
+      </section>
+      <!-- Page Content / End -->
+    </div>
+    <!-- Main / End -->
 </div>
+
+<script>
+  jQuery(function($){
+    $('body').addClass('loading');
+  });
+  
+  $(window).load(function(){
+    $('.flexslider').flexslider({
+      animation: "fade",
+      controlNav: true,
+      directionNav: false,
+      prevText: "",
+      nextText: "",
+      start: function(slider){
+        $('body').removeClass('loading');
+      }
+    });
+  });
+</script>

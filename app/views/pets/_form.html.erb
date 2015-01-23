@@ -1,21 +1,21 @@
 <%= form_for @pet do |f| %>
   <%= render 'shared/flash_messages' %>
   <div class='panel'>
-    <% if @pet.new_record? %>
-      <label>Subí una foto de perfil</label>
-    <% else %>
-      <label>Cambiar la foto de perfil</label>
-    <% end %>
+    <% text = @pet.new_record? ? text = 'Subir' : text = 'Cambiar' %>
+    <label>Foto de perfil</label>
     <div class='profile-pic-box'>
-      <% if !@pet.new_record? %>
-        <center><%= image_tag @pet.avatar.url(:profile), id:'image' %></center>
-      <% else %>
-        <center>
+      <center>
+        <% if !@pet.new_record? %>
+          <%= image_tag @pet.avatar.url(:profile), id:'image' %>
+        <% else %>
           <img id='image'></img>
-        </center>
-      <% end %>
+        <% end %>
+      </center>
     </div>
-    <%= f.file_field :avatar, id: 'image-selector' %>
+    <div class='fileUpload upButton'>
+      <span><%= text %></span>
+      <%= f.file_field :avatar, { id: 'image-selector', class: 'upload' } %>
+    </div>
   </div>
   <div class='row final'></div>
   <div class='row'>
