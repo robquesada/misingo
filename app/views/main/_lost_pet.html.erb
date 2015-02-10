@@ -1,11 +1,11 @@
-<section class="page-content">
+<section class="page-content main">
   <div class="container">
     <!-- Project Feed -->
-    <div class="project-feed project-feed__3cols row">
+    <div class="project-feed project-feed__3cols row isotope">
       <% @lost_reports.each_with_index do |lost_report, index, pet = lost_report.pet| %>
         <div class="col-sm-6 col-md-4 project-item">
           <div class="project-item-inner">
-            <figure class="alignnone">
+            <figure class="alignnone project-img">
               <%= link_to image_tag(pet.avatar.url(:medium)), pet_lost_report_path(pet) %>
             </figure>
             <div class="project-desc">

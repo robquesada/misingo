@@ -1,6 +1,5 @@
 <header class="header header-menu-fullw">
-
-  <%# if current_user.nil? %>
+  <% if current_user.nil? %>
     <div class="header-top">
       <div class="container">
         <div class="header-top-left">
@@ -12,12 +11,30 @@
         </div>
         <div class="header-top-right">
           <span class="register">
-            ¿Tenés cuenta? <a href="#" class="btn btn-sm btn-warning">Iniciar</a> <a href="#" class="btn btn-sm btn-warning">Ingresar con Facebook</a>
+            ¿Tenés cuenta?
+            <%= button_to 'Iniciar', new_user_session_path, class: "btn btn-sm btn-warning" %>
+            <%= button_to 'Ingresar con Facebook', user_omniauth_authorize_path(:facebook), class: "btn btn-sm btn-warning facebook" %>
           </span>
         </div>
       </div>
     </div>
-  <%# end %>
+  <% else %>
+    <div class="header-top">
+      <div class="container">
+        <div class="header-top-left">
+        </div>
+        <div class="header-top-right">
+          <div class="user-info">
+            <%= button_to 'Registrar mascota desaparecida', new_user_session_path, class: "btn btn-sm btn-warning" %>
+            <span></span> 
+            <% image = current_user.image.nil? ? 'profile_default.png' : current_user.image %>
+            <%= current_user.name %> <%= image_tag(image, class:'small-picture') %>
+            <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
   <div class="header-main">
     <div class="container">
@@ -26,11 +43,9 @@
         <%= image_tag('logo.png') %>
       </div>
       <!-- Logo / End -->
-
       <button type="button" class="navbar-toggle">
         <i class="fa fa-bars"></i>
       </button>
-
       <!-- Banner -->
       <div class="head-info">
         <ul class="head-info-list">
@@ -47,7 +62,7 @@
   </div>
 
   <!-- Navigation -->
-  <nav class="nav-main">
+  <!-- <nav class="nav-main">
     <div class="container">
       <ul data-breakpoint="992" class="flexnav">
         <li class="active"><a href="index.html">Inicio</a></li>
@@ -55,7 +70,6 @@
         <li><a href="contacts.html">Contacto</a></li>
       </ul>
     </div>
-  </nav>
+  </nav> -->
   <!-- Navigation / End -->
-
 </header>
