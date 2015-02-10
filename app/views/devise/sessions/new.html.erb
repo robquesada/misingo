@@ -1,36 +1,140 @@
-<div class="row final"></div>
-<div class="large-12 columns">
-  <div class="row">
-    <div class="row final">
-    <center><a class="header">Iniciar sesión</a></center>
-    <hr>
-    <div class="large-6 columns about-box">
-      <div class="panel">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <%= f.email_field :email, placeholder:"E-mail", autofocus: true %>
-          <%= f.password_field :password, placeholder: "Contraseña", autocomplete: "off" %>
-          <% if devise_mapping.rememberable? %>
-            <%= f.check_box :remember_me %> <%= f.label "Recordar mis datos" %>
-          <% end %>
-          <%= f.submit "Iniciar", class: "small button expand [radius round]" %>
-        <% end %>
-        <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-          <%= link_to "¿Olvidó su contraseña?", new_password_path(resource_name), class: "size-16" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="large-6 columns">
-      <div class="panel radius">
-        <center>
-          <p>¿No tiene cuenta?</p>
-          <% if devise_mapping.registerable? && controller_name != 'registrations' %>
-            <%= link_to "Crear nueva cuenta", new_registration_path(resource_name), class: "small button radius" %>
-          <% end %>
-          <%= button_to(user_omniauth_authorize_path(:facebook), class: "secondary small button facebook") do %>
-            Crear cuenta con Facebook <i class="fi-social-facebook size-18"></i>
-          <% end %>
-        </center>
-      </div>
-    </div>
-  </div>
+<%= render 'shared/header', locals: { header_main: false } %>
+
+<!-- Page Content -->
+      <section class="page-content">
+        <div class="container">
+          
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <!-- Job Form -->
+              <form action="#" method="post" id="submit-job-form" class="job-manager-form" enctype="multipart/form-data">
+
+                <fieldset>
+                  <label>¿Tenés cuenta de Facebook?</label>
+                  <div class="field account-sign-in">
+                    <p>
+                      <a class="btn btn-primary btn-sm facebook" href="#"><i class="fa fa-key"></i>Ingresar con cuenta de Facebook</a>
+                    </p>
+
+                    <div class="alert alert-info alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times"></i></button>
+                      Si no tenés una cuenta podés ingresar usando tu Facebook o crear una aquí abajo ingresando tu nombre, correo electrónico y una contraseña.
+                    </div>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <label>Tu correo electrónico <span class="required">*</span></label>
+                  <div class="field">
+                    <input type="email" class="form-control" name="create_account_email" id="account_email" placeholder="nombre@ejemplo.com" value="" />
+                  </div>
+                </fieldset>
+                
+                <!-- Job Information Fields -->
+                <fieldset class="fieldset-job_title">
+                  <label for="job_title">Job Title</label>
+                  <div class="field">
+                    <input type="text" class="form-control" name="job_title" id="job_title" placeholder="e.g. “Pet Sitter”" />
+                  </div>
+                </fieldset>
+
+                <fieldset class="fieldset-job_location">
+                  <label for="job_location">Job Location <small>(optional)</small></label>
+                  <div class="field">
+                    <input type="text" class="form-control" name="job_location" id="job_location" placeholder="e.g. &quot;London, UK&quot;, &quot;New York&quot;, &quot;Houston, TX&quot;" />
+                    <small class="description">Leave this blank if the job can be done from anywhere (i.e. telecommuting)</small>
+                  </div>
+                </fieldset>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <fieldset class="fieldset-job_type">
+                      <label for="job_type">Job Type</label>
+                      <div class="field select-style">
+                        <select name="job_type" id="job_type" class="form-control">
+                          <option value="unspecified">Unspecified</option>
+                          <option value="pet-sitter">Pet Sitter</option>
+                          <option value="dog-sitter">Dog Sitter</option>
+                          <option value="cat-sitter">Cat Sitter</option>
+                          <option value="dog-walker">Dog Walker</option>
+                        </select>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <div class="col-md-6">
+                    <fieldset class="fieldset-job_category">
+                      <label for="job_category">Job category</label>
+                      <div class="field select-style">
+                        <select name="job_category" id="job_category" class="form-control">
+                          <option value="unspecified">Unspecified</option>
+                          <option value="pet-feeding">Pet Feeding</option>
+                          <option value="cat-feeding">Cat Feeding</option>
+                        </select>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+
+                <fieldset class="fieldset-job_description">
+                  <label>Description</label>
+                  <div class="field">
+                    <textarea name="textarea" cols="30" rows="8" class="form-control"></textarea>
+                  </div>
+                </fieldset>
+
+                <fieldset class="fieldset-application">
+                  <label for="application">Application email/URL</label>
+                  <div class="field">
+                    <input type="text" class="form-control" name="application" id="application" placeholder="Enter an email address or website URL" />
+                  </div>
+                </fieldset>
+
+                <fieldset class="fieldset-company_logo">
+                  <label for="company_logo">Photo <small>(optional)</small></label>
+                  <div class="field">
+                    <input type="file" class="form-control" name="company_logo" id="company_logo" />
+                    <small class="description">
+                    Max. file size: 32 MB.</small>
+                  </div>
+                </fieldset>
+
+                <div class="spacer"></div>
+
+                <p>
+                  <input type="submit" name="submit_job" class="btn btn-primary" value="Preview Job Listing &rarr;" />
+                </p>
+
+              </form>
+              <!-- Job Form / End -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- Page Content / End -->
+
+<!-- <div class="panel">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.email_field :email, placeholder:"E-mail", autofocus: true %>
+    <%= f.password_field :password, placeholder: "Contraseña", autocomplete: "off" %>
+    <% if devise_mapping.rememberable? %>
+      <%= f.check_box :remember_me %> <%= f.label "Recordar mis datos" %>
+    <% end %>
+    <%= f.submit "Iniciar", class: "small button expand [radius round]" %>
+  <% end %>
+  <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to "¿Olvidó su contraseña?", new_password_path(resource_name), class: "size-16" %>
+  <% end %>
 </div>
+
+<div class="panel radius">
+  <center>
+    <p>¿No tiene cuenta?</p>
+    <% if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= link_to "Crear nueva cuenta", new_registration_path(resource_name), class: "small button radius" %>
+    <% end %>
+    <%= button_to(user_omniauth_authorize_path(:facebook), class: "secondary small button facebook") do %>
+      Crear cuenta con Facebook <i class="fi-social-facebook size-18"></i>
+    <% end %>
+  </center>
+</div> -->
