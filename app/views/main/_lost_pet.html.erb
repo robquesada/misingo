@@ -1,19 +1,23 @@
-<!-- Project Feed -->
-<div class="project-feed project-feed__3cols row">
-  <% @lost_reports.each_with_index do |lost_report, index, pet = lost_report.pet| %>
-    <div class="col-sm-6 col-md-4 project-item cats logo">
-      <div class="project-item-inner">
-        <figure class="alignnone project-img">
-          <%= link_to image_tag(pet.avatar.url(:medium)), pet_lost_report_path(pet) %>
-        </figure>
-        <div class="project-desc">
-          <h4 class="title">Se busca <%= pet.name %></h4>
-          <span class="desc"><%= pet.breed.name %></span>
+<section class="page-content main">
+  <div class="container">
+    <!-- Project Feed -->
+    <div class="project-feed project-feed__3cols row isotope">
+      <% @lost_reports.each_with_index do |lost_report, index, pet = lost_report.pet| %>
+        <div class="col-sm-6 col-md-4 project-item">
+          <div class="project-item-inner">
+            <figure class="alignnone project-img">
+              <%= link_to image_tag(pet.avatar.url(:medium)), pet_lost_report_path(pet) %>
+            </figure>
+            <div class="project-desc">
+              <h4 class="title">Se busca <%= pet.name %></h4>
+              <span class="desc"><%= pet.breed.name %></span>
+            </div>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
+</section>
 
   <!-- <ul class='small-block-grid-1 large-block-grid-3'>
     <% @lost_reports.each_with_index do |lost_report, index, pet = lost_report.pet| %>

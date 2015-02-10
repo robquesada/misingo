@@ -1,24 +1,40 @@
 <%= render 'shared/header' %>
-<div class='large-12 columns'>
-    <div class='row'>
-        <div class='row final'></div>
-        <center>
-          <a class='header'>Mascotas desaparecidas</a>
-        </center>
-        <hr>
-        <div class='row'>
-          <center>
-            <div>
-              <%= form_tag(home_path, method: 'get') do %>
-                <%= collection_select(:province, :province_id, Province.all, :id, :name,
-                { include_blank: 'Provincias', selected: @province_id }, { class: 'select search' }) %>
-                <%= button_tag(type: 'submit', class: 'small button search') do %>
-                    Buscar
-                <% end %>
-              <% end %>
-            </div>
-            <%= render 'lost_pet' %>
-          </center>  
+<div>
+  <!-- Page Heading -->
+  <section class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Mascotas desaparecidas</h1>
+        </div>
+        <div class="col-md-6">
+          <ul class="breadcrumb">
+            <li class="active">Inicio</li>
+            <li><a href="#">Adopciones</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
       </div>
     </div>
+  </section>
+
+  <div class="row search">
+    <div class="col-md-6 col-md-offset-4">
+      <fieldset>
+        <%= form_tag(home_path, method: 'get') do %>
+          <div class="col-md-6">
+            <%= collection_select(:province, :province_id, Province.all, :id, :name,
+            { include_blank: 'Provincias', selected: @province_id }, { class: 'form-control' }) %>
+          </div>
+          <div class="col-md-6">
+            <%= button_tag(type: 'submit', class: 'btn btn-sm btn-default search') do %>
+                Buscar
+            <% end %>
+          </div>
+        <% end %>
+      </fieldset>
+    </div>
+  </div>
+
 </div>
+<%= render 'lost_pet' %>
