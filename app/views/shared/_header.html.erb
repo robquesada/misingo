@@ -22,6 +22,11 @@
     <div class="header-top">
       <div class="container">
         <div class="header-top-left">
+          <ul class="header-top-nav">
+            <li><%= link_to "Inicio", home_path %></li>
+            <li><a href="#">Desapariciones</a></li>
+            <li><a href="#">Adopciones</a></li>
+          </ul>
         </div>
         <div class="header-top-right">
           <div class="user-info">
@@ -36,13 +41,14 @@
     </div>
   <% end %>
 
-  
-    <div class="header-main">
-    <% if @header_main %>
+  <div class="header-main">
+    <% if !@header_main %>
       <div class="container">
         <!-- Logo -->
         <div class="logo">
-          <%= image_tag('logo.png') %>
+          <%= link_to home_path do %>
+            <%= image_tag('logo.png') %>
+          <% end %>
         </div>
         <!-- Logo / End -->
         <button type="button" class="navbar-toggle">
@@ -62,7 +68,7 @@
         <!-- Banner / End -->
       </div>
     <% end %>
-    </div>
+  </div>
 
   <!-- Navigation -->
   <!-- <nav class="nav-main">

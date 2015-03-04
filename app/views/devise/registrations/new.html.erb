@@ -1,28 +1,65 @@
-<div class="large-12 columns">
-  <div class="row">
-    <div class="row final"></div>
-    <center><a class="header">Crear cuenta</a></center>
-    <hr>
-    <div class="large-6 columns">
-      <div class="panel">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= render 'shared/header', locals: { header_main: false } %>
+
+<!-- Page Content -->
+<section class="page-content">
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <!-- Job Form -->
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id:"submit-job-form", class:"job-manager-form", enctype:"multipart/form-data", name:"commit"}) do |f| %>
           <%= devise_error_messages! %>
-          <%= f.text_field :name, placeholder: "Nombre", autofocus: true %>
-          <%= f.email_field :email, placeholder: "E-mail", autofocus: true %>
-          <%= f.label "Contraseña (#{@minimum_password_length} caracteres como mínimo)" if @validatable %>
-          <div class="row final"></div>
-          <%= f.password_field :password, placeholder: "Nueva contraseña", autocomplete: "off" %>
-          <%= f.password_field :password_confirmation, placeholder: "Ingrese de nuevo la contraseña", autocomplete: "off" %>
-          <div><%= f.submit "Crear cuenta", class: "small button radius" %></div>
+
+          <fieldset>
+            <label>¿Tenés cuenta de Facebook?</label>
+            <div class="field account-sign-in">
+              <p>
+                <a class="btn btn-primary btn-sm facebook" href="#"><i class="fa fa-key"></i>Ingresar con cuenta de Facebook</a>
+              </p>
+
+              <div class="alert alert-info alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times"></i></button>
+                Si no tenés una cuenta podés ingresar usando tu Facebook o crear una aquí abajo ingresando tu nombre, correo electrónico y una contraseña.
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <label>Tu nombre <span class="required">*</span></label>
+            <div class="field">
+              <%= f.text_field :name, placeholder: "ej. María Soto", autofocus: true, class:"form-control" %>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <label>Tu correo electrónico <span class="required">*</span></label>
+            <div class="field">
+              <%= f.email_field :email, type:"email", class:"form-control", placeholder:"nombre@ejemplo.com", autofocus: true %>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <label>Nueva contraseña <span class="required">*</span></label>
+            <div class="field">
+            <%= f.password_field :password, type:"password", class:"form-control", placeholder: "#{@minimum_password_length} caracteres como mínimo", autocomplete: "off" %>
+            </div>
+            <div class="spacer"></div>
+            <div class="field">
+            <%= f.password_field :password_confirmation, type:"password", class:"form-control", placeholder: "Escribí de nuevo tu nueva contraseña", autocomplete: "off" %>
+            </div>
+          </fieldset>
+
+          <div class="spacer"></div>
+
+          <p>
+            <%= f.submit "Crear cuenta", type:"submit", class: "btn btn-primary" %>
+          </p>
+
         <% end %>
+        <!-- Job Form / End -->
       </div>
     </div>
-    <div class="large-6 columns">
-      <div class="panel">
-        <center>
-          <%= render partial: 'devise/shared/sessions.html.erb' %>
-        </center>
-      </div>
-    </div>
+
   </div>
-</div>
+</section>
+<!-- Page Content / End -->
