@@ -1,36 +1,60 @@
-<div class="row final"></div>
-<div class="large-12 columns">
-  <div class="row">
-    <div class="row final">
-    <center><a class="header">Iniciar sesión</a></center>
-    <hr>
-    <div class="large-6 columns about-box">
-      <div class="panel">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <%= f.email_field :email, placeholder:"E-mail", autofocus: true %>
-          <%= f.password_field :password, placeholder: "Contraseña", autocomplete: "off" %>
-          <% if devise_mapping.rememberable? %>
-            <%= f.check_box :remember_me %> <%= f.label "Recordar mis datos" %>
+<%= render 'shared/header', locals: { header_main: false } %>
+
+<!-- Page Content -->
+<section class="page-content">
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <!-- Job Form -->
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: 'submit-job-form', class: 'job-manager-form', enctype: 'multipart/form-data' }) do |f| %>
+
+          <fieldset>
+            <div class="field account-sign-in">
+              <div class="alert alert-info alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times"></i></button>
+                ¿No tenés cuenta en Misingo? <%= link_to "Creá una en un minuto", new_registration_path(resource_name) %> o <%= link_to "ingresá con tu Facebook", user_omniauth_authorize_path(:facebook) %>.
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <label>Tu correo electrónico <span class="required">*</span></label>
+            <div class="field">
+              <%= f.email_field :email, type:"email", class:"form-control", placeholder:"nombre@ejemplo.com", autofocus: true %>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <label>Contraseña <span class="required">*</span></label>
+            <div class="field">
+              <%= f.password_field :password, type:"password", class:"form-control", autocomplete: "off" %>
+            </div>
+          </fieldset>
+
+          <div class="checkbox checkbox__custom checkbox__style1">
+            <label>
+              <% if devise_mapping.rememberable? %>
+                <%= f.check_box :remember_me, type:"checkbox" %>
+              <% end %>
+              <span>Recordar mis datos</span>
+            </label>
+          </div>
+
+          <div class="spacer"></div>
+
+          <p>
+            <%= f.submit "Iniciar", type:"submit", class: "btn btn-primary" %>
+            <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to '¿Olvidaste la contraseña?', new_password_path(resource_name), class: "forgot-password" %>
+            <% end %>
+          </p>
+
           <% end %>
-          <%= f.submit "Iniciar", class: "small button expand [radius round]" %>
-        <% end %>
-        <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-          <%= link_to "¿Olvidó su contraseña?", new_password_path(resource_name), class: "size-16" %>
-        <% end %>
+        <!-- Job Form / End -->
       </div>
     </div>
-    <div class="large-6 columns">
-      <div class="panel radius">
-        <center>
-          <p>¿No tiene cuenta?</p>
-          <% if devise_mapping.registerable? && controller_name != 'registrations' %>
-            <%= link_to "Crear nueva cuenta", new_registration_path(resource_name), class: "small button radius" %>
-          <% end %>
-          <%= button_to(user_omniauth_authorize_path(:facebook), class: "secondary small button facebook") do %>
-            Crear cuenta con Facebook <i class="fi-social-facebook size-18"></i>
-          <% end %>
-        </center>
-      </div>
-    </div>
+
   </div>
-</div>
+</section>
+<!-- Page Content / End -->
