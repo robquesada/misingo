@@ -15,5 +15,4 @@ Rails.application.routes.draw do
   get 'perfil', to: 'users#index', as: 'profile'
 
   root 'main#home'
-  # get '/', to: redirect('/soon')
 end
