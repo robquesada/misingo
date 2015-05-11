@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2'
+ruby '2.1.3'
 gem 'rails', '~> 4.1.6'
 gem 'pg', '~> 0.17'
 gem 'sass-rails', '~> 4.0.3'
@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', '~> 1.1.3', group: :development
 gem 'rails_12factor', '~> 0.0.3', group: [:production, :staging]
 gem 'dotenv-rails', '~> 1.0.2', groups: [:development, :test]
+gem 'newrelic_rpm'
 
 group :test do
   gem 'rspec-rails', '~> 3.1.0'
