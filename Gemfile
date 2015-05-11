@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', '~> 1.1.3', group: :development
 gem 'rails_12factor', '~> 0.0.3', group: [:production, :staging]
 gem 'dotenv-rails', '~> 1.0.2', groups: [:development, :test]
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', '~> 3.12.0', groups: [:development, :staging, :production]
 
 group :test do
   gem 'rspec-rails', '~> 3.1.0'
