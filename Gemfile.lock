@@ -338,7 +338,7 @@ DEPENDENCIES
   jquery-rails (~> 3.1)
   launchy (~> 2.4.3)
   less-rails
-  newrelic_rpm
+  newrelic_rpm (~> 3.12.0)
   omniauth-facebook (~> 2.0.0)
   paperclip (~> 4.2)
   pg (~> 0.17)
