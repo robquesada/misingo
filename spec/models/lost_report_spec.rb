@@ -1,19 +1,3 @@
-# == Schema Information
-#
-# Table name: lost_reports
-#
-#  id            :integer          not null, primary key
-#  address       :text
-#  reward        :integer
-#  owner         :string
-#  description   :text
-#  created_at    :datetime
-#  updated_at    :datetime
-#  province_id   :integer
-#  pet_id        :integer
-#  phone_numbers :text
-#
-
 require 'rails_helper'
 
 describe LostReport, 'validations' do
@@ -31,3 +15,19 @@ describe LostReport, 'validations' do
   it { should validate_presence_of(:description) }
   its(:owner) { should eq 'Pepe' }
 end
+
+# == Schema Information
+#
+# Table name: lost_reports
+#
+#  id            :integer          not null, primary key
+#  address       :text
+#  reward        :integer
+#  owner         :string
+#  description   :text
+#  created_at    :datetime
+#  updated_at    :datetime
+#  province_id   :integer
+#  pet_id        :integer
+#  phone_numbers :text
+#

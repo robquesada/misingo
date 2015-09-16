@@ -1,3 +1,9 @@
+FactoryGirl.define do
+  factory :province do
+    name 'Alajuela'
+  end
+end
+
 # == Schema Information
 #
 # Table name: provinces
@@ -7,9 +13,3 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
-
-FactoryGirl.define do
-  factory :province do
-    name 'Alajuela'
-  end
-end

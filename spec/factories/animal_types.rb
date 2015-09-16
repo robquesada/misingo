@@ -1,3 +1,9 @@
+FactoryGirl.define do
+  factory :animal_type do
+    name 'Perro'
+  end
+end
+
 # == Schema Information
 #
 # Table name: animal_types
@@ -7,9 +13,3 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
-
-FactoryGirl.define do
-  factory :animal_type do
-    name 'Perro'
-  end
-end

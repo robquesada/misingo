@@ -1,3 +1,10 @@
+class Breed < ActiveRecord::Base
+  has_many :pets
+  belongs_to :animal_type
+
+  delegate :name, to: :animal_type, prefix: true
+end
+
 # == Schema Information
 #
 # Table name: breeds
@@ -8,10 +15,3 @@
 #  updated_at     :datetime
 #  animal_type_id :integer
 #
-
-class Breed < ActiveRecord::Base
-  has_many :pets
-  belongs_to :animal_type
-
-  delegate :name, to: :animal_type, prefix: true
-end

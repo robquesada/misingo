@@ -1,3 +1,10 @@
+FactoryGirl.define do
+  factory :user do
+    email { Faker::Internet.email }
+    password '12345678'
+  end
+end
+
 # == Schema Information
 #
 # Table name: users
@@ -20,10 +27,3 @@
 #  name                   :string
 #  image                  :string
 #
-
-FactoryGirl.define do
-  factory :user do
-    email { Faker::Internet.email }
-    password '12345678'
-  end
-end

@@ -1,3 +1,8 @@
+class AnimalType < ActiveRecord::Base
+  has_many :pets
+  has_many :breeds
+end
+
 # == Schema Information
 #
 # Table name: animal_types
@@ -7,8 +12,3 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
-
-class AnimalType < ActiveRecord::Base
-  has_many :pets
-  has_many :breeds
-end

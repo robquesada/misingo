@@ -1,3 +1,7 @@
+class Province < ActiveRecord::Base
+  has_many :lost_reports
+end
+
 # == Schema Information
 #
 # Table name: provinces
@@ -7,7 +11,3 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
-
-class Province < ActiveRecord::Base
-  has_many :lost_reports
-end

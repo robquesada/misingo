@@ -1,3 +1,8 @@
+class AdminUser < ActiveRecord::Base
+  devise :database_authenticatable, :recoverable,
+         :rememberable, :trackable, :validatable
+end
+
 # == Schema Information
 #
 # Table name: admin_users
@@ -16,8 +21,3 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #
-
-class AdminUser < ActiveRecord::Base
-  devise :database_authenticatable, :recoverable,
-         :rememberable, :trackable, :validatable
-end
