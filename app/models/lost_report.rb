@@ -1,19 +1,3 @@
-# == Schema Information
-#
-# Table name: lost_reports
-#
-#  id            :integer          not null, primary key
-#  address       :text
-#  reward        :integer
-#  owner         :string
-#  description   :text
-#  created_at    :datetime
-#  updated_at    :datetime
-#  province_id   :integer
-#  pet_id        :integer
-#  phone_numbers :text
-#
-
 class LostReport < ActiveRecord::Base
   belongs_to :province
   belongs_to :pet
@@ -36,10 +20,22 @@ class LostReport < ActiveRecord::Base
   private
 
   def strip_phone_numbers
-    stripped_phone_numbers = []
-    phone_numbers.each do |phone_number|
-      stripped_phone_numbers.push(phone_number.strip.gsub('-', '').gsub(' ', ''))
-    end
-    self.phone_numbers = stripped_phone_numbers
+    self.phone_numbers = phone_numbers.map { |phone_number| phone_number.gsub('-', '').gsub(' ', '') }
   end
 end
+
+# == Schema Information
+#
+# Table name: lost_reports
+#
+#  id            :integer          not null, primary key
+#  address       :text
+#  reward        :integer
+#  owner         :string
+#  description   :text
+#  created_at    :datetime
+#  updated_at    :datetime
+#  province_id   :integer
+#  pet_id        :integer
+#  phone_numbers :text
+#
