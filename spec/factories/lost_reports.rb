@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: lost_reports
+#
+#  id            :integer          not null, primary key
+#  address       :text
+#  reward        :integer
+#  owner         :string
+#  description   :text
+#  created_at    :datetime
+#  updated_at    :datetime
+#  province_id   :integer
+#  pet_id        :integer
+#  phone_numbers :text
+#
+
 FactoryGirl.define do
 
   factory :lost_report do
