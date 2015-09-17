@@ -23,7 +23,7 @@ end
 #  id            :integer          not null, primary key
 #  address       :text
 #  reward        :integer
-#  owner         :string
+#  owner         :string(255)
 #  description   :text
 #  created_at    :datetime
 #  updated_at    :datetime

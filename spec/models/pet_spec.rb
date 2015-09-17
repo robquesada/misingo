@@ -18,12 +18,12 @@ end
 # Table name: pets
 #
 #  id                  :integer          not null, primary key
-#  name                :string
+#  name                :string(255)
 #  created_at          :datetime
 #  updated_at          :datetime
-#  sex                 :string
-#  avatar_file_name    :string
-#  avatar_content_type :string
+#  sex                 :string(255)
+#  avatar_file_name    :string(255)
+#  avatar_content_type :string(255)
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
 #  user_id             :integer
