@@ -28,7 +28,7 @@ describe InvitesController do
       end
 
       it "redirects to home" do
-        post :create, invite: invite_params
+        post :create, invite: { email: nil }
         expect(response).to redirect_to(root_path)
       end
     end

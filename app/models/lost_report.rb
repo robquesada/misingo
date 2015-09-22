@@ -20,7 +20,7 @@ class LostReport < ActiveRecord::Base
   private
 
   def strip_phone_numbers
-    self.phone_numbers = phone_numbers.map { |phone_number| phone_number.delete(' -') }
+    self.phone_numbers = phone_numbers.map { |phone_number| phone_number.delete('^0-9') }
   end
 end
 
