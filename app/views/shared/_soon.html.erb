@@ -33,8 +33,8 @@
               <h1>Ya casi lanzamos la aplicación...</h1>
               <p>Misingo será un sitio que te ayudará a encontrar a tu mascota desaparecida y a buscarle hogar a muchos animales que lo merecen.</p>
               <%= form_for @invite, html: { class: 'form-horizontal' } do |f| %>
-                <p> Déjanos tu email y te estaremos avisando de nuestro lanzamiento.
-                También puedes ayudarnos aportando algún comentario o sugerencia.</p>
+                <p> Dejanos tu email y te estaremos avisando de nuestro lanzamiento.
+                También nos podés ayudar aportando algún comentario o sugerencia.</p>
                 <div class="form-group <%= 'has-error' if flash[:error].try(:[], 'email') %>">
                   <%= f.email_field :email, class: "form-control", placeholder: 'Email' %>
                   <% if flash[:error].try(:[], 'email') %>
