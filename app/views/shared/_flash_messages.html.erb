@@ -1,7 +1,7 @@
 <% if flash[:error] %>
   <div id='error_explanation'>
     <div data-alert class='alert-box alert radius'>
-        Lo sentimos, no se pudo guardar la información:
+        No se pudo guardar la información, revisá estos detalles:
         <% flash[:error].each do |attr, messages| %>
           <% messages.each do | msg | %>
             <div class='row'><%= msg.capitalize %></div>

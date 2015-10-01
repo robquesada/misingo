@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require attachments
+//= require pet_selector
 //= require_tree .

@@ -5,7 +5,7 @@ showPreview = function() {
       var reader = new FileReader();
       reader.onload = function(e) {
         localStorage.setItem('img', e.target.result);
-        $('#image').attr('src', e.target.result).width(150).height(150);
+        $('#image').attr('src', e.target.result).width('auto').height(150);
       };
       $('#image').css('display','block');
       reader.readAsDataURL(this.files[0]);

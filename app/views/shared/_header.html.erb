@@ -30,7 +30,7 @@
         </div>
         <div class="header-top-right">
           <div class="user-info">
-            <%= button_to 'Registrar mascota desaparecida', new_user_session_path, class: "btn btn-sm btn-warning" %>
+            <%= button_to 'Registrar mascota desaparecida', new_pet_path, class: "btn btn-sm btn-warning" %>
             <span></span>
             <% image = current_user.image.nil? ? 'profile_default.png' : current_user.image %>
             <%= current_user.name %> <%= image_tag(image, class:'small-picture') %>
