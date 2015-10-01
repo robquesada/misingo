@@ -8,5 +8,7 @@ class MainController < ApplicationController
       @lost_reports = LostReport.where(province_id: params[:province][:province_id])
       @province_id = params[:province][:province_id]
     end
+
+    @invite = Invite.new
   end
 end

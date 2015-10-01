@@ -9,7 +9,12 @@
   }(document, 'script', 'facebook-jssdk'));
   </script>
 
-  <div class="site-wrapper">   
+  <div class="site-wrapper">
+    <% if flash[:notice] %>
+      <div class=" alert alert-info">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <header class="header header-coming-soon">
       <div class="header-main">
         <div class="container">
@@ -27,6 +32,24 @@
             <div class="col-md-8 col-md-offset-2 text-center">
               <h1>Ya casi lanzamos la aplicación...</h1>
               <p>Misingo será un sitio que te ayudará a encontrar a tu mascota desaparecida y a buscarle hogar a muchos animales que lo merecen.</p>
+              <%= form_for @invite, html: { class: 'form-horizontal' } do |f| %>
+                <p> Déjanos tu email y te estaremos avisando de nuestro lanzamiento.
+                También puedes ayudarnos aportando algún comentario o sugerencia.</p>
+                <div class="form-group <%= 'has-error' if flash[:error].try(:[], 'email') %>">
+                  <%= f.email_field :email, class: "form-control", placeholder: 'Email' %>
+                  <% if flash[:error].try(:[], 'email') %>
+                    <div class='help-block text-left'>
+                      <%= flash[:error]['email'][0] %>
+                    </div>
+                  <% end %>
+                </div>
+                <div class='form-group'>
+                  <%= f.text_area :comment, class: 'form-control', placeholder: 'Comentario o sugerencia' %>
+                </div>
+                <div class='form-group'>
+                  <%= f.submit "Agregame a la lista", class: 'btn btn-primary btn-sm' %>
+                </div>
+              <% end %>
               <p><b>¡Por mientras seguinos en <%= link_to 'Facebook', 'https://www.facebook.com/pages/Misingo/395298693984643' %>!</b></p>
               <div class="fb-like" data-href="https://www.facebook.com/pages/Misingo/395298693984643" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
             </div>

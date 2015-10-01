@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :invites, only: :create
+
   get 'perfil', to: 'users#index', as: 'profile'
 
   root 'main#home'
