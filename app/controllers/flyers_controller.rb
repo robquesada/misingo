@@ -6,6 +6,13 @@ class FlyersController < ApplicationController
                              type: 'image/jpeg', disposition: 'inline'
   end
 
+  def preview
+    @pet = Pet.find(params[:pet_id])
+    @lost_report = @pet.lost_report
+    width, height = 300, 400
+    send_data flyer.resize(width, height).to_blob, :type => 'image/png',:disposition => 'inline'
+  end
+
   private
 
   def flyer
