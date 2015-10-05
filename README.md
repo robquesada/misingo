@@ -20,3 +20,10 @@ highlights:
 2.  `cp config/database.yml.template config/database.yml`
 3.  Run `rake db:setup && rake db:migrate`
 4.  Run `rails s`
+
+
+#### Generate initial data
+
+1. Create an administrator: `rake seed:admin`. This will generate an admin user with email:  "admin@example.comm", password: "adminpass"
+2. Create pet breeds: `rake seed:breeds`
+3. Create provinces: `rake seed:provinces`
