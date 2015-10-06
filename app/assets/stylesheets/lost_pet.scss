@@ -1,0 +1,72 @@
+.lostPet--image {
+  // border-radius: 100% !important;
+  border: 5px solid #3E3626 !important;
+}
+
+.lostPet--imageHolder {
+  border: 5px solid #a6ce39;
+  // border-radius: 100%;
+  display: inline-block;
+  padding: 5px;
+  margin-top: 20px;
+  width: 80%;
+}
+
+.lostPet--name {
+  background-color: #a6ce39;
+  padding: 10px;
+  color: white;
+  margin-top: 10px;
+}
+
+.lostPet:hover .lostPet--information {
+  opacity: 1;
+}
+
+.lostPet--information {
+  background: rgba(0,0,0,0.9);
+  color: white !important;
+  position: absolute;
+  top: 0;
+  left: 15px;
+  right: 15px;
+  bottom: -3px;
+  opacity: 0;
+  border-radius: 7px;
+
+  text-decoration: none !important;
+  text-align: center;
+
+}
+
+.lostPet--information--moreLink {
+  margin-top: 20px;
+}
+
+.lostPet--information--detail--row {
+  text-align: left;
+  padding: 0px 30px;
+  margin-top: 20px;
+  overflow: hidden;
+
+  &:first-child {
+    margin-top: 0px;
+  }
+}
+
+.lostPet--information--detail--image {
+  width: 40px;
+  height: 40px;
+  float: left;
+}
+
+.lostPet--information--detail--text {
+  text-align: left;
+  float: left;
+  margin-left: 15px;
+  padding: 6px 0px;
+
+  p {
+    margin: 0;
+  }
+}
