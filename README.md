@@ -12,7 +12,7 @@ highlights:
 
 - Database: PostgreSQL with ActiveRecord
 - Template Engine: Erb / Sass
-- Testing Framework: RSpec / Cucumber
+- Testing Framework: RSpec
 
 #### Installation
 

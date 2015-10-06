@@ -8,6 +8,3 @@ development: &default
 test:
   <<: *default
   database: misingo-test
-
-cucumber:
-  <<: *test
