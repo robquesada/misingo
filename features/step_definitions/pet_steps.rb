@@ -1,5 +1,5 @@
 Given(/^I want to add a lost pet$/) do
-  visit home_path
+  visit root_path
 end
 
 When(/^I click "(.*?)"$/) do |add_pet_button|
