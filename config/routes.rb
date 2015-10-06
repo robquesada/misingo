@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   resources :pets, path: 'mascotas' do
     resource :lost_report, path: 'extravios' do
-      resource :flyer, path: 'cartel', only: :show
+      resource :flyer, path: 'cartel' do
+        get :show
+        get :preview
+      end
     end
   end
 

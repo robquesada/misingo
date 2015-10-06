@@ -7,6 +7,9 @@
   <%= link_to(pet_lost_report_flyer_path(pet), class: 'small button', target: '_blank') do %>
     Imprimir
   <% end %>
+  <div>
+    <%= image_tag url_for(preview_pet_lost_report_flyer_path) %>
+  </div>
   <div class='row final'></div>
   <p><label>Ellos también  asociaciones cerca de <%= lost_report.province.name %> te pueden ayudar con tu búsqueda:</label></p>
   <dl class='accordion' data-accordion>
