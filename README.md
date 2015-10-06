@@ -27,3 +27,4 @@ highlights:
 1. Create an administrator: `rake seed:admin`. This will generate an admin user with email:  "admin@example.comm", password: "adminpass"
 2. Create pet breeds: `rake seed:breeds`
 3. Create provinces: `rake seed:provinces`
+4. Create lost pets: `rake seed:lost_pets`

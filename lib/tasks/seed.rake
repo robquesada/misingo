@@ -1,3 +1,6 @@
+def require_factories
+  require "factory_girl_rails"
+end
 
 namespace :seed do
   desc "Seed admin user"
@@ -63,5 +66,16 @@ namespace :seed do
     ].freeze
 
     PROVINCES.each { |province| Province.where(name: province).first_or_create }
+  end
+
+
+  task lost_pets: :environment do
+    require_factories
+
+    15.times do
+      FactoryGirl.create :lost_report,
+        pet: FactoryGirl.create(:pet, breed: Breed.all.sample),
+        province: Province.all.sample
+    end
   end
 end
