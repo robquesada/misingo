@@ -4,12 +4,9 @@ FactoryGirl.define do
 
   factory :pet do
     name 'Pipo'
-    avatar { fixture_file_upload("#{Rails.root}/spec/fixtures/cat.jpg", 'image/jpg') }
     sex 'Hembra'
-
-    after(:create) do |pet|
-      pet.breed = create(:breed)
-    end
+    breed
+    avatar { fixture_file_upload("#{Rails.root}/spec/fixtures/#{breed.try(animal_type_name) || "Perro" }.jpg", 'image/jpg') }
   end
 
   factory :invalid_pet, parent: :user do

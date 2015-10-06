@@ -61,7 +61,7 @@ describe LostReportsController do
       let(:pet) { FactoryGirl.create(:pet, user: user_not_owner) }
 
       it 'redirects to home page' do
-        expect(response).to redirect_to(home_path)
+        expect(response).to redirect_to(root_path)
       end
     end
 

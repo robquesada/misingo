@@ -12,7 +12,7 @@ describe PetsController do
   describe 'POST create' do
     context 'pet with valid attributes' do
       subject { post :create, pet: FactoryGirl.attributes_for(:pet) }
-      
+
       it 'creates a new pet' do
         expect{ subject }.to change(Pet, :count).by(1)
       end
@@ -53,13 +53,13 @@ describe PetsController do
       let(:pet) { FactoryGirl.create(:pet, user: user_not_owner) }
 
       it 'redirects to home page' do
-        expect(response).to redirect_to(home_path)
+        expect(response).to redirect_to(root_path)
       end
     end
 
     context 'when pet is owned by user' do
       context 'pet with valid attributes' do
-        it 'updates the requested pet' do  
+        it 'updates the requested pet' do
           expect(assigns(:pet)).to have_attributes(new_attributes)
         end
       end

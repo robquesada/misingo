@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   get 'iniciar', to: 'login#index', as: 'login'
-  get '/', to: 'main#home', as: 'home'
 
   resources :pets, path: 'mascotas' do
     resource :lost_report, path: 'extravios' do

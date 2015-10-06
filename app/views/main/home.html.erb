@@ -21,7 +21,7 @@
   <div class="row search">
     <div class="col-md-6 col-md-offset-4">
       <fieldset>
-        <%= form_tag(home_path, method: 'get') do %>
+        <%= form_tag(root_path, method: 'get') do %>
           <div class="col-md-6">
             <%= collection_select(:province, :province_id, Province.all, :id, :name,
             { include_blank: 'Provincias', selected: @province_id }, { class: 'form-control' }) %>
