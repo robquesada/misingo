@@ -14,7 +14,7 @@ gem 'turbolinks', '~> 2.4.0'
 gem 'jbuilder', '~> 2.0'
 gem 'devise', '~> 3.5.2'
 gem 'omniauth-facebook', '~> 2.0.0'
-gem 'rmagick', '2.13.3'
+gem 'rmagick', '2.13.3', require: false
 gem 'paperclip', '~> 4.3.0'
 gem 'aws-sdk-v1', '~> 1.59.0'
 gem 'awesome_print', '~> 1.2.0'
