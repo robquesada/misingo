@@ -2,7 +2,7 @@ module PetProject
   module Flyers
     module Templates
       require 'RMagick'
-      
+
       class Default
       include Magick
 

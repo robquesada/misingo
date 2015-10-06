@@ -23,7 +23,7 @@
       <div class="container">
         <div class="header-top-left">
           <ul class="header-top-nav">
-            <li><%= link_to "Inicio", home_path %></li>
+            <li><%= link_to "Inicio", root_path %></li>
             <li><a href="#">Desapariciones</a></li>
             <li><a href="#">Adopciones</a></li>
           </ul>
@@ -31,7 +31,7 @@
         <div class="header-top-right">
           <div class="user-info">
             <%= button_to 'Registrar mascota desaparecida', new_user_session_path, class: "btn btn-sm btn-warning" %>
-            <span></span> 
+            <span></span>
             <% image = current_user.image.nil? ? 'profile_default.png' : current_user.image %>
             <%= current_user.name %> <%= image_tag(image, class:'small-picture') %>
             <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
@@ -46,7 +46,7 @@
       <div class="container">
         <!-- Logo -->
         <div class="logo">
-          <%= link_to home_path do %>
+          <%= link_to root_path do %>
             <%= image_tag('logo.png') %>
           <% end %>
         </div>

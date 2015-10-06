@@ -22,7 +22,7 @@
       <div class='black-box'>
         <h2>Somos BUSCA MASCOTAS</h2>
         <p>Virtualizá la información de tu mascota gratis. Nosotros te ayudamos en casos de extravíos, adopciones e información del mundo animal.</p>
-        <p><%= button_to 'Ingresar al sitio web →', home_path, method: :get, class: 'secondary small button login' %></p>
+        <p><%= button_to 'Ingresar al sitio web →', root_path, method: :get, class: 'secondary small button login' %></p>
         <p>También podés</p>
         <p><%= button_to(user_omniauth_authorize_path(:facebook), class: 'secondary small button facebook') do %>
         Ingresar con Facebook <i class='fi-social-facebook size-18'></i>
