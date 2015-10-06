@@ -12,7 +12,7 @@
         <div class="header-top-right">
           <span class="register">
             ¿Tenés cuenta?
-            <%= button_to 'Iniciar', new_user_session_path, class: "btn btn-sm btn-warning" %>
+            <%= link_to 'Iniciar', new_user_session_path, class: "btn btn-sm btn-warning" %>
             <%= button_to 'Ingresar con Facebook', user_omniauth_authorize_path(:facebook), class: "btn btn-sm btn-warning facebook" %>
           </span>
         </div>
