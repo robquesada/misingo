@@ -18,33 +18,3 @@
     </div>
   </div>
 </section>
-
-  <!-- <ul class='small-block-grid-1 large-block-grid-3'>
-    <% @lost_reports.each_with_index do |lost_report, index, pet = lost_report.pet| %>
-      <li>
-        <div class='jm-item first'>
-          <div class='jm-item-wrapper'>
-            <div class='jm-item-image'>
-              <%= link_to image_tag(pet.avatar.url(:medium)), pet_lost_report_path(pet) %>
-              <div class='jm-item-button'>
-                <%= link_to 'Ver', pet_lost_report_path(lost_report.pet) %>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class='panel pet grid radius'>
-          <%= link_to(pet_lost_report_path(lost_report.pet)) do %>
-            <h5>SE BUSCA <b><%= pet.name.upcase %></b></h5>
-          <% end %>
-          <div class='row'>
-            <p class='size-12 right'>
-              <%= lost_report.created_at.strftime("%d %b. %Y") %>
-              <i class='fi-marker size-12'></i> <%= lost_report.province.name %>
-            </p>
-            <%= render partial: 'shared/social_shares',
-            locals: { url: pet_lost_report_url(lost_report) } %>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ul> -->

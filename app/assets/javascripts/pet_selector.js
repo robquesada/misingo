@@ -1,6 +1,5 @@
 var selectBreeds;
 selectBreeds = function() {
-
   $('#animal_type_id').change(function(){
     changeBreeds();
   });
@@ -15,7 +14,6 @@ selectBreeds = function() {
       }
     });
   };
-
   changeBreeds();
 };
 
