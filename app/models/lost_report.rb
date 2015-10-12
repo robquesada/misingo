@@ -11,6 +11,8 @@ class LostReport < ActiveRecord::Base
 
   default_scope { order('created_at DESC') }
 
+  accepts_nested_attributes_for :pet, allow_destroy: true
+
   def phone_numbers
     (super || []).reject(&:blank?)
   end

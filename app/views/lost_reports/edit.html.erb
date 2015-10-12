@@ -1,21 +1,12 @@
 <%= render 'shared/header' %>
-<div class='large-12 columns'>
-  <div class='row'>
-    <div class='row final'></div>
-    <center>
-      <i class='step fi-megaphone size-21'></i>&nbsp;<a class='header'>Editar los datos de la desaparición de <%= @lost_report.pet.name %></a>
-    </center>
-    <hr>
-    <div class='row'>
-      <center>
-        <div class='large-3 columns'>
-          <div class='row final'></div>
-        </div>
-        <div class='large-6 columns left'>
-          <div class='row final'></div>
-          <%= render 'form' %>
-        </div>
-      </center>
+<%= render 'shared/page_heading', { heading: "Editar datos de #{@lost_report.pet.name}" } %>
+
+<section class="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= render 'form' %>
+      </div>
     </div>
   </div>
-</div>
+</section>

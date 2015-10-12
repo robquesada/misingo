@@ -1,16 +1,16 @@
 class LostReportsController < ApplicationController
-  before_filter :find_pet
   before_filter :find_lost_report, only: [:show, :edit, :update]
   before_filter :validate_owner, only: [:edit, :update]
 
   def new
-    @lost_report = @pet.build_lost_report
+    @lost_report = LostReport.new
+    @lost_report.build_pet
   end
 
   def create
-    @lost_report = @pet.build_lost_report(lost_report_params)
+    @lost_report = LostReport.new(lost_report_params)
     if @lost_report.save
-      redirect_to pet_lost_report_path(@pet)
+      redirect_to lost_report_path(@lost_report)
     else
       flash.now[:error] = @lost_report.errors.messages
       render 'new'
@@ -23,7 +23,7 @@ class LostReportsController < ApplicationController
 
   def update
     if @lost_report.update(lost_report_params)
-      redirect_to pet_lost_report_path(@pet)
+      redirect_to lost_report_path(@lost_report)
     else
       flash.now[:error] = @lost_report.errors.messages
       render 'edit'
@@ -32,16 +32,12 @@ class LostReportsController < ApplicationController
 
   private
 
-  def find_pet
-    @pet = Pet.find(params[:pet_id])
-  end
-
   def find_lost_report
-    @lost_report = @pet.lost_report
+    @lost_report = LostReport.find(params[:id])
   end
 
   def validate_owner
-    redirect_to home_path unless current_user == @pet.user
+    #redirect_to home_path unless current_user == @lost_report.pet.user
   end
 
   def lost_report_params
@@ -50,7 +46,8 @@ class LostReportsController < ApplicationController
       :address,
       :description,
       :reward,
-      phone_numbers: []
+      phone_numbers: [],
+      pet_attributes: [:name, :breed_id, :sex, :avatar]
     )
   end
 end

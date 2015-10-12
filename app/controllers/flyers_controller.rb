@@ -1,7 +1,6 @@
 class FlyersController < ApplicationController
   def show
-    @pet = Pet.find(params[:pet_id])
-    @lost_report = @pet.lost_report
+    @lost_report = LostReport.find(params[:lost_report_id])
     send_data flyer.to_blob, stream: 'false', filename: 'flyer.jpg',
                              type: 'image/jpeg', disposition: 'inline'
   end

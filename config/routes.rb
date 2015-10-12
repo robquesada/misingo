@@ -6,10 +6,9 @@ Rails.application.routes.draw do
   get 'iniciar', to: 'login#index', as: 'login'
   get '/', to: 'main#home', as: 'home'
 
-  resources :pets, path: 'mascotas' do
-    resource :lost_report, path: 'extravios' do
-      resource :flyer, path: 'cartel', only: :show
-    end
+  resources :pets, path: 'mascotas'
+  resources :lost_reports, path: 'extravios' do
+    resource :flyer, path: 'cartel', only: :show
   end
 
   get 'perfil', to: 'users#index', as: 'profile'
