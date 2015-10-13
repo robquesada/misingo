@@ -8,7 +8,7 @@ end
 # Table name: animal_types
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
+#  name       :string
 #  created_at :datetime
 #  updated_at :datetime
 #
