@@ -1,6 +1,8 @@
 class LostReport < ActiveRecord::Base
   belongs_to :province
   belongs_to :pet
+  belongs_to :user
+
   serialize :phone_numbers
 
   before_validation :strip_phone_numbers
@@ -40,4 +42,5 @@ end
 #  province_id   :integer
 #  pet_id        :integer
 #  phone_numbers :text
+#  user_id       :integer
 #

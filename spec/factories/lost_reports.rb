@@ -30,4 +30,5 @@ end
 #  province_id   :integer
 #  pet_id        :integer
 #  phone_numbers :text
+#  user_id       :integer
 #

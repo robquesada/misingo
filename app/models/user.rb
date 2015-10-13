@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
-  has_many :pets, dependent: :destroy
+  has_many :lost_reports, dependent: :destroy
 
   def self.from_omniauth(auth)
     # uid: Standard name for provider's user ID

@@ -28,5 +28,4 @@ end
 #  avatar_content_type :string
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
-#  user_id             :integer
 #
