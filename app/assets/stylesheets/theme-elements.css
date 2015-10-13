@@ -1707,6 +1707,7 @@ cite > span {
   background-color: #dfeffe;
   border-color: #b1d5f6;
   color: #3d94e6;
+  margin-bottom: 0;
 }
 .alert-info hr {
   border-top-color: #9ac9f3;

@@ -47,7 +47,7 @@ class PetsController < ApplicationController
   end
 
   def validate_owner
-    redirect_to home_path unless current_user == @pet.user
+    redirect_to root_path unless current_user == @pet.user
   end
 
   def pet_params

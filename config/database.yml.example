@@ -1,18 +1,10 @@
-development:
+development: &default
   adapter: postgresql
-  database: my_database_development
-  pool: 5
-  timeout: 5000
-test: &test
-  adapter: postgresql
-  database: my_database_test
-  pool: 5
-  timeout: 5000
+  encoding: utf8
+  pool: 8
+  database: misingo-development
+  host: localhost
 
-production:
-  adapter: postgresql
-  database: my_database_production
-  pool: 5
-  timeout: 5000
-cucumber:
-  <<: *test
+test:
+  <<: *default
+  database: misingo-test

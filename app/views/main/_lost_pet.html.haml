@@ -1,0 +1,40 @@
+.page-content.main
+  .container
+    .project-feed.project-feed__3cols.row.isotope
+      - @lost_reports.each do |lost_report, pet = lost_report.pet|
+        .col-sm-6.col-md-4.project-item.lostPet.js--onHoverShowElement{ data: { element: ".js--lostPet__information" } }
+          .project-item-inner
+            %figure.alignnone.project-img
+              .lostPet__imageHolder
+                = image_tag pet.avatar.url(:medium), class: "lostPet__image"
+
+            .project-desc
+              %h5.lostPet__search Se busca
+              %h4.title.lostPet__name= pet.name
+
+          .lostPet__information.hidden.js--lostPet__information
+            %h4.lostPet__name= pet.name
+            .lostPet__information--detail
+              .lostPet__information__detail__row.col-md-12.col-sm-12
+                = image_tag("location_icon.svg", class: "lostPet__information__detail__image")
+                .lostPet__information__detail__text
+                  %b= lost_report.province.name
+
+              .lostPet__information__detail__row.col-md-12.col-sm-12
+                = image_tag("breed_icon.svg", class: "lostPet__information__detail__image")
+                .lostPet__information__detail__text
+                  %b= pet.breed_name
+                  %span= "(#{pet.sex})"
+
+              .lostPet__information__detail__row.col-md-12.col-sm-12
+                = image_tag("description_icon.svg", class: "lostPet__information__detail__image")
+                .lostPet__information__detail__text
+                  %p= lost_report.description
+
+              .lostPet__information__detail__row.col-md-12.col-sm-12
+                = image_tag("phone_icon.svg", class: "lostPet__information__detail__image")
+                .lostPet__information__detail__text
+                  %p= lost_report.phone_numbers.join(" / ")
+                  %b= lost_report.owner
+
+            = link_to "Ver más detalles", lost_report_path(pet), class: "lostPet__information__moreLink btn btn-success"

@@ -4,7 +4,7 @@ describe LostReport, 'validations' do
   subject { FactoryGirl.create(:lost_report, owner: 'Pepe',
                                              description: 'Es grande',
                                              address: 'Cerca de la casa de don Josefino',
-                                             phone_numbers: ['12345678']) }
+                                             phone_numbers: ['12345678', ' 1234-5678']) }
 
   it { should be_valid }
   it { should belong_to(:province) }
@@ -15,3 +15,19 @@ describe LostReport, 'validations' do
   it { should validate_presence_of(:description) }
   its(:owner) { should eq 'Pepe' }
 end
+
+# == Schema Information
+#
+# Table name: lost_reports
+#
+#  id            :integer          not null, primary key
+#  address       :text
+#  reward        :integer
+#  owner         :string(255)
+#  description   :text
+#  created_at    :datetime
+#  updated_at    :datetime
+#  province_id   :integer
+#  pet_id        :integer
+#  phone_numbers :text
+#

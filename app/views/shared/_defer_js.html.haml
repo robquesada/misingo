@@ -1,0 +1,20 @@
+%script
+  defer_js_file = "#{asset_path('application-defer.js')}"
+
+:coffee
+  downloadJSAtOnload = ->
+    element = document.createElement("script")
+    element.src = defer_js_file
+    document.body.appendChild element
+
+  if window.addEventListener
+    window.addEventListener "load", downloadJSAtOnload, false
+
+  else if window.attachEvent
+    window.attachEvent "onload", downloadJSAtOnload
+
+  else
+    preExistingOnload = window.onload
+    window.onload = ->
+      setTimeout downloadJSAtOnload, 0
+      preExistingOnload?()

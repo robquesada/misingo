@@ -12,7 +12,7 @@
         <div class="header-top-right">
           <span class="register">
             ¿Tenés cuenta?
-            <%= button_to 'Iniciar', new_user_session_path, class: "btn btn-sm btn-warning" %>
+            <%= link_to 'Iniciar', new_user_session_path, class: "btn btn-sm btn-warning" %>
             <%= button_to 'Ingresar con Facebook', user_omniauth_authorize_path(:facebook), class: "btn btn-sm btn-warning facebook" %>
           </span>
         </div>
@@ -23,7 +23,7 @@
       <div class="container">
         <div class="header-top-left">
           <ul class="header-top-nav">
-            <li><%= link_to "Inicio", home_path %></li>
+            <li><%= link_to "Inicio", root_path %></li>
             <li><a href="#">Desapariciones</a></li>
             <li><a href="#">Adopciones</a></li>
           </ul>
@@ -46,7 +46,7 @@
       <div class="container">
         <!-- Logo -->
         <div class="logo">
-          <%= link_to home_path do %>
+          <%= link_to root_path do %>
             <%= image_tag('logo.png') %>
           <% end %>
         </div>

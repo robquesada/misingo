@@ -37,7 +37,7 @@ class LostReportsController < ApplicationController
   end
 
   def validate_owner
-    #redirect_to home_path unless current_user == @lost_report.pet.user
+    redirect_to root_path unless current_user == @lost_report.user
   end
 
   def lost_report_params

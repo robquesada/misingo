@@ -3,11 +3,11 @@
 <!-- Page Content -->
 <section class="page-content">
   <div class="container">
-    
+
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <!-- Job Form -->
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: 'submit-job-form', class: 'job-manager-form', enctype: 'multipart/form-data' }) do |f| %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: 'submit-job-form', class: 'job-manager-form js--loginForm', enctype: 'multipart/form-data' }) do |f| %>
 
           <fieldset>
             <div class="field account-sign-in">
@@ -17,6 +17,8 @@
               </div>
             </div>
           </fieldset>
+
+          <%= devise_error_messages! %>
 
           <fieldset>
             <label>Tu correo electrónico <span class="required">*</span></label>
