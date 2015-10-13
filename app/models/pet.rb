@@ -12,18 +12,18 @@ class Pet < ActiveRecord::Base
                                 medium: '346x346#',
                                 thumb: '100x100#',
                                 profile: '150x150#',
-                                flyer: '462x526#'
+                                flyer: '450x526#'
                               },
                               default_url: '/images/:style/missing.png',
                               processor: 'mini_magick',
                               convert_options:
                               {
-                                flyer: '-background white -compose Copy -gravity center -extent 612x792'
+                                flyer: '-distort DePolar 0 -virtual-pixel HorizontalTile -distort Polar 0 -compose Dst_In -background white -compose Copy -gravity center -extent 612x830'
                               }
 
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  validates_attachment :avatar, content_type: { content_type: ["image/jpeg", "image/jpg", "image/png"] }
+  validates_attachment_presence :avatar
   validates_format_of :name, with: /^[a-zA-Z]+$/, multiline: true
-  validates :avatar, presence: true
 
   def capitalize_name
     name.capitalize!

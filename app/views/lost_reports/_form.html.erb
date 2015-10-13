@@ -3,7 +3,7 @@
 
   <%= f.fields_for :pet do |pet_form| %>
     <fieldset>
-      <label>Foto de perfil</label>
+      <label>Foto de perfil <span class="required">*</span></label>
       <div class="field">
         <div class='profile-pic-box'>
           <% profile_img = !pet.new_record? ? pet.avatar.url(:profile) : 'profile-default.png' %>
