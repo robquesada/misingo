@@ -8,6 +8,7 @@ FactoryGirl.define do
     reward 1
     pet
     province
+    user
   end
 
   factory :invalid_lost_report, parent: :lost_report do

@@ -7,6 +7,7 @@ describe PetProject::Flyers::Templates::Default do
   let(:flyer_info) { { 
                        pet_name: 'Pipo',
                        pet_breed: 'Zaguate',
+                       pet_sex: 'Macho',
                        avatar_path: image_path,
                        description: 'Tiene una mancha en la oreja',
                        reward: 1,

@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  resources :pets, path: 'mascotas'
   resources :lost_reports, path: 'extravios' do
     resource :flyer do
       get :show

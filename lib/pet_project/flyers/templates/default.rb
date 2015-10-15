@@ -16,7 +16,7 @@ module PetProject
 
         def generate_flyer
           image = ImageList.new(flyer_info[:avatar_path])
-          decorate_main_image(image)
+          #decorate_main_image(image)
           generate_header_information(image)
           generate_footer_information(image)
           image.format = 'jpeg'
@@ -34,7 +34,6 @@ module PetProject
           small_circle = Draw.new
           small_circle.fill_opacity(0)
           small_circle.stroke(DARK_COLOR).stroke_width(8)
-          #right, left, 'center', center
           small_circle.circle(306, 415, 130, 270)
 
           small_circle.draw(image)

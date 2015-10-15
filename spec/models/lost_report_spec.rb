@@ -9,10 +9,12 @@ describe LostReport, 'validations' do
   it { should be_valid }
   it { should belong_to(:province) }
   it { should belong_to(:pet) }
+  it { should belong_to(:user) }
   it { should serialize(:phone_numbers) }
   it { should allow_value('Pepe', 'Pepe Soto').for(:owner) }
   it { should validate_presence_of(:address) }
   it { should validate_presence_of(:description) }
+  it { should accept_nested_attributes_for(:pet) }
   its(:owner) { should eq 'Pepe' }
 end
 

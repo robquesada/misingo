@@ -3,9 +3,14 @@ require 'rails_helper'
 describe User, 'validations' do
   subject { FactoryGirl.create(:user) }
 
-  it { should have_many(:pets).dependent(:destroy) }
+  it { should have_many(:lost_reports).dependent(:destroy) }
   it { should_not allow_value('email@x').for(:email) }
   it { should_not allow_value('123123').for(:email) }
+
+  context 'name validations' do
+    it { should allow_value('María Peña').for(:name) }
+    it { should_not allow_value('Pedro123').for(:name) }
+  end
 end
 
 # == Schema Information
