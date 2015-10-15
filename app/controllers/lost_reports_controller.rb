@@ -9,6 +9,7 @@ class LostReportsController < ApplicationController
 
   def create
     @lost_report = current_user.lost_reports.new(lost_report_params)
+    @lost_report.owner = current_user.name
     if @lost_report.save
       redirect_to lost_report_path(@lost_report)
     else

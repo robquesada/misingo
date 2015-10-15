@@ -1,19 +1,10 @@
 <% pet = lost_report.pet %>
-<center>
-  <label>Compartir en redes sociales</label>
-  <%= render partial: 'shared/social_shares',
-      locals: { url: lost_report_url(lost_report) } %>
-  <div class='row final'></div>
-
-  <%= link_to(lost_report_flyer_path(lost_report), class: 'small button', target: '_blank') do %>
-    Ver flyer
-  <% end %>
-  <%= link_to(lost_report_flyer_path(lost_report), download: 'misingo-flyer', class: 'small button', target: '_blank') do %>
-    Descargar flyer
-  <% end %>
-
-  <div>
-    <%= image_tag url_for(preview_lost_report_flyer_path(@lost_report)) %>
+<div class="alert alert-warning alert-dismissable social-share">
+  <strong>¡No olvidés compartirlo en redes sociales!</strong>
+  <% url = lost_report_url(lost_report) %>
+  <div id='fb-root'></div>
+  <div class="social-networks-buttons">
+    <div class='fb-like' data-href='<%= url %>' data-layout='button' data-action='like' data-show-faces='true' data-share='true'></div>
+    <a href='https://twitter.com/share' class='twitter-share-button' data-url='<%= url %>' data-text="¡Ayudame a buscar a <%= @lost_report.pet.name %>!" data-via='misingocom' data-count='none'>Tweet</a>
   </div>
-  <div class='row final'></div>
-</center>
+</div>

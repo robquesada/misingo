@@ -63,7 +63,7 @@ module PetProject
           gravity = Magick::SouthGravity
           reward_text = flyer_info[:reward] == 1 ? '(RECOMPENSA)' : ''
           draw_text_in_image(image, 115, "Teléfonos: #{flyer_info[:phone_numbers].join(' / ')} #{reward_text}", 25, 'none', gravity, DARK_COLOR)
-          draw_text_in_image(image, 37, word_wrap("Perdido en #{flyer_info[:province_name]}. #{flyer_info[:address]}",
+          draw_text_in_image(image, 25, word_wrap("Perdido en #{flyer_info[:province_name]}. #{flyer_info[:address]}",
                                         line_width: 55), 20, 'none', gravity, DARK_COLOR)
         end
 

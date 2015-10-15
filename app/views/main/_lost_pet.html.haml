@@ -29,7 +29,7 @@
               .lostPet__information__detail__row.col-md-12.col-sm-12
                 = image_tag("description_icon.svg", class: "lostPet__information__detail__image")
                 .lostPet__information__detail__text
-                  %p= lost_report.description
+                  %p= truncate(lost_report.description, length: 28)
 
               .lostPet__information__detail__row.col-md-12.col-sm-12
                 = image_tag("phone_icon.svg", class: "lostPet__information__detail__image")

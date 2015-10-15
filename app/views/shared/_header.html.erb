@@ -31,9 +31,9 @@
         <div class="header-top-right">
           <div class="user-info">
             <%= link_to 'Registrar mascota desaparecida', new_lost_report_path, class: "btn btn-sm btn-warning" %>
-            <span></span>
             <% image = current_user.image.nil? ? 'profile_default.png' : current_user.image %>
-            <%= current_user.name %> <%= image_tag(image, class:'small-picture') %>
+            <%= current_user.name %>
+            <%= image_tag(image, class:'small-picture') %>
             <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
           </div>
         </div>
