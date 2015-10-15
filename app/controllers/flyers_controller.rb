@@ -7,7 +7,7 @@ class FlyersController < ApplicationController
   end
 
   def preview
-    width, height = 300, 400
+    width, height = 180, 230
     send_data flyer.resize(width, height).to_blob, type: 'image/png', disposition: 'inline'
   end
 
