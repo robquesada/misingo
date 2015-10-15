@@ -1,6 +1,7 @@
 # ASSETS FOLDER
 #
 #= require jquery
+#= require jquery_ujs
 #= require_tree ./vendor/isotope
 #= require vendor/magnific-popup/jquery.magnific-popup
 #= require vendor/jquery.flickrfeed
