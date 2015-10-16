@@ -7,7 +7,7 @@ class Pet < ActiveRecord::Base
 
   before_save :capitalize_name
 
-  has_attached_file :avatar,  styles:
+  has_attached_file :avatar, styles:
                               {
                                 large: '480x480#',
                                 medium: '346x346#',

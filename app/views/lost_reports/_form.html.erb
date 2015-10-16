@@ -52,9 +52,8 @@
         <fieldset class="fieldset-job_type">
           <label>Animal</label>
           <div class="field select-style">
-            <% pet.new_record? ? selected = 0 : selected = pet.breed.animal_type_id %>
-            <% selected = 0 %>
-            <%= select_tag :animal_type_id, options_from_collection_for_select(AnimalType.all, :id, :name, selected: selected), class: 'form-control' %>
+            <% animal_selected = pet.new_record? ? 0 : pet.breed.animal_type_id %>
+            <%= select_tag :animal_type_id, options_from_collection_for_select(AnimalType.all, :id, :name, selected: animal_selected), class: 'form-control' %>
           </div>
         </fieldset>
       </div>
@@ -62,7 +61,8 @@
         <fieldset>
           <label>Raza</label>
           <div class="field select-style">
-            <%= pet_form.select :breed_id, options_for_select(Breed.order(:name).map{ |c| [c.name, c.id, { data: { animal_type: c.animal_type_id } } ] }, selected: :breed_id), {}, {class: 'form-control', id: 'pet_breed_id'} %>
+            <% breed_selected = pet.new_record? ? 1 : pet.breed.id %>
+            <%= pet_form.select :breed_id, options_for_select(Breed.order(:name).map{ |c| [c.name, c.id, { data: { animal_type: c.animal_type_id } } ] }, selected: breed_selected), {}, {class: 'form-control', id: 'pet_breed_id'} %>
           </div>
         </fieldset>
       </div>
@@ -74,7 +74,8 @@
       <fieldset class="fieldset-job_type">
         <label> ¿En qué provincia se perdió tu mascota?</label>
         <div class="field select-style">
-          <%= collection_select(:lost_report, :province_id, Province.all, :id, :name, {selected: 7}, {class: 'form-control'}) %>
+          <% province_selected = @lost_report.new_record? ? 0 : @lost_report.province_id %>
+          <%= collection_select(:lost_report, :province_id, Province.all, :id, :name, {selected: province_selected}, {class: 'form-control'}) %>
         </div>
       </fieldset>
     </div>

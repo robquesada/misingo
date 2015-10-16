@@ -10,9 +10,7 @@
           { include_blank: 'Provincias', selected: @province_id }, { class: 'form-control' }) %>
         </div>
         <div class="col-md-6">
-          <%= button_tag(type: 'submit', class: 'btn btn-sm btn-default search') do %>
-              Buscar
-          <% end %>
+          <%= button_tag('Buscar', class: 'btn btn-sm btn-default search') %>
         </div>
       <% end %>
     </fieldset>
