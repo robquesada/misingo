@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe PetProject::Flyers::Templates::Default do
   let(:image_path) { 'pet/cat.jpg' }
-  let(:flyer) { double('Magick::ImageList', { 'format=' => 'jpeg', 'annotate' => 'jpeg' }) }
+  let(:circle) { double('Magick::Draw').as_null_object }
+  let(:flyer) { double('Magick::ImageList', format: 'jpeg', annotate: 'jpeg').as_null_object }
 
   let(:flyer_info) { { 
                        pet_name: 'Pipo',
@@ -22,6 +23,7 @@ describe PetProject::Flyers::Templates::Default do
 
     before do
       allow(Magick::ImageList).to receive(:new) { flyer }
+      allow(Magick::Draw).to receive(:new) { circle }
     end
 
     after do
