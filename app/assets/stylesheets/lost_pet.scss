@@ -1,9 +1,9 @@
-.lostpet-image {
+.lostPet__image {
   border-radius: 100% !important;
   border: 5px solid #3E3626 !important;
 }
 
-.lostpet-image-holder {
+.lostPet__imageHolder {
   border: 5px solid #a6ce39;
   border-radius: 100%;
   display: inline-block;
@@ -12,14 +12,14 @@
   width: 80%;
 }
 
-.lostpet-name {
+.lostPet__name {
   background-color: #a6ce39;
   padding: 10px;
   color: white;
   margin: 10px 0 !important;
 }
 
-.lostpet-information {
+.lostPet__information {
   background: rgba(0,0,0,0.9);
   color: white !important;
   position: absolute;
@@ -33,11 +33,11 @@
   text-align: center;
 }
 
-.lostpet:hover .lostpet-information {
+.lostPet:hover .lostPet__information {
   display: block !important
 }
 
-.lostpet-information-morelink {
+.lostPet__information__moreLink {
   margin: 20px 0 !important;
 }
 
@@ -46,7 +46,7 @@
   margin-top: 20px;
 }
 
-.lostpet-information-detail-row {
+.lostPet__information__detail__row {
   text-align: left;
   padding: 0px 30px;
   margin-top: 20px;
@@ -57,13 +57,13 @@
   }
 }
 
-.lostpet-information-detail-image {
+.lostPet__information__detail__image {
   width: 40px;
   height: 40px;
   float: left;
 }
 
-.lostpet-information-detail-text {
+.lostPet__information__detail__text {
   text-align: left;
   margin-left: 3.5em;
   padding: 6px 0px;

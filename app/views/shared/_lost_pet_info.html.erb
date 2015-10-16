@@ -5,29 +5,29 @@
 </div>
 
 <fieldset class="pet-field">
-  <%= image_tag("breed_icon.svg", class: "lostpet-information-detail-image") %>
-  <div class="lostpet-information-detail-text">
+  <%= image_tag("breed_icon.svg", class: "lostPet__information__detail__image") %>
+  <div class="lostPet__information__detail__text">
     <b><%= pet.breed_name %></b> (<%= pet.sex %>)
   </div>
 </fieldset>
 
 <fieldset class="pet-field">
-  <%= image_tag("location_icon.svg", class: "lostpet-information-detail-image") %>
-  <div class="lostpet-information-detail-text">
+  <%= image_tag("location_icon.svg", class: "lostPet__information__detail__image") %>
+  <div class="lostPet__information__detail__text">
     <b><%= lost_report.province.name %></b>. <%= lost_report.address %>
   </div>
 </fieldset>
 
 <fieldset class="pet-field">
-  <%= image_tag("description_icon.svg", class: "lostpet-information-detail-image") %>
-  <div class="lostpet-information-detail-text">
+  <%= image_tag("description_icon.svg", class: "lostPet__information__detail__image") %>
+  <div class="lostPet__information__detail__text">
     <%= lost_report.description %>
   </div>
 </fieldset>
 
 <fieldset class="pet-field">
-  <%= image_tag("phone_icon.svg", class: "lostpet-information-detail-image") %>
-  <div class="lostpet-information-detail-text">
+  <%= image_tag("phone_icon.svg", class: "lostPet__information__detail__image") %>
+  <div class="lostPet__information__detail__text">
     <b><%= lost_report.phone_numbers.join(' / ') %></b> (con <%= lost_report.owner %>)
   </div>
 </fieldset>
