@@ -16,7 +16,7 @@ module PetProject
 
         def generate_flyer
           image = ImageList.new(flyer_info[:avatar_path])
-          #decorate_main_image(image)
+          decorate_main_image(image)
           generate_header_information(image)
           generate_footer_information(image)
           image.format = 'jpeg'
