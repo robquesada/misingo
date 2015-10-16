@@ -26,20 +26,20 @@ module PetProject
         private
 
         def decorate_main_image(image)
-          big_circle = Draw.new
-          big_circle.fill_opacity(0)
-          big_circle.stroke(LIGHT_COLOR).stroke_width(14)
-          big_circle.circle(306, 415, 95, 280)
-
-          small_circle = Draw.new
-          small_circle.fill_opacity(0)
-          small_circle.stroke(DARK_COLOR).stroke_width(8)
-          small_circle.circle(306, 415, 130, 270)
-
-          small_circle.draw(image)
+          big_circle = draw_circle(95, 280, 14, LIGHT_COLOR)
           big_circle.draw(image)
+          small_circle = draw_circle(130, 270, 8, DARK_COLOR)
+          small_circle.draw(image)
           draw_text_in_image(image, 205, word_wrap("www.misingo.com",
                                         line_width: 55), 20, 'none', Magick::SouthGravity, 'white')
+        end
+
+        def draw_circle(height, width, stroke_width, color)
+          circle = Draw.new
+          circle.fill_opacity(0)
+          circle.stroke(color).stroke_width(stroke_width)
+          circle.circle(306, 415, height, width)
+          circle
         end
 
         def generate_header_information(image)
