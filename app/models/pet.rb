@@ -1,5 +1,4 @@
 class Pet < ActiveRecord::Base
-  belongs_to :user
   belongs_to :breed
   has_one :lost_report, dependent: :destroy
 
@@ -8,23 +7,24 @@ class Pet < ActiveRecord::Base
 
   before_save :capitalize_name
 
-  has_attached_file :avatar,  styles:
+  has_attached_file :avatar, styles:
                               {
+                                large: '480x480#',
                                 medium: '346x346#',
                                 thumb: '100x100#',
                                 profile: '150x150#',
-                                flyer: '462x526#'
+                                flyer: '450x526#'
                               },
                               default_url: '/images/:style/missing.png',
                               processor: 'mini_magick',
                               convert_options:
                               {
-                                flyer: '-background white -compose Copy -gravity center -extent 612x792'
+                                flyer: '-distort DePolar 0 -virtual-pixel HorizontalTile -distort Polar 0 -compose Dst_In -background white -compose Copy -gravity center -extent 612x830'
                               }
 
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
-  validates_format_of :name, with: /^[a-zA-Z]+$/, multiline: true
-  validates :avatar, presence: true
+  validates_attachment :avatar, content_type: { content_type: ["image/jpeg", "image/jpg", "image/png"] }
+  validates_attachment_presence :avatar
+  validates_format_of :name, with: /^[a-z\u00E0-\u00FC]+$/i, multiline: true
 
   def capitalize_name
     name.capitalize!
@@ -36,14 +36,13 @@ end
 # Table name: pets
 #
 #  id                  :integer          not null, primary key
-#  name                :string(255)
+#  name                :string
 #  created_at          :datetime
 #  updated_at          :datetime
-#  sex                 :string(255)
-#  avatar_file_name    :string(255)
-#  avatar_content_type :string(255)
+#  sex                 :string
+#  breed_id            :integer
+#  avatar_file_name    :string
+#  avatar_content_type :string
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
-#  user_id             :integer
-#  breed_id            :integer
 #

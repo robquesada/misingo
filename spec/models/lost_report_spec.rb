@@ -9,10 +9,12 @@ describe LostReport, 'validations' do
   it { should be_valid }
   it { should belong_to(:province) }
   it { should belong_to(:pet) }
+  it { should belong_to(:user) }
   it { should serialize(:phone_numbers) }
   it { should allow_value('Pepe', 'Pepe Soto').for(:owner) }
   it { should validate_presence_of(:address) }
   it { should validate_presence_of(:description) }
+  it { should accept_nested_attributes_for(:pet) }
   its(:owner) { should eq 'Pepe' }
 end
 
@@ -23,11 +25,12 @@ end
 #  id            :integer          not null, primary key
 #  address       :text
 #  reward        :integer
-#  owner         :string(255)
+#  owner         :string
 #  description   :text
 #  created_at    :datetime
 #  updated_at    :datetime
 #  province_id   :integer
 #  pet_id        :integer
 #  phone_numbers :text
+#  user_id       :integer
 #

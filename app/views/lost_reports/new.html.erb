@@ -1,39 +1,12 @@
 <%= render 'shared/header' %>
-<div class='large-12 columns'>
-  <div class='row'>
-    <div class='row final'></div>
-    <center>
-      <i class='step fi-megaphone size-21'></i>&nbsp;<a class='header'>Llená los datos de la desaparición de <%= @pet.name %></a>
-    </center>
-    <hr>
-    <div class='row'>
-      <center>
-        <div class='large-3 columns'>
-          <div class='row final'></div>
-        </div>
-        <div class='large-6 columns left'>
-          <div class='row final'></div>
-          <ul class='breadcrumbs'>
-            <li class='unavailable', id='firstItemList'>Tu mascota</li>
-            <li class='current'><b>Info de contacto</b></li>
-            <li class='unavailable'>Finalizar</li>
-          </ul>
-          <%= render 'form' %>
-        </div>
-      </center>
+<%= render 'shared/page_heading', { heading: 'Agregar mascota extraviada' } %>
+
+<section class="page-content">
+  <div class="container">  
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= render 'form' %>
+      </div>
     </div>
   </div>
-</div>
-<script type='text/javascript'>
-  var submitted = false;
-  $(document).ready(function () {
-    window.onbeforeunload = function(){
-      if(!submitted){
-        return 'Si abandona la página, no se registrará su mascota.';
-      }
-    }
-    $(document).submit(function() {
-      submitted = true;
-    });
-  });
-</script>
+</section>

@@ -2690,6 +2690,12 @@ body.boxed .site-wrapper {
   float: none;
   width: auto;
   display: block;
+  &.radio{
+    display: flex;
+    label {
+      padding-left: 0.5em;
+    }
+  }
 }
 .job-manager-form fieldset small.description {
   font-size: .91em;
@@ -3002,6 +3008,39 @@ form.button_to {
 img.small-picture {
   height: 35px;
 }
-.forgot-password{
+.forgot-password {
   margin-left: 1em;
+}
+.profile-pic-box {
+  height: 10em;
+  width: 10em;
+  margin: 0.5em 1em 1.5em 0;
+}
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+}
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.checkbox {
+  margin-top: 0;
+}
+#image {
+  height: 150px;
+  width: auto;
+}
+.pet-image{
+  text-align: center;
+}
+fieldset.pet-field {
+    margin-bottom: 1em;
 }

@@ -68,7 +68,6 @@ namespace :seed do
     PROVINCES.each { |province| Province.where(name: province).first_or_create }
   end
 
-
   task lost_pets: :environment do
     require_factories
 

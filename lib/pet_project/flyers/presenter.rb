@@ -6,6 +6,7 @@ module PetProject
           pet_name: lost_report.pet_name,
           pet_breed: lost_report.pet_breed_name,
           pet_animal_type: lost_report.animal_type_name,
+          pet_sex: lost_report.pet.sex,
           avatar_path: lost_report.pet_avatar.url(:flyer),
           description: lost_report.description,
           reward: lost_report.reward,

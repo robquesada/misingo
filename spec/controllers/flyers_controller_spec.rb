@@ -1,11 +1,8 @@
 require 'rails_helper'
 
 describe FlyersController do
-  
-  describe 'GET show' do
+  describe 'GET #show' do
     let(:lost_report) { FactoryGirl.create(:lost_report) }
-    let(:pet) { FactoryGirl.create(:pet, lost_report: lost_report) }
-
     let(:flyer) { double('Flyer', to_blob: '12312jklasdjasd812') }
     let(:interactor) { double('PetProject::Flyers::Interactor', generate_flyer: flyer) }
 
@@ -13,25 +10,20 @@ describe FlyersController do
       allow(PetProject::Flyers::Interactor).to receive(:new) { interactor }
     end
 
-    it 'finds the pet' do
-      get :show, pet_id: pet.id
-      expect(assigns(:pet)).to eq(pet)
-    end
-
     it 'assigns the lost report' do
-      get :show, pet_id: pet.id
+      get :show, lost_report_id: lost_report.id
       expect(assigns(:lost_report)).to eq(lost_report)
     end
 
     describe 'generating the flyer' do
       it 'creates an interactor' do
         expect(PetProject::Flyers::Interactor).to receive(:new).with(lost_report)
-        get :show, pet_id: pet.id
+        get :show, lost_report_id: lost_report.id
       end
 
       it 'generates the flyer' do
         expect(interactor).to receive(:generate_flyer)
-        get :show, pet_id: pet.id
+        get :show, lost_report_id: lost_report.id
       end
     end
 
@@ -44,7 +36,7 @@ describe FlyersController do
         disposition: 'inline'
       ).and_call_original
 
-      get :show, pet_id: pet.id
+      get :show, lost_report_id: lost_report.id
     end
   end
 end

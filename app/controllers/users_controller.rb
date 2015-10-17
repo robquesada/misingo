@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
   def index
-    @pets = current_user.pets
+    @lost_reports = current_user.lost_reports
   end
 end

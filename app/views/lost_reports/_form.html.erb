@@ -1,38 +1,137 @@
-<%= form_for [@pet, @lost_report], url: pet_lost_report_path do |f| %>
+<%= form_for(@lost_report, html: { class: 'job-manager-form'}) do |f, pet = @lost_report.pet| %>
   <%= render 'shared/flash_messages' %>
-  <div class='row final'></div>
+
+  <%= f.fields_for :pet do |pet_form| %>
+    <fieldset>
+      <label>Foto de perfil <span class="required">*</span></label>
+      <div class="field">
+        <div class='profile-pic-box'>
+          <% profile_img = !pet.new_record? ? pet.avatar.url(:profile) : 'profile-default.png' %>
+          <%= image_tag profile_img, id:'image', class: 'img-rounded' %>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class='fileUpload btn btn-primary btn-sm'>
+          <span>Subir imagen</span>
+          <%= pet_form.file_field :avatar, { id: 'image-selector', class: 'upload' } %>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <label>Nombre de la mascota <span class="required">*</span></label>
+      <div class="field">
+        <%= pet_form.text_field :name, placeholder: 'ej. Misingo', id:'nombre', class:"form-control", autofocus: true  %>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="radio radio__custom radio__style4">
+            <label>
+              <%= pet_form.radio_button :sex, 'Macho', checked: true %>
+              <span>Es macho</span>
+            </label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="radio radio__custom radio__style4">
+            <label>
+              <%= pet_form.radio_button :sex, 'Hembra'%>
+              <span>Es hembra</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="row">
+      <div class="col-md-6">
+        <fieldset class="fieldset-job_type">
+          <label>Animal</label>
+          <div class="field select-style">
+            <% animal_selected = pet.new_record? ? 0 : pet.breed.animal_type_id %>
+            <%= select_tag :animal_type_id, options_from_collection_for_select(AnimalType.all, :id, :name, selected: animal_selected), class: 'form-control' %>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-6">
+        <fieldset>
+          <label>Raza</label>
+          <div class="field select-style">
+            <% breed_selected = pet.new_record? ? 1 : pet.breed.id %>
+            <%= pet_form.select :breed_id, options_for_select(Breed.order(:name).map{ |c| [c.name, c.id, { data: { animal_type: c.animal_type_id } } ] }, selected: breed_selected), {}, {class: 'form-control', id: 'pet_breed_id'} %>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <fieldset class="fieldset-job_type">
+        <label> ¿En qué provincia se perdió tu mascota?</label>
+        <div class="field select-style">
+          <% province_selected = @lost_report.new_record? ? 0 : @lost_report.province_id %>
+          <%= collection_select(:lost_report, :province_id, Province.all, :id, :name, {selected: province_selected}, {class: 'form-control'}) %>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+
+  <fieldset>
+    <div class="field">
+      <label> ¿Cuál es la dirección exacta del extravío?  <span class="required">*</span></label>
+      <%= f.text_area :address, placeholder: 'Mencioná también lugares aledaños', class: 'form-control' %>
+    </div>
+  </fieldset>
+
   <div class='row'>
-    <div class='large-12 columns'>
-      <%= f.label '¿En qué provincia se perdió tu mascota?' %>
-      <%= collection_select(:lost_report, :province_id, Province.all, :id, :name, selected: 7) %>
+    <div class="col-md-6">
+      <fieldset>
+        <label>Número de teléfono <span class="required">*</span></label>
+        <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[0], name: 'lost_report[phone_numbers][]', class: 'form-control', placeholder: 'ej. 88112233' %>
+      </fieldset>
     </div>
-    <div class='large-12 columns'>
-      <%= f.label '¿Cuál es la dirección exacta del extravío?' %>
-      <%= f.text_area :address, placeholder: 'Mencioná también lugares aledaños' %>
+    <div class="col-md-6">
+      <fieldset>
+        <label>Otro teléfono (opcional)</label>
+        <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[1] , name: 'lost_report[phone_numbers][]', class: 'form-control', placeholder: 'ej. 88112244' %>
+      </fieldset>
     </div>
   </div>
-  <div class='row'>
+
+  <fieldset>
+    <div class="field">
+        <label>Mencioná características de tu mascota <span class="required">*</span></label>
+        <%= f.text_area :description, placeholder: '¿Llevaba collar?, ¿Padece de alguna enfermedad?', class: 'form-control' %>
+      </div>
+    </fieldset>
+  </fieldset>
+
+  <fieldset>
     <div class='large-6 columns'>
-      <%= f.label :phone_numbers %>
-      <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[0], name: 'lost_report[phone_numbers][]', placeholder: 'Ejemplo: 88112233' %>
+      <div class="checkbox checkbox__custom checkbox__style4">
+        <label>
+          <%= f.check_box :reward %>
+          <span>Ofrezco recompensa</span>
+        </label>
+      </div>
     </div>
-    <div class='large-6 columns'>
-      <%= f.label 'Opcional' %>
-      <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[1] , name: 'lost_report[phone_numbers][]', placeholder: 'Otro número de teléfono' %>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='large-12 columns'>
-      <%= f.label :description %>
-      <%= f.text_area :description, placeholder: 'Mencioná características que identifiquen a tu mascota.' %>
-    </div>
-  </div>
-  <div class='row final'>
-    <div class='large-6 columns'>
-      <label><%= f.check_box :reward %> Ofrezco recompensa</label>
-    </div>
-  </div>
-  <% text = @lost_report.new_record? ? 'Finalizar' : 'Guardar' %>
-  <%= f.submit text, class: 'small button right' %>
-  <%= link_to "Editar datos de #{@pet.name}", edit_pet_path(@pet), class: 'secondary small button right' if !@lost_report.new_record? %>
+  </fieldset>
+
+  <p>
+    <% text = @lost_report.pet.new_record? ? 'Agregar a mi mascota' : 'Guardar' %>
+    <%= f.submit text, class: 'btn btn-primary' %>
+  </p>
 <% end %>
+
+<script type='text/javascript'>
+  <% if !@lost_report.pet.new_record? %>
+    setTimeout(function(){
+      $('#pet_breed_id').val('<%= @lost_report.pet.breed.id %>');
+    },100);
+  <% end %>
+</script>

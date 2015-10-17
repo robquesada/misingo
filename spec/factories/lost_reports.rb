@@ -8,6 +8,7 @@ FactoryGirl.define do
     reward 1
     pet
     province
+    user
   end
 
   factory :invalid_lost_report, parent: :lost_report do
@@ -23,11 +24,12 @@ end
 #  id            :integer          not null, primary key
 #  address       :text
 #  reward        :integer
-#  owner         :string(255)
+#  owner         :string
 #  description   :text
 #  created_at    :datetime
 #  updated_at    :datetime
 #  province_id   :integer
 #  pet_id        :integer
 #  phone_numbers :text
+#  user_id       :integer
 #

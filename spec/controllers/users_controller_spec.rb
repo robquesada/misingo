@@ -8,10 +8,10 @@ describe UsersController do
       expect(subject.current_user).to_not be_nil
     end
 
-    it 'assigns pets from the current user' do
-      subject.current_user.pets = [FactoryGirl.create(:pet)]
+    it 'assigns lost reports from the current user' do
+      subject.current_user.lost_reports = [FactoryGirl.create(:lost_report)]
       get :index
-      expect(assigns(:pets)).to eq(subject.current_user.pets)
+      expect(assigns(:lost_reports)).to eq(subject.current_user.lost_reports)
     end
 
     it 'renders the index template' do

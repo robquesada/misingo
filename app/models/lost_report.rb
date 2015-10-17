@@ -1,6 +1,8 @@
 class LostReport < ActiveRecord::Base
   belongs_to :province
   belongs_to :pet
+  belongs_to :user
+
   serialize :phone_numbers
 
   before_validation :strip_phone_numbers
@@ -12,6 +14,8 @@ class LostReport < ActiveRecord::Base
   validates_presence_of :address, :description
 
   default_scope { order('created_at DESC') }
+
+  accepts_nested_attributes_for :pet, allow_destroy: true
 
   def phone_numbers
     (super || []).reject(&:blank?)
@@ -31,11 +35,12 @@ end
 #  id            :integer          not null, primary key
 #  address       :text
 #  reward        :integer
-#  owner         :string(255)
+#  owner         :string
 #  description   :text
 #  created_at    :datetime
 #  updated_at    :datetime
 #  province_id   :integer
 #  pet_id        :integer
 #  phone_numbers :text
+#  user_id       :integer
 #

@@ -1,0 +1,13 @@
+<div class="alert alert-warning alert-dismissable flyer-container">
+  <fieldset>
+    <%= image_tag url_for(preview_lost_report_flyer_path(@lost_report)), class: 'flyer-preview' %>
+  </fieldset>
+  <fieldset>
+    <%= link_to(lost_report_flyer_path(lost_report), class: 'btn btn-sm btn-warning', target: '_blank') do %>
+        Generar flyer
+    <% end %>
+    <%= link_to(lost_report_flyer_path(lost_report), download: 'misingo-flyer.jpg', class: 'btn btn-sm btn-warning', target: '_blank') do %>
+        Descargar
+    <% end %>
+  </fieldset>
+</div>

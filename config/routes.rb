@@ -3,14 +3,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  get 'iniciar', to: 'login#index', as: 'login'
-
-  resources :pets, path: 'mascotas' do
-    resource :lost_report, path: 'extravios' do
-      resource :flyer, path: 'cartel' do
-        get :show
-        get :preview
-      end
+  resources :lost_reports, path: 'extravios' do
+    resource :flyer do
+      get :show
+      get :preview
     end
   end
 

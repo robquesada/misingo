@@ -1,20 +1,17 @@
 <%= render 'shared/header' %>
-<div class='large-12 columns'>
-  <div class='row'>
-    <div class='row final'></div>
-    <center><a class='header'>Se busca <b><%= @pet.name %></b></a></center>
-    <hr>
-    <div class='large-12 columns'>
-      <center>
-        <div>
-          <div class='row final'></div>
-          <%= image_tag(@pet.avatar.url(:medium)) %>
-        </div>
-      </center>
-      <div>
-        <%= render partial: 'shared/lost_pet_info', locals: { lost_report: @lost_report } %>
+<%= render 'shared/page_heading', { heading: "Se busca #{@lost_report.pet.name}" } %>
+
+<section class="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="pet-image col-md-7">
+        <%= image_tag(@lost_report.pet.avatar.url(:large), class: 'img-thumbnail') %>
+        <%= render 'social_share_options', { lost_report: @lost_report } %>
+      </div>
+      <div class="col-md-5">
+        <%= render 'shared/lost_pet_info', { lost_report: @lost_report } %>
+        <%= render 'shared/flyer_preview', { lost_report: @lost_report } %>
       </div>
     </div>
-    <%= render partial: 'social_share_options', locals: { lost_report: @lost_report } %>
   </div>
-</div>
+</section>

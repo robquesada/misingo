@@ -29,12 +29,11 @@
               .lostPet__information__detail__row.col-md-12.col-sm-12
                 = image_tag("description_icon.svg", class: "lostPet__information__detail__image")
                 .lostPet__information__detail__text
-                  %p= lost_report.description
+                  %p= truncate(lost_report.description, length: 28)
 
               .lostPet__information__detail__row.col-md-12.col-sm-12
                 = image_tag("phone_icon.svg", class: "lostPet__information__detail__image")
                 .lostPet__information__detail__text
                   %p= lost_report.phone_numbers.join(" / ")
                   %b= lost_report.owner
-
-            = link_to "Ver más detalles", pet_lost_report_path(pet), class: "lostPet__information__moreLink btn btn-success"
+            = link_to "Ver más detalles", lost_report_path(pet), class: "lostPet__information__moreLink btn btn-success"

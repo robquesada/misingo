@@ -3,9 +3,14 @@ require 'rails_helper'
 describe User, 'validations' do
   subject { FactoryGirl.create(:user) }
 
-  it { should have_many(:pets).dependent(:destroy) }
+  it { should have_many(:lost_reports).dependent(:destroy) }
   it { should_not allow_value('email@x').for(:email) }
   it { should_not allow_value('123123').for(:email) }
+
+  context 'name validations' do
+    it { should allow_value('María Peña').for(:name) }
+    it { should_not allow_value('Pedro123').for(:name) }
+  end
 end
 
 # == Schema Information
@@ -13,22 +18,22 @@ end
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string(255)      default(""), not null
-#  encrypted_password     :string(255)      default(""), not null
-#  reset_password_token   :string(255)
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
 #  sign_in_count          :integer          default(0), not null
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
-#  current_sign_in_ip     :string(255)
-#  last_sign_in_ip        :string(255)
+#  current_sign_in_ip     :string
+#  last_sign_in_ip        :string
 #  created_at             :datetime
 #  updated_at             :datetime
-#  provider               :string(255)
-#  uid                    :string(255)
-#  name                   :string(255)
-#  image                  :string(255)
+#  provider               :string
+#  uid                    :string
+#  name                   :string
+#  image                  :string
 #
 # Indexes
 #
