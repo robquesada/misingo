@@ -10,7 +10,6 @@ es:
       breed:
         one: "Raza"
         other: "Razas"
-    attributes:
       lost_report:
         province: "Provincia"
         description: "Descripción breve"
