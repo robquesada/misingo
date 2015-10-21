@@ -32,6 +32,7 @@ gem "haml-rails"
 group :development do
   gem 'spring', '~> 1.1.3'
   gem 'web-console', '~> 2.0'
+  gem 'faker', '~>1.4.3'
 end
 
 group :test do
@@ -44,5 +45,9 @@ group :test do
   gem 'database_cleaner', '~> 1.5.0'
   gem 'capybara', '~> 2.4.4'
   gem 'launchy', '~> 2.4.3'
-  gem 'faker', '~> 1.4.3'
+  gem 'faker', '~> 1.4.3' 
 end
+
+
+
+

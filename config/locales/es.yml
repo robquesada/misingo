@@ -1,6 +1,12 @@
 es:
   activerecord:
     models:
+      user:
+    attributes:
+      user:
+        email: "La dirección de correo"
+        password: "La contraseña"
+        name: "Tu nombre"
       breed:
         one: "Raza"
         other: "Razas"
@@ -20,6 +26,14 @@ es:
         animal_type: "Animal"
     errors:
       models:
+        user:
+          attributes:
+            email:
+              blank: "es requerido"
+            password:
+              blank: "es requerido"
+            name:
+              invalid: "es requerido y debe contener letras"
         pet:
           attributes:
             avatar:
@@ -40,3 +54,52 @@ es:
               blank: "Debe ingresar la %{attribute} de la desaparición"
             description:
               blank: "ingrese una %{attribute} de su mascota"
+        messages:
+          expired: "Ha expirado, por favor pedí uno nuevo"
+          not_found: "No encontrado"
+          already_confirmed: "Ya está confirmada, por favor intentá ingresar"
+          not_locked: "No  está bloqueada"
+          not_saved:
+            one: "Un error evitó que este %{resource} fuera guardado:"
+            other: "%{count} errores evitaron que este %{resource} fuera guardado:"
+
+  devise:
+    failure:
+      already_authenticated: 'Ya estás conectado/a.'
+      unauthenticated: 'Necesitás acceder a tu cuenta o registrarte antes de continuar.'
+      unconfirmed: 'Necesitás confirmar tu cuenta antes de continuar.'
+      locked: 'Tu cuenta está bloqueada.'
+      invalid: 'Contraseña o Email incorrecto.'
+      invalid_token: 'Token de autenticación incorrecto.'
+      timeout: 'Tu sesión ha expirado, por favor accedé de nuevo para continuar.'
+      inactive: 'Tu cuenta no ha sido activada.'
+    sessions:
+      signed_in: 'Te has conectado correctamente.'
+      signed_out: 'Has salido correctamente.'
+    passwords:
+      send_instructions: 'Recibirás un email con instrucciones para cambiar tu contraseña en pocos minutos.'
+      updated: 'Tu contraseña ha sido modificada. Ya has accedido a tu cuenta.'
+      send_paranoid_instructions: 'Si tu email ya existe en nuestra base de datos, recibirás un enlace para recuperar tu contraseña en tu correo'
+    confirmations:
+      send_instructions: 'Recibirás un email con instrucciones para confirmar tu cuenta en pocos minutos.'
+      send_paranoid_instructions: 'Si tu email ya existe en nuestra base de datos, recibirás un email con instrucciones para confirmar tu cuenta en pocos minutos.'
+      confirmed: 'Tu cuenta ha sido confirmada. Ya has accedido a tu cuenta.'
+    registrations:
+      signed_up: '¡Bienvenido! Te has registrado correctamente.'
+      inactive_signed_up: 'Te has registrado correctamente. Sin embargo, no estás conectado todavía porque tu cuenta está %{reason}.'
+      updated: 'Has actualizado tu cuenta correctamente.'
+      destroyed: '¡Hasta luego! Tu cuenta ha sido cancelada. Esperamos verte pronto.'
+    unlocks:
+      send_instructions: 'Recibirás  un email con instrucciones para desbloquear tu cuenta en pocos minutos.'
+      unlocked: 'Tu cuenta ha sido desbloqueada. Ya has accedido a su cuenta.'
+      send_paranoid_instructions: 'Si tu cuenta existe, recibirás un email con instrucciones para desbloquear tu cuenta en pocos minutos.'
+    oauth_callbacks:
+      success: 'Has sido autorizado satisfactoriamente de la cuenta %{kind}.'
+      failure: 'No has sido autorizado en la cuenta %{kind} porque "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instrucciones de confirmación'
+      reset_password_instructions:
+        subject: 'Instrucciones para cambiar tu contraseña'
+      unlock_instructions:
+        subject: 'Instrucciones para desbloquear tu cuenta'

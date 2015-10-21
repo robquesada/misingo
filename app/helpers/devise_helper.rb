@@ -38,7 +38,7 @@ module DeviseHelper
     html = <<-HTML
       <fieldset>
         <div class="field account-sign-in">
-          <div class="alert alert-warning alert-dismissable">
+          <div class="alert alert-danger alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times"></i></button>
             <div id="error_explanation">
               <ul>#{list_items}</ul>
