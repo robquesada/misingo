@@ -7,7 +7,7 @@
       <div class="field">
         <div class='profile-pic-box'>
           <% profile_img = !pet.new_record? ? pet.avatar.url(:profile) : 'profile-default.png' %>
-          <%= image_tag profile_img, id:'image', class: 'img-rounded' %>
+          <%= image_tag profile_img, id: 'image', class: 'img-rounded' %>
         </div>
       </div>
 
@@ -22,7 +22,7 @@
     <fieldset>
       <label>Nombre de la mascota <span class="required">*</span></label>
       <div class="field">
-        <%= pet_form.text_field :name, placeholder: 'ej. Misingo', id:'nombre', class:"form-control", autofocus: true  %>
+        <%= pet_form.text_field :name, placeholder: 'ej. Misingo', class: 'form-control', autofocus: true  %>
       </div>
     </fieldset>
 

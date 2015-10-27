@@ -1,4 +1,4 @@
-<%= form_for(@adoption, html: { class: 'job-manager-form'}) do |f, pet = @adoption.pet| %>
+<%= form_for(@adoption, html: { class: 'job-manager-form' }) do |f, pet = @adoption.pet| %>
   <%= render 'shared/flash_messages' %>
 
   <%= f.fields_for :pet do |pet_form| %>
@@ -7,7 +7,7 @@
       <div class="field">
         <div class='profile-pic-box'>
           <% profile_img = !pet.new_record? ? pet.avatar.url(:profile) : 'profile-default.png' %>
-          <%= image_tag profile_img, id:'image', class: 'img-rounded' %>
+          <%= image_tag profile_img, id: 'image', class: 'img-rounded' %>
         </div>
       </div>
 
@@ -22,7 +22,7 @@
     <fieldset>
       <label>Nombre de la mascota <span class="required">*</span></label>
       <div class="field">
-        <%= pet_form.text_field :name, placeholder: 'ej. Misingo', id:'nombre', class:"form-control", autofocus: true  %>
+        <%= pet_form.text_field :name, placeholder: 'ej. Misingo', class: 'form-control', autofocus: true  %>
       </div>
     </fieldset>
 
@@ -72,13 +72,13 @@
       <div class="col-md-6">
         <fieldset class="fieldset-job_type">
           <label>Tamaño</label>
-          <%= pet_form.select :size, options_for_select([ 'Pequeño', 'Mediano', 'Grande'], 'Mediano'), {}, class: 'form-control' %>
+          <%= pet_form.select :size, options_for_select(['Pequeño', 'Mediano', 'Grande'], 'Mediano'), {}, class: 'form-control' %>
         </fieldset>
       </div>
       <div class="col-md-6">
         <fieldset class="fieldset-job_type">
           <label>Edad</label>
-          <%= pet_form.select :age, options_for_select([ 'Cachorro', 'Joven', 'Adulto', 'Viejo'], 'Cachorro'), {}, class: 'form-control' %>
+          <%= pet_form.select :age, options_for_select(['Cachorro', 'Joven', 'Adulto', 'Viejo'], 'Cachorro'), {}, class: 'form-control' %>
         </fieldset>
       </div>
     </div>
