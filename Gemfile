@@ -27,7 +27,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', '~> 0.0.3', group: [:production, :staging]
 gem 'dotenv-rails', '~> 1.0.2', groups: [:development, :test]
 gem 'newrelic_rpm', '~> 3.12.0', groups: [:development, :staging, :production]
-gem "haml-rails"
+gem 'haml-rails'
+gem 'kaminari', '~> 0.16.3'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'factory_girl_rails', '~> 4.5.0'

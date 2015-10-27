@@ -33,8 +33,8 @@
             <%= link_to 'Nuevo extravío', new_lost_report_path, class: "btn btn-sm btn-warning" %>
             <%= link_to 'Nueva adopción', new_adoption_path, class: "btn btn-sm btn-warning" %>
             <% image = current_user.image.nil? ? 'profile_default.png' : current_user.image %>
-            <%= current_user.name %>
-            <%= image_tag(image, class:'small-picture') %>
+            <%= link_to current_user.name, user_path(current_user) %>
+            <%= link_to image_tag(image, class:'small-picture'), user_path(current_user) %>
             <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
           </div>
         </div>
