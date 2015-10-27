@@ -1,4 +1,4 @@
-<%= form_for(@lost_report, html: { class: 'job-manager-form'}) do |f, pet = @lost_report.pet| %>
+<%= form_for(@adoption, html: { class: 'job-manager-form' }) do |f, pet = @adoption.pet| %>
   <%= render 'shared/flash_messages' %>
 
   <%= f.fields_for :pet do |pet_form| %>
@@ -67,24 +67,50 @@
         </fieldset>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <fieldset class="fieldset-job_type">
+          <label>Tamaño</label>
+          <%= pet_form.select :size, options_for_select(['Pequeño', 'Mediano', 'Grande'], 'Mediano'), {}, class: 'form-control' %>
+        </fieldset>
+      </div>
+      <div class="col-md-6">
+        <fieldset class="fieldset-job_type">
+          <label>Edad</label>
+          <%= pet_form.select :age, options_for_select(['Cachorro', 'Joven', 'Adulto', 'Viejo'], 'Cachorro'), {}, class: 'form-control' %>
+        </fieldset>
+      </div>
+    </div>
+
+    <fieldset>
+      <div class='large-6 columns'>
+        <div class="checkbox checkbox__custom checkbox__style4">
+          <label>
+            <%= pet_form.check_box :castrated %>
+            <span>Está castrado</span>
+          </label>
+        </div>
+      </div>
+    </fieldset>
   <% end %>
 
   <div class="row">
     <div class="col-md-6">
       <fieldset class="fieldset-job_type">
-        <label> ¿En qué provincia se perdió tu mascota?</label>
+        <label> ¿En qué provincia está el animal?</label>
         <div class="field select-style">
-          <% province_selected = @lost_report.new_record? ? 0 : @lost_report.province_id %>
-          <%= collection_select(:lost_report, :province_id, Province.all, :id, :name, {selected: province_selected}, {class: 'form-control'}) %>
+          <% province_selected = @adoption.new_record? ? 0 : @adoption.province_id %>
+          <%= collection_select(:adoption, :province_id, Province.all, :id, :name, {selected: province_selected}, {class: 'form-control'}) %>
         </div>
       </fieldset>
     </div>
   </div>
 
   <fieldset>
+    <label>Tu nombre o el nombre de la organización pro animal <span class="required">*</span></label>
     <div class="field">
-      <label> ¿Cuál es la dirección exacta del extravío?  <span class="required">*</span></label>
-      <%= f.text_area :address, placeholder: 'Mencioná también lugares aledaños', class: 'form-control' %>
+      <%= f.text_field :contact, placeholder: 'ej. María Soto o Asociación Animal Feliz', class: 'form-control' %>
     </div>
   </fieldset>
 
@@ -92,46 +118,35 @@
     <div class="col-md-6">
       <fieldset>
         <label>Número de teléfono <span class="required">*</span></label>
-        <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[0], name: 'lost_report[phone_numbers][]', class: 'form-control', placeholder: 'ej. 88112233' %>
+        <%= f.text_field :phone_numbers, value: @adoption.phone_numbers[0], name: 'adoption[phone_numbers][]', class: 'form-control', placeholder: 'ej. 88112233' %>
       </fieldset>
     </div>
     <div class="col-md-6">
       <fieldset>
         <label>Otro teléfono (opcional)</label>
-        <%= f.text_field :phone_numbers, value: @lost_report.phone_numbers[1] , name: 'lost_report[phone_numbers][]', class: 'form-control', placeholder: 'ej. 88112244' %>
+        <%= f.text_field :phone_numbers, value: @adoption.phone_numbers[1] , name: 'adoption[phone_numbers][]', class: 'form-control', placeholder: 'ej. 88112244' %>
       </fieldset>
     </div>
   </div>
 
   <fieldset>
     <div class="field">
-        <label>Mencioná características de tu mascota <span class="required">*</span></label>
-        <%= f.text_area :description, placeholder: '¿Llevaba collar?, ¿Padece de alguna enfermedad?', class: 'form-control' %>
+        <label>Mencioná características del animal <span class="required">*</span></label>
+        <%= f.text_area :description, placeholder: '¿Comportamiento?, ¿Estado de salud?', class: 'form-control' %>
       </div>
     </fieldset>
   </fieldset>
 
-  <fieldset>
-    <div class='large-6 columns'>
-      <div class="checkbox checkbox__custom checkbox__style4">
-        <label>
-          <%= f.check_box :reward %>
-          <span>Ofrezco recompensa</span>
-        </label>
-      </div>
-    </div>
-  </fieldset>
-
   <p>
-    <% text = @lost_report.pet.new_record? ? 'Agregar a mi mascota' : 'Guardar' %>
+    <% text = @adoption.pet.new_record? ? 'Agregar a mi mascota' : 'Guardar' %>
     <%= f.submit text, class: 'btn btn-primary' %>
   </p>
 <% end %>
 
 <script type='text/javascript'>
-  <% if !@lost_report.pet.new_record? %>
+  <% if !@adoption.pet.new_record? %>
     setTimeout(function(){
-      $('#pet_breed_id').val('<%= @lost_report.pet.breed.id %>');
+      $('#pet_breed_id').val('<%= @adoption.pet.breed.id %>');
     },100);
   <% end %>
 </script>

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
   has_many :lost_reports, dependent: :destroy
+  has_many :adoptions, dependent: :destroy
   validates_format_of :name, with: /^[a-z\u00E0-\u00FC_ ]+$/i, multiline: true
 
   def self.from_omniauth(auth)

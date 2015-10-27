@@ -1,5 +1,5 @@
 def require_factories
-  require "factory_girl_rails"
+  require 'factory_girl_rails'
 end
 
 namespace :seed do

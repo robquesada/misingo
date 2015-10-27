@@ -1,6 +1,4 @@
-class LostReport < ActiveRecord::Base
-  paginates_per 10
-
+class Adoption < ActiveRecord::Base
   belongs_to :province
   belongs_to :pet
   belongs_to :user
@@ -12,7 +10,7 @@ class LostReport < ActiveRecord::Base
   serialize :phone_numbers
   before_validation :strip_phone_numbers
   validates :phone_numbers, phone_number: true
-  validates_presence_of :address, :description
+  validates_presence_of :contact, :description
 
   default_scope { order('created_at DESC') }
 
@@ -29,17 +27,15 @@ end
 
 # == Schema Information
 #
-# Table name: lost_reports
+# Table name: adoptions
 #
 #  id            :integer          not null, primary key
-#  address       :text
-#  reward        :integer
-#  owner         :string
 #  description   :text
-#  created_at    :datetime
-#  updated_at    :datetime
+#  contact       :string
+#  phone_numbers :text
 #  province_id   :integer
 #  pet_id        :integer
-#  phone_numbers :text
 #  user_id       :integer
+#  created_at    :datetime
+#  updated_at    :datetime
 #

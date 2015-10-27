@@ -1,0 +1,43 @@
+#pets-grid
+  .page-content.main
+    .container
+      .project-feed.project-feed__3cols.row.isotope
+        - @pet_reports.each do |pet_report, pet = pet_report.pet|
+          .col-sm-6.col-md-4.project-item.lostPet.js--onHoverShowElement{ data: { element: ".js--lostPet__information" } }
+            .project-item-inner
+              %figure.alignnone.project-img
+                .lostPet__imageHolder
+                  = image_tag pet.avatar.url(:medium), class: "lostPet__image"
+
+              .project-desc
+                - headline = (pet_report.class == Adoption) ? 'En adopción' : 'Se busca'
+                %h5.lostPet__search #{headline}
+                %h4.title.lostPet__name= pet.name
+
+            .lostPet__information.hidden.js--lostPet__information
+              %h4.lostPet__name= pet.name
+              .lostPet__information--detail
+                .lostPet__information__detail__row.col-md-12.col-sm-12
+                  = image_tag("location_icon.svg", class: "lostPet__information__detail__image")
+                  .lostPet__information__detail__text
+                    %b= pet_report.province.name
+
+                .lostPet__information__detail__row.col-md-12.col-sm-12
+                  = image_tag("breed_icon.svg", class: "lostPet__information__detail__image")
+                  .lostPet__information__detail__text
+                    %b= pet.breed_name
+                    %span= "(#{pet.sex})"
+
+                .lostPet__information__detail__row.col-md-12.col-sm-12
+                  = image_tag("description_icon.svg", class: "lostPet__information__detail__image")
+                  .lostPet__information__detail__text
+                    %p= truncate(pet_report.description, length: 28)
+
+                .lostPet__information__detail__row.col-md-12.col-sm-12
+                  = image_tag("phone_icon.svg", class: "lostPet__information__detail__image")
+                  .lostPet__information__detail__text
+                    %p= pet_report.phone_numbers.join(" / ")
+                    - contact = (pet_report.class == Adoption) ? pet_report.contact : pet_report.owner
+                    %b= contact
+              - path = (pet_report.class == Adoption) ? adoption_path(pet_report) : lost_report_path(pet_report)
+              = link_to "Ver más detalles", path, class: "lostPet__information__moreLink btn btn-success"

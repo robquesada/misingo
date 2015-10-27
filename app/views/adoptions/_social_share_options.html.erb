@@ -1,0 +1,11 @@
+<% pet = adoption.pet %>
+<div class="alert alert-warning alert-dismissable social-share">
+  <strong>¡No olvidés compartirlo en redes sociales!</strong>
+  <% url = adoption_url(adoption) %>
+  
+  <div id='fb-root'></div>
+  <div class="social-networks-buttons">
+    <div class='fb-like' data-href='<%= url %>' data-layout='button' data-action='like' data-show-faces='true' data-share='true'></div>
+    <a href='https://twitter.com/share' class='twitter-share-button' data-url='<%= url %>' data-text="¡<%= @adoption.pet.name %> busca hogar! Ayudame a darlo en adopción" data-via='misingocom' data-count='none'>Tweet</a>
+  </div>
+</div>

@@ -31,6 +31,10 @@ gem 'haml-rails'
 gem 'kaminari', '~> 0.16.3'
 gem "font-awesome-rails"
 
+group :development, :test do
+  gem 'factory_girl_rails', '~> 4.5.0'
+end
+
 group :development do
   gem 'spring', '~> 1.1.3'
   gem 'web-console', '~> 2.0'
@@ -39,7 +43,6 @@ end
 group :test do
   gem 'rspec-rails', '~> 3.3.3'
   gem 'rspec-its', '~> 1.2.0'
-  gem 'factory_girl_rails', '~> 4.5.0'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'shoulda-matchers', require: false
   gem 'shoulda', '~> 3.5.0'
