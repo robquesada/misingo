@@ -29,6 +29,10 @@ gem 'dotenv-rails', '~> 1.0.2', groups: [:development, :test]
 gem 'newrelic_rpm', '~> 3.12.0', groups: [:development, :staging, :production]
 gem "haml-rails"
 
+group :development, :test do
+  gem 'factory_girl_rails', '~> 4.5.0'
+end
+
 group :development do
   gem 'spring', '~> 1.1.3'
   gem 'web-console', '~> 2.0'
@@ -37,7 +41,6 @@ end
 group :test do
   gem 'rspec-rails', '~> 3.3.3'
   gem 'rspec-its', '~> 1.2.0'
-  gem 'factory_girl_rails', '~> 4.5.0'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'shoulda-matchers', require: false
   gem 'shoulda', '~> 3.5.0'
