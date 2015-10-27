@@ -1,0 +1,39 @@
+<%= render 'shared/header' %>
+<%= render 'shared/page_heading', { heading: "Perfil de #{@user.name}" } %>
+
+<section class="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="pet-image col-md-7">
+        <% image = @user.image.nil? ? 'profile_default.png' : @user.image %>
+        <%= image_tag(image, class: 'large-picture') %>
+      </div>
+      <div class="col-md-5">
+        <div class="row">
+          <strong>Nombre:</strong>
+          <span>
+            <%= @user.name %>
+          </span>
+        </div>
+        <br>
+        <div class="row">
+          <strong>Correo electrónico:</strong>
+          <span>
+            <%= @user.email %>
+          </span>
+        </div>
+        <br>
+        <% if @user == current_user %>
+          <div class="row">
+            <%= link_to 'Editar', edit_user_path(id: current_user.id), class: "btn btn-sm btn-warning" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <h1>Mascotas desaparecidas de <%= @user.name %></h1>
+    </div>
+    <%= render 'main/lost_pet' %>
+  </div>
+</section>
