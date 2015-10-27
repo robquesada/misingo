@@ -1,6 +1,13 @@
 class LostReportsController < ApplicationController
   before_filter :find_lost_report, only: [:show, :edit, :update]
   before_filter :validate_owner, only: [:edit, :update]
+  before_filter :find_all_lost_reports, only: [:index]
+  before_filter :filter_lost_reports, only: [:index]
+  before_action :authenticate_user!, only: [:new, :edit]
+
+  def index
+    @pet_reports = LostReport.all
+  end
 
   def new
     @lost_report = LostReport.new
@@ -32,6 +39,19 @@ class LostReportsController < ApplicationController
   end
 
   private
+
+  def find_all_lost_reports
+    @pet_reports = LostReport.all
+  end
+
+  def filter_lost_reports
+    if params[:province].nil? || params[:province][:province_id].empty?
+      find_all_lost_reports
+    else
+      @pet_reports = find_all_lost_reports.where(province_id: params[:province][:province_id])
+      @province_id = params[:province][:province_id]
+    end
+  end
 
   def find_lost_report
     @lost_report = LostReport.find(params[:id])

@@ -23,14 +23,15 @@
       <div class="container">
         <div class="header-top-left">
           <ul class="header-top-nav">
-            <li><%= link_to "Inicio", root_path %></li>
-            <li><a href="#">Desapariciones</a></li>
-            <li><a href="#">Adopciones</a></li>
+            <li><%= link_to 'Desapariciones', lost_reports_path %></li>
+            <li><%= link_to 'Adopciones', adoptions_path %></li>
+            <li><%= link_to 'Contacto', '/contacto' %></li>
           </ul>
         </div>
         <div class="header-top-right">
           <div class="user-info">
-            <%= link_to 'Registrar mascota desaparecida', new_lost_report_path, class: "btn btn-sm btn-warning" %>
+            <%= link_to 'Nuevo extravío', new_lost_report_path, class: "btn btn-sm btn-warning" %>
+            <%= link_to 'Nueva adopción', new_adoption_path, class: "btn btn-sm btn-warning" %>
             <% image = current_user.image.nil? ? 'profile_default.png' : current_user.image %>
             <%= current_user.name %>
             <%= image_tag(image, class:'small-picture') %>
@@ -57,12 +58,18 @@
         <!-- Banner -->
         <div class="head-info">
           <ul class="head-info-list">
-            <li><span>Mascotas desaparecidas </span>en Costa Rica</li>
+            <li><span>Adopciones y mascotas desaparecidas </span>en Costa Rica</li>
           </ul>
           <ul class="social-links">
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li>
+              <%= link_to 'https://www.facebook.com/misingocom', target: '_blank' do %><i class="fa fa-facebook"></i><% end %>
+            </li>
+            <li>
+              <%= link_to 'https://www.twitter.com/misingocom', target: '_blank' do %><i class="fa fa-twitter"></i><% end %>
+            </li>
+            <li>
+              <%= link_to 'https://www.instagram.com/misingocom', target: '_blank' do %><i class="fa fa-instagram"></i><% end %>
+            </li>
           </ul>
         </div>
         <!-- Banner / End -->

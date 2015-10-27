@@ -10,9 +10,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :adoptions, path: 'adopciones'
   resources :invites, only: :create
 
   get 'perfil', to: 'users#index', as: 'profile'
 
-  root 'main#home'
+  root 'adoptions#index'
 end

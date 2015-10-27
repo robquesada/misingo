@@ -1,6 +1,5 @@
 <%= render 'shared/header' %>
-<% heading = (@pet_report.class == Adoption) ? 'Mascotas en adopción' : 'Mascotas desaparecidas' %>
-<%= render 'shared/page_heading', { report_class: @pet_report.class } %>
+<%= render 'shared/page_heading', { heading: 'Mascotas desaparecidas' } %>
 
 <div class="row search">
   <div class="col-md-6 col-md-offset-4">
@@ -18,4 +17,4 @@
   </div>
 </div>
 
-<%= render 'pets_grid' %>
+<%= render 'shared/pets_grid' %>

@@ -11,6 +11,12 @@ es:
         address: "Dirección exacta"
         owner: "Dueño"
         phone_numbers: "Números de teléfono"
+      adoption:
+        province: "Provincia"
+        description: "Descripción breve"
+        address: "Dirección exacta"
+        contact: "Nombre del contacto"
+        phone_numbers: "Números de teléfono"
       pet:
         name: "Nombre"
         breed: "Raza"
@@ -40,3 +46,12 @@ es:
               blank: "Debe ingresar la %{attribute} de la desaparición"
             description:
               blank: "ingrese una %{attribute} de su mascota"
+        adoption:
+          attributes:
+            contact:
+              blank: "Debe ingresar el %{attribute}"
+            phone_numbers:
+              blank: "Debe ingresar al menos un número de teléfono"
+              invalid: "El número de teléfono %{index} es inválido"
+            description:
+              blank: "ingrese una %{attribute} del animal"

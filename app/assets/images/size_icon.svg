@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="355px" height="355px" viewBox="0 0 355 355" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>size_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="size_icon" sketch:type="MSLayerGroup">
+            <circle id="Oval-1-Copy" fill="#A6CE39" sketch:type="MSShapeGroup" cx="177.5" cy="177.5" r="177.5"></circle>
+            <path d="M227.784314,66 L66,227.784314 L127.215686,289 L289,127.215686 L227.784314,66 L227.784314,66 Z M90.7836078,227.045353 L103.175412,214.653549 L127.950275,239.428412 L140.333333,227.04098 L115.558471,202.266118 L127.950275,189.874314 L140.333333,202.257373 L152.720765,189.869941 L140.337706,177.486882 L152.72951,165.095078 L177.504373,189.869941 L189.891804,177.48251 L165.116941,152.707647 L177.508745,140.315843 L189.896176,152.698902 L202.283608,140.311471 L189.900549,127.928412 L202.292353,115.536608 L227.067216,140.311471 L239.454647,127.924039 L214.679784,103.149176 L227.054098,90.7748627 L264.220765,127.941529 L127.945902,264.21202 L90.7836078,227.045353 L90.7836078,227.045353 Z" id="Shape" fill="#3E3626" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

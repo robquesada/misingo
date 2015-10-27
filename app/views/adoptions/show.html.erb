@@ -1,0 +1,16 @@
+<%= render 'shared/header' %>
+<%= render 'shared/page_heading', { heading: "#{@adoption.pet.name} busca hogar" } %>
+
+<section class="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="pet-image col-md-7">
+        <%= image_tag(@adoption.pet.avatar.url(:large), class: 'img-thumbnail') %>
+        <%= render 'social_share_options', { adoption: @adoption } %>
+      </div>
+      <div class="col-md-5">
+        <%= render 'shared/adoption_info', { adoption: @adoption } %>
+      </div>
+    </div>
+  </div>
+</section>
