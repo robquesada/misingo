@@ -9,6 +9,7 @@ describe User, 'validations' do
 
   context 'name validations' do
     it { should allow_value('María Peña').for(:name) }
+    it { should allow_value('Douglas Ávalos').for(:name) }
     it { should_not allow_value('Pedro123').for(:name) }
   end
 end

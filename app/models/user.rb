@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, omniauth_providers: [:facebook]
   has_many :lost_reports, dependent: :destroy
   has_many :adoptions, dependent: :destroy
-  validates_format_of :name, with: /^[a-z\u00E0-\u00FC_ ]+$/i, multiline: true
+  validates_format_of :name, with: /^[\D]*$/, multiline: true
 
   def self.from_omniauth(auth)
     # uid: Standard name for provider's user ID
