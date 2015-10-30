@@ -13,7 +13,7 @@
   </head>
   <body>
     <% if Rails.env.production? %>
-      <%= render 'shared/soon' %>
+      <%#= render 'shared/soon' %>
     <% else %>
       <%= yield %>
       <%= render 'shared/footer' %>
