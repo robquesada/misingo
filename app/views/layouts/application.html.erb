@@ -15,11 +15,11 @@
     <meta name='google-site-verification' content='<%= ENV['GOOGLE_VERIFICATION_CODE'] %>' />
   </head>
   <body>
-    <% if Rails.env.production? %>
+    <%# if Rails.env.production? %>
       <%#= render 'shared/soon' %>
-    <% else %>
+    <%# else %>
       <%= yield %>
       <%= render 'shared/footer' %>
-    <% end %>
+    <%# end %>
   </body>
 </html>
