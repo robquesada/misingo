@@ -1,0 +1,13 @@
+<% content_for :facebook_meta_tags do %>
+  <%= render 'shared/facebook_meta_tags' %>
+  <meta property="og:url" content="<%= request.base_url + lost_report_path(@lost_report) %>" />
+  <meta property="og:title" content="¡Se busca <%= @lost_report.pet.name %>!" />
+  <meta property="og:description" content="<%= @lost_report.description %>. Llamar al <%= @lost_report.phone_numbers.join(' / ') %>" />
+  <meta property="og:image" content="<%= @lost_report.pet.avatar.url(:preview) %>" />
+<% end %>
+<% content_for :twitter_meta_tags do %>
+  <%= render 'shared/twitter_meta_tags' %>
+  <meta name="twitter:title" content="¡Se busca <%= @lost_report.pet.name %>!">
+  <meta name="twitter:description" content="<%= @lost_report.description %>. Llamar al <%= @lost_report.phone_numbers.join(' / ') %>">
+  <meta name="twitter:image" content="<%= @lost_report.pet.avatar.url(:preview) %>">
+<% end %>
