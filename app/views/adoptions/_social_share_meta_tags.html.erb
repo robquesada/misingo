@@ -7,7 +7,7 @@
 <% end %>
 <% content_for :twitter_meta_tags do %>
   <%= render 'shared/twitter_meta_tags' %>
-  <meta name="twitter:title" content="¡<%= @adoption.pet.name %> busca un hogar!">
+  <meta name="twitter:title" content="¡<%= @adoption.pet.name %> busca un hogar! | Misingo">
   <meta name="twitter:description" content="<%= @adoption.description %>. Llamar al <%= @adoption.phone_numbers.join(' / ') %>">
   <meta name="twitter:image" content="<%= @adoption.pet.avatar.url(:preview) %>">
 <% end %>

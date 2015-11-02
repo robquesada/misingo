@@ -4,7 +4,7 @@
     <meta charset='utf-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title><%= content_for?(:title) ? yield(:title) : 'Misingo | Adopciones de Mascotas en Costa Rica, Mascotas desaparecidas en Costa Rica' %></title>
-    <%= content_for?(:facebook_meta_tags) ? yield(:facebook_meta_tags) : '' %>
+    <%= content_for?(:facebook_meta_tags) ? yield(:facebook_meta_tags) : render('shared/default_social_meta_tags') %>
     <%= content_for?(:twitter_meta_tags) ? yield(:twitter_meta_tags) : '' %>
     <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag 'vendor/modernizr' %>
