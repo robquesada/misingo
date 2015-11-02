@@ -124,7 +124,7 @@
 
   <p>
     <% text = @lost_report.pet.new_record? ? 'Agregar a mi mascota' : 'Guardar' %>
-    <%= f.submit text, class: 'btn btn-primary' %>
+    <%= f.submit text, class: 'btn btn-primary', data: { disable_with: 'Guardando' } %>
   </p>
 <% end %>
 
