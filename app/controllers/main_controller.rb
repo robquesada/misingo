@@ -1,6 +1,6 @@
 class MainController < ApplicationController
-  def welcome; end
   def home
     @invite = Invite.new
   end
+  def contact; end
 end

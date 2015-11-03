@@ -55,3 +55,10 @@ es:
               invalid: "El número de teléfono %{index} es inválido"
             description:
               blank: "ingrese una %{attribute} del animal"
+  views:
+    pagination:
+      first: "&laquo; Primera"
+      last: "Última &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Siguiente &rsaquo;"
+      truncate: "&hellip;"

@@ -1,0 +1,15 @@
+<nav class="nav-main">
+  <div class="container">
+    <ul data-breakpoint="992" class="flexnav">
+      <% if current_user.nil? %>
+        <li class="mobile-only"><%= link_to 'Ingresar con Facebook', user_omniauth_authorize_path(:facebook) %></li>
+        <li class="mobile-only"><%= link_to 'Iniciar', new_user_session_path %></li>
+      <% else %>
+        <li class="mobile-only"><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
+      <% end %>
+      <li><%= link_to 'Adopciones', adoptions_path %></li>
+      <li><%= link_to 'Extravíos', lost_reports_path %></li>
+      <li><%= link_to 'Contacto', contact_path %></li>
+    </ul>
+  </div>
+</nav>

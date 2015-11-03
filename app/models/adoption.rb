@@ -1,4 +1,6 @@
 class Adoption < ActiveRecord::Base
+  paginates_per 12
+
   belongs_to :province
   belongs_to :pet
   belongs_to :user
