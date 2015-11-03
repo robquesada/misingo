@@ -4,18 +4,18 @@
   <fieldset>
     <label>Nombre <span class="required">*</span></label>
     <div class="field">
-      <%= f.text_field :name, id: 'name', class: "form-control", autofocus: true  %>
+      <%= f.text_field :name, id: 'name', class: "form-control", autofocus: true, required: true  %>
     </div>
   </fieldset>
 
   <fieldset>
     <label>Correo electrónico <span class="required">*</span></label>
     <div class="field">
-      <%= f.text_field :email, id: 'email', class: "form-control", autofocus: true  %>
+      <%= f.text_field :email, id: 'email', class: "form-control", autofocus: true, required: true  %>
     </div>
   </fieldset>
 
   <p>
-    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+    <%= f.submit 'Guardar', class: 'btn btn-primary', data: { disable_with: 'Guardando' } %>
   </p>
 <% end %>
