@@ -3047,3 +3047,20 @@ img.large-picture {
 fieldset.pet-field {
     margin-bottom: 1em;
 }
+.logo {
+  max-width: 256px;
+}
+img.logo-contact {
+  width: 558px;
+  height: 300px;
+  @media (max-width: 768px) {
+    height: 100px;
+    margin-bottom: 2em;
+  }
+}
+
+li.mobile-only {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
