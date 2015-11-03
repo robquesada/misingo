@@ -30,7 +30,7 @@ jQuery(function($){
         'animationSpeed':     200,            // default for drop down animation speed
         'transitionOpacity':  true,           // default for opacity animation
         'buttonSelector':     '.navbar-toggle', // default menu button class name
-        'hoverIntent':        true,          // Change to true for use with hoverIntent plugin
+        'hoverIntent':        false,          // Change to true for use with hoverIntent plugin
         'hoverIntentTimeout': 50,            // hoverIntent default timeout
         'calcItemWidths':     false,          // dynamically calcs top level nav item widths
         'hover':              true            // would you like hover support?      
