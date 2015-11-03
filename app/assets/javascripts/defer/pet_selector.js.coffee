@@ -11,3 +11,6 @@ changeBreeds = ->
 $ ->
   $('#animal_type_id').change ->
     changeBreeds()
+
+$ ->
+  changeBreeds()
