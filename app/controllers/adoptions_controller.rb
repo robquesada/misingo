@@ -38,14 +38,14 @@ class AdoptionsController < ApplicationController
   private
 
   def find_all_adoptions
-    @pet_reports = Adoption.all
+    @pet_reports = Adoption.all.page params[:page]
   end
 
   def filter_adoptions
     if params[:province].nil? || params[:province][:province_id].empty?
       find_all_adoptions
     else
-      @pet_reports = find_all_adoptions.where(province_id: params[:province][:province_id])
+      @pet_reports = find_all_adoptions.where(province_id: params[:province][:province_id]).page params[:page]
       @province_id = params[:province][:province_id]
     end
   end

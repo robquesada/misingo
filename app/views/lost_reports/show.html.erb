@@ -1,3 +1,4 @@
+<%= render 'social_share_meta_tags' %>
 <%= render 'shared/header' %>
 <%= render 'shared/page_heading', { heading: "Se busca #{@lost_report.pet.name}" } %>
 
@@ -6,7 +7,7 @@
     <div class="row">
       <div class="pet-image col-md-7">
         <%= image_tag(@lost_report.pet.avatar.url(:large), class: 'img-thumbnail') %>
-        <%= render 'social_share_options', { lost_report: @lost_report } %>
+        <%= render 'social_share_buttons', { lost_report: @lost_report } %>
       </div>
       <div class="col-md-5">
         <%= render 'shared/lost_report_info', { lost_report: @lost_report } %>

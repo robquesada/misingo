@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :invites, only: :create
 
+  get 'contacto', to: 'main#contact', as: 'contact'
   get 'perfil', to: 'users#show', as: 'profile'
 
   root 'adoptions#index'

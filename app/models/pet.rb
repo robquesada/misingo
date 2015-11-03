@@ -9,6 +9,7 @@ class Pet < ActiveRecord::Base
 
   has_attached_file :avatar, styles:
                               {
+                                preview: '600x315#',
                                 large: '480x480#',
                                 medium: '346x346#',
                                 thumb: '100x100#',

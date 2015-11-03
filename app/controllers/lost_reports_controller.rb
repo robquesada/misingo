@@ -6,7 +6,7 @@ class LostReportsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
 
   def index
-    @pet_reports = LostReport.all
+    @pet_reports = LostReport.all.page params[:page]
   end
 
   def new
@@ -48,7 +48,7 @@ class LostReportsController < ApplicationController
     if params[:province].nil? || params[:province][:province_id].empty?
       find_all_lost_reports
     else
-      @pet_reports = find_all_lost_reports.where(province_id: params[:province][:province_id])
+      @pet_reports = find_all_lost_reports.where(province_id: params[:province][:province_id]).page params[:page]
       @province_id = params[:province][:province_id]
     end
   end

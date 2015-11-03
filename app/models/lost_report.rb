@@ -1,5 +1,5 @@
 class LostReport < ActiveRecord::Base
-  paginates_per 10
+  paginates_per 12
 
   belongs_to :province
   belongs_to :pet
