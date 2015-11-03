@@ -4,9 +4,9 @@
       <div class="container">
         <div class="header-top-left">
           <ul class="header-top-nav">
-            <li><a href="features-pricing-tables.html">Pricing</a></li>
-            <li><a href="#">Sitemap</a></li>
-            <li><a href="pages-faqs.html">FAQs</a></li>
+            <li><%= link_to 'Desapariciones', lost_reports_path %></li>
+            <li><%= link_to 'Adopciones', adoptions_path %></li>
+            <li><%= link_to 'Contacto', '/contacto' %></li>
           </ul>
         </div>
         <div class="header-top-right">
@@ -48,7 +48,7 @@
         <!-- Logo -->
         <div class="logo">
           <%= link_to root_path do %>
-            <%= image_tag('logo.png') %>
+            <%= image_tag('misingo_logo_small.svg') %>
           <% end %>
         </div>
         <!-- Logo / End -->
@@ -67,9 +67,9 @@
             <li>
               <%= link_to 'https://www.twitter.com/misingocom', target: '_blank' do %><i class="fa fa-twitter"></i><% end %>
             </li>
-            <li>
+<!--             <li>
               <%= link_to 'https://www.instagram.com/misingocom', target: '_blank' do %><i class="fa fa-instagram"></i><% end %>
-            </li>
+            </li> -->
           </ul>
         </div>
         <!-- Banner / End -->
@@ -77,15 +77,5 @@
     <% end %>
   </div>
 
-  <!-- Navigation -->
-  <!-- <nav class="nav-main">
-    <div class="container">
-      <ul data-breakpoint="992" class="flexnav">
-        <li class="active"><a href="index.html">Inicio</a></li>
-        <li><a href="index.html">Adopciones</a></li>
-        <li><a href="contacts.html">Contacto</a></li>
-      </ul>
-    </div>
-  </nav> -->
-  <!-- Navigation / End -->
+  <%= render 'shared/mobile_nav_bar' %>
 </header>
