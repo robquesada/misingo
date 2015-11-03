@@ -2990,40 +2990,52 @@ div.job_listings li.no_job_listings_found.job_position_featured a ul.meta li {
   padding-left: 5px;
   padding-right: 5px;
 }
+
 /*Changes added*/
+
 .row.search {
   padding-top: 2em;
 }
+
 button.btn.btn-sm.btn-default.search {
   height: 45px;
 }
+
 section.page-content.main {
   padding-top: 44px;
 }
+
 form.button_to {
   display: inline-block;
 }
+
 .facebook {
   background: #4A66A0;
 }
+
 img.small-picture {
   height: 35px;
 }
+
 img.large-picture {
   height: 350px;
 }
+
 .forgot-password {
   margin-left: 1em;
 }
+
 .profile-pic-box {
   height: 10em;
   width: 10em;
   margin: 0.5em 1em 1.5em 0;
 }
+
 .fileUpload {
   position: relative;
   overflow: hidden;
 }
+
 .fileUpload input.upload {
   position: absolute;
   top: 0;
@@ -3035,22 +3047,28 @@ img.large-picture {
   opacity: 0;
   filter: alpha(opacity=0);
 }
+
 .checkbox {
   margin-top: 0;
 }
+
 #image {
   height: 150px;
   width: auto;
 }
+
 .pet-image{
   text-align: center;
 }
+
 fieldset.pet-field {
     margin-bottom: 1em;
 }
+
 .logo {
   max-width: 256px;
 }
+
 img.logo-contact {
   width: 558px;
   height: 300px;
@@ -3059,11 +3077,13 @@ img.logo-contact {
     margin-bottom: 2em;
   }
 }
+
 li.mobile-only {
   @media (min-width: 768px) {
     display: none;
   }
 }
+
 .list-inline {
     padding-left: 0;
     list-style: none;
