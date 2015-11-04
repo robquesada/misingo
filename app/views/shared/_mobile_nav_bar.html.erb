@@ -6,6 +6,8 @@
         <li class="mobile-only"><%= link_to 'Iniciar', new_user_session_path %></li>
       <% else %>
         <li class="mobile-only"><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
+        <li class="mobile-only"><%= link_to 'Agregar mascota en adopción', new_adoption_path %></li>
+        <li class="mobile-only"><%= link_to 'Agregar mascota extraviada', new_lost_report_path %></li>
       <% end %>
       <li><%= link_to 'Adopciones', adoptions_path %></li>
       <li><%= link_to 'Extravíos', lost_reports_path %></li>

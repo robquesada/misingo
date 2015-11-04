@@ -26,6 +26,11 @@
         </dl>
 
         <%= link_to 'Editar', edit_user_path(id: current_user.id), class: "btn btn-sm btn-warning" %>
+
+        <br/><br/>
+
+        <%= link_to 'Nuevo extravío', new_lost_report_path, class: "btn btn-sm btn-warning" %>
+        <%= link_to 'Nueva adopción', new_adoption_path, class: "btn btn-sm btn-warning" %>
       </div>
     </div>
 
