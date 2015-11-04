@@ -3084,6 +3084,12 @@ li.mobile-only {
   }
 }
 
+a.mobile-only {
+  @media (min-width: 992px) {
+    display: none;
+  }
+}
+
 .web-only {
   @media (max-width: 992px) {
     display: none;

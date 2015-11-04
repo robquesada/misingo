@@ -1,3 +1,4 @@
+###
 $ ->
   $(".js--onHoverShowElement").mouseover ->
     $this = $(this)
@@ -11,3 +12,4 @@ $ ->
     $this = $(this)
     $hoverElement = $this.find($this.data("element"))
     $hoverElement.addClass("hidden")
+###

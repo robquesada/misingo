@@ -13,6 +13,8 @@
                 - headline = (pet_report.class == Adoption) ? 'En adopción' : 'Se busca'
                 %h5.lostPet__search #{headline}
                 %h4.title.lostPet__name= pet.name
+                - path = (pet_report.class == Adoption) ? adoption_path(pet_report) : lost_report_path(pet_report)
+                = link_to "Ver detalles", path, class: "lostPet__information__moreLink btn btn-success mobile-only"
 
             .lostPet__information.hidden.js--lostPet__information
               %h4.lostPet__name= pet.name
