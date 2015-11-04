@@ -16,6 +16,8 @@
 
             .lostPet__information.hidden.js--lostPet__information
               %h4.lostPet__name= pet.name
+              - path = (pet_report.class == Adoption) ? adoption_path(pet_report) : lost_report_path(pet_report)
+              = link_to "Ver más detalles", path, class: "lostPet__information__moreLink btn btn-success mobile-only"
               .lostPet__information--detail
                 .lostPet__information__detail__row.col-md-12.col-sm-12
                   = image_tag("location_icon.svg", class: "lostPet__information__detail__image")
@@ -40,7 +42,7 @@
                     - contact = (pet_report.class == Adoption) ? pet_report.contact : pet_report.owner
                     %b= contact
               - path = (pet_report.class == Adoption) ? adoption_path(pet_report) : lost_report_path(pet_report)
-              = link_to "Ver más detalles", path, class: "lostPet__information__moreLink btn btn-success"
+              = link_to "Ver más detalles", path, class: "lostPet__information__moreLink btn btn-success web-only"
       .text-center
         - if controller_name != 'users'
           = paginate @pet_reports
