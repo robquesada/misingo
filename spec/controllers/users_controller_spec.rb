@@ -13,8 +13,9 @@ describe UsersController do
 
     it 'assigns lost reports from the user' do
       user.lost_reports = [FactoryGirl.create(:lost_report)]
+      user.adoptions = [FactoryGirl.create(:adoption)]
       get :show, id: user.id
-      expect(assigns(:lost_reports)).to eq(user.lost_reports)
+      expect(assigns(:pet_reports)).to eq(user.adoptions + user.lost_reports)
     end
 
     it 'renders the show template' do
