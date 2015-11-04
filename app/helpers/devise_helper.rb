@@ -27,22 +27,21 @@ module DeviseHelper
   end
 
   def founded_errors_in(flash_alerts)
-    resource.errors.empty? ? flash_alerts : resource.errors.full_messages
+    resource.errors.empty? ? flash_alerts : resource.errors.messages.values.flatten
   end
 
   def build_list_items_with(errors)
-    errors.map { |msg| content_tag(:li, msg).to_s }.join
+    errors.map { |msg| "#{content_tag(:i, nil, class: 'fa fa-times')} #{msg.capitalize} #{tag("br")}".to_s }.join
   end
 
   def build_errors_message_with(list_items)
     html = <<-HTML
       <fieldset>
         <div class="field account-sign-in">
-          <div class="alert alert-warning alert-dismissable">
+          <div class="alert alert-danger alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times"></i></button>
-            <div id="error_explanation">
-              <ul>#{list_items}</ul>
-            </div>
+            <strong>¡Oh!</strong> Ocurrió un error, revisá estos detalles:<br/>
+            #{list_items}
           </div>
         </div>
       </fieldset>
