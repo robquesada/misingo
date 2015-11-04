@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 
-  prepend_before_action :set_user, only: [:show]
-  before_action :get_lost_reports, only: [:show]
+  prepend_before_action :find_user, only: [:show]
 
-  def show; end
+  def show
+    @pet_reports = @user.adoptions + @user.lost_reports
+  end
 
   def edit; end
 
@@ -18,12 +19,8 @@ class UsersController < ApplicationController
 
   private
 
-  def set_user
+  def find_user
     @user = User.find(params[:id])
-  end
-
-  def get_lost_reports
-    @lost_reports = @user.lost_reports
   end
 
   def user_params

@@ -3084,10 +3084,25 @@ li.mobile-only {
   }
 }
 
+.web-only {
+  @media (max-width: 992px) {
+    display: none;
+  }
+}
+
 .list-inline {
     padding-left: 0;
     list-style: none;
     margin-left: -5px;
+}
+
+a.username {
+  margin-left: 1em;
+}
+
+.profile-picture-big {
+  width: 470px;
+  height: 470px;
 }
 
 /* Pagination styles */

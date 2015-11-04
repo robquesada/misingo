@@ -3,37 +3,36 @@
 
 <section class="page-content">
   <div class="container">
+    
     <div class="row">
-      <div class="pet-image col-md-7">
-        <% image = @user.image.nil? ? 'profile_default.png' : @user.image %>
-        <%= image_tag(image, class: 'large-picture') %>
-      </div>
       <div class="col-md-5">
-        <div class="row">
-          <strong>Nombre:</strong>
-          <span>
-            <%= @user.name %>
-          </span>
+        <figure class="alignnone">
+          <% image = @user.image.nil? ? 'profile_default.png' : @user.image %>
+          <%= image_tag(image, class: 'profile-picture-big') %>
+        </figure>
+      </div>
+
+      <div class="col-md-7">
+        <div class="spacer visible-sm visible-xs"></div>
+        <div class="team-single-head">
+          <h2><%= @user.name %></h2>
         </div>
-        <br>
-        <div class="row">
-          <strong>Correo electrónico:</strong>
-          <span>
-            <%= @user.email %>
-          </span>
-        </div>
-        <br>
-        <% if @user == current_user %>
-          <div class="row">
-            <%= link_to 'Editar', edit_user_path(id: current_user.id), class: "btn btn-sm btn-warning" %>
-          </div>
-        <% end %>
+
+        <h5>Perfil</h5>
+
+        <dl class="dl-horizontal">
+          <dt>Email</dt>
+          <dd><%= @user.email %></dd>
+        </dl>
+
+        <%= link_to 'Editar', edit_user_path(id: current_user.id), class: "btn btn-sm btn-warning" %>
       </div>
     </div>
-    <br>
-    <div class="row">
-      <h1>Mascotas desaparecidas de <%= @user.name %></h1>
-    </div>
-    <%= render 'main/lost_pet' %>
+
+    <hr class="lg">
+
+    <h3>Tus mascotas agregadas</h3>
+    <%= render 'shared/pets_grid' %>
+
   </div>
 </section>
