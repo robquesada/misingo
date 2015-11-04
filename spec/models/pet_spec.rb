@@ -7,7 +7,7 @@ describe Pet, 'validations' do
   it { should have_one(:lost_report).dependent(:destroy) }
   it { should have_attached_file(:avatar) }
   it { should allow_value('Pipo', 'Pépé').for(:name) }
-  it { should_not allow_value('Pepe Soto').for(:name) }
+  it { should allow_value('Pepe Soto').for(:name) }
   it { should_not allow_value('123').for(:name) }
   its(:name) { should eq 'Bobby' }
 end

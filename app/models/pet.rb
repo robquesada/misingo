@@ -25,7 +25,7 @@ class Pet < ActiveRecord::Base
 
   validates_attachment :avatar, content_type: { content_type: ["image/jpeg", "image/jpg", "image/png"] }
   validates_attachment_presence :avatar
-  validates_format_of :name, with: /^[a-z\u00E0-\u00FC]+$/i, multiline: true
+  validates_format_of :name, with: /^[\D]*$/, multiline: true
 
   def capitalize_name
     name.capitalize!
