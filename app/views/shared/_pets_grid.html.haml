@@ -1,4 +1,7 @@
 #pets-grid
+  - if @pet_reports.count == 0
+    .text-center.no-results
+      %b= "No hay resultados para la provincia seleccionada"
   .page-content.main
     .container
       .project-feed.project-feed__3cols.row.isotope

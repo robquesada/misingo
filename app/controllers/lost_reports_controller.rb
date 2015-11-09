@@ -5,9 +5,7 @@ class LostReportsController < ApplicationController
   before_filter :filter_lost_reports, only: [:index]
   before_action :authenticate_user!, only: [:new, :edit]
 
-  def index
-    @pet_reports = LostReport.all.page params[:page]
-  end
+  def index; end
 
   def new
     @lost_report = LostReport.new
@@ -41,7 +39,7 @@ class LostReportsController < ApplicationController
   private
 
   def find_all_lost_reports
-    @pet_reports = LostReport.all
+    @pet_reports = LostReport.all.page params[:page]
   end
 
   def filter_lost_reports
