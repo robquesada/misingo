@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_filter :set_rand_seed
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
@@ -15,10 +16,19 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  def rand_seed
+    @rand_seed ||= cookies[:rand_seed]
+  end
+
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name << :access
     devise_parameter_sanitizer.for(:account_update) << :name << :access
+  end
+
+  def set_rand_seed
+    return if cookies[:rand_seed].present?
+    cookies[:rand_seed] = rand;
   end
 end
