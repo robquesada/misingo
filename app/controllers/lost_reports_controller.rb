@@ -41,14 +41,15 @@ class LostReportsController < ApplicationController
   private
 
   def find_all_lost_reports
-    @pet_reports = LostReport.all
+    Adoption.connection.execute("select setseed(#{rand_seed})");
+    @pet_reports = LostReport.all.order("RANDOM()").page(params[:page])
   end
 
   def filter_lost_reports
     if params[:province].nil? || params[:province][:province_id].empty?
       find_all_lost_reports
     else
-      @pet_reports = find_all_lost_reports.where(province_id: params[:province][:province_id]).page params[:page]
+      @pet_reports = find_all_lost_reports.where(province_id: params[:province][:province_id])
       @province_id = params[:province][:province_id]
     end
   end
