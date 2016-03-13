@@ -2,6 +2,7 @@
 #
 #= require jquery
 #= require jquery_ujs
+#= require bootstrap-switch
 #= require_tree ./vendor/isotope
 #= require vendor/magnific-popup/jquery.magnific-popup
 #= require vendor/jquery.flickrfeed

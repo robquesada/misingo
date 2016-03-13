@@ -30,6 +30,7 @@ gem 'newrelic_rpm', '~> 3.12.0', groups: [:development, :staging, :production]
 gem 'haml-rails'
 gem 'kaminari', '~> 0.16.3'
 gem 'font-awesome-rails'
+gem 'bootstrap-switch-rails'
 
 group :development, :test do
   gem 'factory_girl_rails', '~> 4.5.0'

@@ -28,11 +28,16 @@ class LostReportsController < ApplicationController
   def show; end
 
   def update
-    if @lost_report.update(lost_report_params)
-      redirect_to lost_report_path(@lost_report)
-    else
-      flash.now[:error] = @lost_report.errors.messages
-      render 'edit'
+    respond_to do |format|
+      if @lost_report.update(lost_report_params)
+        format.html { redirect_to lost_report_path(@lost_report) }
+        format.js { render :update }
+      else
+        format.html do
+          flash.now[:error] = @lost_report.errors.messages
+          render 'edit'
+        end
+      end
     end
   end
 
@@ -65,6 +70,7 @@ class LostReportsController < ApplicationController
       :address,
       :description,
       :reward,
+      :found,
       phone_numbers: [],
       pet_attributes: [:id, :name, :breed_id, :sex, :avatar]
     )
