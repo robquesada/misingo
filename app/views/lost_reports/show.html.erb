@@ -6,6 +6,12 @@
   <div class="container">
     <div class="row">
       <div class="pet-image col-md-7">
+
+        <fieldset class="alert alert-warning social-share">
+          <%= label_tag :found, "¿Ya encontraste a #{@lost_report.pet.name}?", class: 'found-label' %>
+          <%= check_box_tag :found, @lost_report.valid? , false, class: 'js--visibleReport', data: { url: lost_report_path(@lost_report.id) } %>
+        </fieldset>
+
         <%= image_tag(@lost_report.pet.avatar.url(:large), class: 'img-thumbnail') %>
         <%= render 'social_share_buttons', { lost_report: @lost_report } %>
       </div>

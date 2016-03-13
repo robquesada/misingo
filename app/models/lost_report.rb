@@ -42,4 +42,5 @@ end
 #  pet_id        :integer
 #  phone_numbers :text
 #  user_id       :integer
+#  found         :boolean          default(FALSE), not null
 #
