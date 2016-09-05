@@ -63,6 +63,7 @@ class AdoptionsController < ApplicationController
       :province_id,
       :description,
       :contact,
+      :adopted,
       phone_numbers: [],
       pet_attributes: [:id, :name, :breed_id, :sex, :avatar,
                        :castrated, :age, :size]

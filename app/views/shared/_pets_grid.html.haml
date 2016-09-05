@@ -6,13 +6,17 @@
     .container
       .project-feed.project-feed__3cols.row.isotope
         - @pet_reports.each do |pet_report, pet = pet_report.pet|
-          .col-sm-6.col-md-4.project-item.lostPet.js--onHoverShowElement{ data: { element: ".js--lostPet__information" } }
+          - unavailable = (pet_report.class == Adoption) ? pet_report.adopted : pet_report.found
+          .col-sm-6.col-md-4.project-item.lostPet.js--onHoverShowElement{ data: { element: ".js--lostPet__information", unavailable: "#{unavailable}" } }
             .project-item-inner
+              - if unavailable
+                - message = pet_report.class == Adoption ? 'Adoptado' : 'Encontrado'
+                .unavailable{class: (pet_report.class == Adoption ? 'adopted' : 'found')} #{message.upcase}
               %figure.alignnone.project-img
-                .lostPet__imageHolder
+                .lostPet__imageHolder{:class => ("opacy" unless !unavailable)}
                   = image_tag pet.avatar.url(:medium), class: "lostPet__image"
 
-              .project-desc
+              .project-desc{class: ("opacy" unless !unavailable)}
                 - headline = (pet_report.class == Adoption) ? 'En adopción' : 'Se busca'
                 %h5.lostPet__search #{headline}
                 %h4.title.lostPet__name= pet.name

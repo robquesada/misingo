@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026171544) do
+ActiveRecord::Schema.define(version: 20151120224604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20151026171544) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "adopted",       default: false
   end
 
   create_table "animal_types", force: :cascade do |t|
@@ -89,6 +90,7 @@ ActiveRecord::Schema.define(version: 20151026171544) do
     t.integer  "pet_id"
     t.text     "phone_numbers"
     t.integer  "user_id"
+    t.boolean  "found",         default: false
   end
 
   create_table "pets", force: :cascade do |t|

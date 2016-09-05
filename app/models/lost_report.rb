@@ -5,7 +5,6 @@ class LostReport < ActiveRecord::Base
   belongs_to :pet
   belongs_to :user
   accepts_nested_attributes_for :pet, allow_destroy: true
-
   delegate :name, :avatar, :breed_name, to: :pet, prefix: true
   delegate :animal_type_name, to: :pet
 
@@ -42,4 +41,5 @@ end
 #  pet_id        :integer
 #  phone_numbers :text
 #  user_id       :integer
+#  found         :boolean          default(FALSE)
 #

@@ -1,0 +1,26 @@
+<% pet = lost_report.pet %>
+
+<div class="pet-name">
+  <p>¡Ya encontramos a <%= pet.name %>! <%= link_to '(editar mascota)', edit_lost_report_path(lost_report) if current_user == lost_report.user %></p>
+</div>
+
+<fieldset class="pet-field">
+  <%= image_tag("breed_icon.svg", class: "lostPet__information__detail__image") %>
+  <div class="lostPet__information__detail__text">
+    <b><%= pet.breed_name %></b> (<%= pet.sex %>)
+  </div>
+</fieldset>
+
+<fieldset class="pet-field">
+  <%= image_tag("location_icon.svg", class: "lostPet__information__detail__image") %>
+  <div class="lostPet__information__detail__text">
+    <b><%= lost_report.province.name %></b>. <%= lost_report.address %>
+  </div>
+</fieldset>
+
+<fieldset class="pet-field">
+  <%= image_tag("description_icon.svg", class: "lostPet__information__detail__image") %>
+  <div class="lostPet__information__detail__text">
+    <%= lost_report.description %>
+  </div>
+</fieldset>

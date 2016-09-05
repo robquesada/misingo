@@ -40,4 +40,5 @@ end
 #  user_id       :integer
 #  created_at    :datetime
 #  updated_at    :datetime
+#  adopted       :boolean          default(FALSE)
 #
