@@ -1,6 +1,7 @@
 <%= render 'social_share_meta_tags' %>
 <%= render 'shared/header' %>
-<%= render 'shared/page_heading', { heading: "Se busca #{@lost_report.pet.name}" } %>
+<% text = @lost_report.found ? 'Ya encontramos a' : 'Se busca' %>
+<%= render 'shared/page_heading', { heading: "#{text} #{@lost_report.pet.name}" } %>
 
 <section class="page-content">
   <div class="container">
@@ -10,8 +11,16 @@
         <%= render 'social_share_buttons', { lost_report: @lost_report } %>
       </div>
       <div class="col-md-5">
-        <%= render 'shared/lost_report_info', { lost_report: @lost_report } %>
-        <%= render 'shared/flyer_preview', { lost_report: @lost_report } %>
+        <% if @lost_report.found %>
+          <%= render 'found_info', { lost_report: @lost_report } %>
+          <div class="alert alert-warning alert-dismissable flyer-container">
+            <strong><%= "¡Ya encontramos a #{@lost_report.pet.name}! Gracias por tu ayuda." %></strong>
+            <%= render 'shared/site_slogan' %>
+          </div>
+        <% else %>
+          <%= render 'shared/lost_report_info', { lost_report: @lost_report } %>
+          <%= render 'shared/flyer_preview', { lost_report: @lost_report } %>
+        <% end %>
       </div>
     </div>
   </div>

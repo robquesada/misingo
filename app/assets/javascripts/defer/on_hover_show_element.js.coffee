@@ -2,7 +2,8 @@ $ ->
   $(".js--onHoverShowElement").mouseover ->
     $this = $(this)
     $hoverElement = $this.find($this.data("element"))
-    $hoverElement.removeClass("hidden")
+    $unavailable = $this.data("unavailable")
+    $hoverElement.removeClass("hidden") if !$unavailable
 
   $(".js--onHoverShowElement").mouseout ->
     $this = $(this)

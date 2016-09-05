@@ -2,6 +2,19 @@
   <%= render 'shared/flash_messages' %>
 
   <%= f.fields_for :pet do |pet_form| %>
+    <% if !pet.new_record? %>
+      <fieldset>
+        <div class='large-6 columns'>
+          <div class="checkbox checkbox__custom checkbox__style4">
+            <label>
+              <%= f.check_box :adopted %>
+              <span>¿Ya se dio en adopción?</span>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+
     <fieldset>
       <label>Foto de perfil <span class="required">*</span></label>
       <div class="field">
@@ -22,7 +35,8 @@
     <fieldset>
       <label>Nombre de la mascota <span class="required">*</span></label>
       <div class="field">
-        <%= pet_form.text_field :name, placeholder: 'ej. Misingo', class: 'form-control', autofocus: true  %>
+        <% @focus = pet.new_record? %>
+        <%= pet_form.text_field :name, placeholder: 'ej. Misingo', class: 'form-control', autofocus: @focus  %>
       </div>
     </fieldset>
 
@@ -131,14 +145,13 @@
 
   <fieldset>
     <div class="field">
-        <label>Mencioná características del animal <span class="required">*</span></label>
-        <%= f.text_area :description, placeholder: '¿Comportamiento?, ¿Estado de salud?', class: 'form-control' %>
-      </div>
-    </fieldset>
+      <label>Mencioná características del animal <span class="required">*</span></label>
+      <%= f.text_area :description, placeholder: '¿Comportamiento?, ¿Estado de salud?', class: 'form-control' %>
+    </div>
   </fieldset>
 
   <p>
-    <% text = @adoption.pet.new_record? ? 'Agregar a mi mascota' : 'Guardar' %>
+    <% text = @adoption.pet.new_record? ? 'Agregar a mi mascota' : 'Guardar cambios' %>
     <%= f.submit text, class: 'btn btn-primary', data: { disable_with: 'Guardando' } %>
   </p>
 <% end %>

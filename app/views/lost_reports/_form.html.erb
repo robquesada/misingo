@@ -2,6 +2,19 @@
   <%= render 'shared/flash_messages' %>
 
   <%= f.fields_for :pet do |pet_form| %>
+    <% if !pet.new_record? %>
+      <fieldset>
+        <div class='large-6 columns'>
+          <div class="checkbox checkbox__custom checkbox__style4">
+            <label>
+              <%= f.check_box :found %>
+              <span>¿Ya apareció la mascota?</span>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+
     <fieldset>
       <label>Foto de perfil <span class="required">*</span></label>
       <div class="field">
@@ -22,7 +35,8 @@
     <fieldset>
       <label>Nombre de la mascota <span class="required">*</span></label>
       <div class="field">
-        <%= pet_form.text_field :name, placeholder: 'ej. Misingo', class: 'form-control', autofocus: true  %>
+        <% @focus = pet.new_record? %>
+        <%= pet_form.text_field :name, placeholder: 'ej. Misingo', class: 'form-control', autofocus: @focus  %>
       </div>
     </fieldset>
 

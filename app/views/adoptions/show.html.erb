@@ -1,6 +1,7 @@
 <%= render 'social_share_meta_tags' %>
 <%= render 'shared/header' %>
-<%= render 'shared/page_heading', { heading: "#{@adoption.pet.name} busca hogar" } %>
+<% text = @adoption.adopted ? 'ya tiene nuevo hogar' : 'busca hogar' %>
+<%= render 'shared/page_heading', { heading: "#{@adoption.pet.name} #{text}" } %>
 
 <section class="page-content">
   <div class="container">
@@ -10,7 +11,15 @@
         <%= render 'social_share_buttons', { adoption: @adoption } %>
       </div>
       <div class="col-md-5">
-        <%= render 'shared/adoption_info', { adoption: @adoption } %>
+        <% if @adoption.adopted %>
+          <%= render 'adopted_info', { adoption: @adoption } %>
+          <div class="alert alert-warning alert-dismissable flyer-container">
+            <strong><%= "¡Ya #{@adoption.pet.name} se dio en adopción!" %></strong>
+            <%= render 'shared/site_slogan' %>
+          </div>
+        <% else %>
+          <%= render 'shared/adoption_info', { adoption: @adoption } %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -65,6 +65,7 @@ class LostReportsController < ApplicationController
       :address,
       :description,
       :reward,
+      :found,
       phone_numbers: [],
       pet_attributes: [:id, :name, :breed_id, :sex, :avatar]
     )

@@ -124,3 +124,38 @@
 .social-networks-buttons {
   margin-top: 0.5em;
 }
+
+.unavailable {
+  text-align: center;
+  color: black;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 80%;
+  margin: 0 auto;
+  z-index: 2;
+  font-weight: 700;
+  transform: skew(32deg,-32deg);
+  border-radius: 0.3em;
+  text-shadow: 0 0 5px white;
+  line-height: 1;
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    padding-top: 0.5em;
+  }
+}
+
+.found {
+  font-size: 2.2em;
+  margin-top: 4em;
+}
+
+.adopted {
+  font-size: 2.8em;
+  margin-top: 3em;
+}
+
+.opacy {
+  opacity: 0.5;
+}
