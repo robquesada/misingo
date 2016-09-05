@@ -151,7 +151,7 @@
   </fieldset>
 
   <p>
-    <% text = @adoption.pet.new_record? ? 'Agregar a mi mascota' : 'Guardar cambios' %>
+    <% text = @adoption.pet.new_record? ? 'Agregar a la mascota' : 'Guardar cambios' %>
     <%= f.submit text, class: 'btn btn-primary', data: { disable_with: 'Guardando' } %>
   </p>
 <% end %>
